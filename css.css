@@ -1,0 +1,63 @@
+@font-face {
+	font-family: Anonymous Pro;
+	src: "./includes/fonts/Anonymous Pro.ttf";
+	
+}
+a {
+	text-decoration: none;
+}
+* {
+	font-family: "Anonymous Pro", monospace, Sans-serif;
+	letter-spacing: 0.5px;
+	
+	background: #1c1c1c;
+	color: #ffffff;
+	
+	padding: 0;
+	margin:0;
+}
+
+/*Header*/
+.webHeader {
+	text-align: left;
+	font-size: 1.25em;
+	
+	padding: 1%;
+	padding-left: 25%;
+	padding-right: 25%;
+	
+	border-bottom: 1px dotted grey;
+}
+/*Header Menu*/
+.headerMenu {
+	padding: 6px;
+	padding-left: 25%;
+	border-bottom: 1px dotted grey;
+}
+.headerMenu ul {
+	color: #bfbfbf;
+	list-style: none;
+}
+.headerMenu ul li {
+	display: inline;
+}
+.headerMenu ul li a {
+	color: #bfbfbf;
+}
+.headerMenu ul li a:hover {
+	color: #d9d9d9;
+}
+
+/*Content*/
+.content {
+	margin-top: 0.5%;
+	
+	padding-left: 25%;
+	padding-right: 25%;
+}
+.content ul {
+	list-style: none;
+}
+.liDate {
+	color: #bfbfbf;
+}
