@@ -1,3 +1,4 @@
+/*Defaults*/
 @font-face {
 	font-family: Anonymous Pro;
 	src: "./includes/fonts/Anonymous Pro.ttf";
@@ -15,6 +16,14 @@ a {
 	
 	padding: 0;
 	margin:0;
+}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /*Header*/
@@ -57,6 +66,9 @@ a {
 }
 .content ul {
 	list-style: none;
+}
+.content ul li:hover {
+	text-decoration: underline;
 }
 .liDate {
 	color: #bfbfbf;

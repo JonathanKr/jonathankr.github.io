@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="css.css">
 		<title>Jonathan Kron</title>
+		
+		<!-- Links and Libraries -->
+		<link rel="stylesheet" href="css.css">
+		<script 
+			src="./includes/javascript/jquery-3.6.0.min.js"
+			crossorigin="anonymous">
+		</script>
+		
+		<!-- Load Header and Footer -->
+		<script>
+			$(function(){
+			  $("#header").load("./includes/header.html");
+			});
+		</script> 
 	</head>
 	<body>
-		<header>
-			<div class="webHeader">
-				<span>Jonathan Kron</span>
-			</div>
-			<div class="headerMenu">
-				<ul>
-					<li><a href="">Home</a></li> \
-					<li><a href="">Portfolio</a></li> \
-					<li><a href="">Tutorials</a></li> \
-					<li><a href="">Contact</a></li>
-				</ul>
-			</div>
-		</header>
+		<header id="header"></header>
+		<div id="header"></div>
+		
 		<main>
 			<div class="content">
 				<ul>
@@ -30,8 +33,7 @@
 				</ul>
 			</div>
 		</main>
-		<footer>
-		</footer>
-	<body>
+		
+		<footer></footer>
 	</body>
 </html>
