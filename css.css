@@ -1,11 +1,27 @@
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #242424;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3b3b3b
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #454545;
+}
 @font-face {
 	font-family: Anonymous Pro;
 	src: "./includes/fonts/Anonymous Pro.ttf";
 	
 }
-@media (min-width: 768px) {
-
-/*Defaults*/
 a {
 	text-decoration: none;
 }
@@ -66,7 +82,7 @@ a {
 	padding-left: 25%;
 	padding-right: 25%;
 	
-	line-height: 20px;
+	line-height: 22px;
 }
 .content ul {
 	list-style: none;
@@ -138,187 +154,23 @@ a {
     width: 100%;
   }
 }
-
-/*Blog Title*/
-.blogTitle {
-	font-size: 30px;
-	letter-spacing: 2px;
-	float: left;
+.portfolioListAudio li {
+	line-height:25px;
 }
-.blogContent {
-	color: #bfbfbf;
-	white-space: pre;
-}
-.codeBlock {
-	color: #c2c2c2;
-	background: #242424;
-	white-space: pre;
-	
-	padding-left: 20px;
-	padding-right: 20px;
-	margin-top: 28px;
-	margin-bottom: 28px;
-}
-.blogSection {
-	font-size: 25px;
-	float: left;
-}
-
-/*Contact*/
-.contactLink:hover {
+.portfolioListAudio li button:hover {
 	text-decoration: underline;
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-
-/*Defaults*/
-a {
-	text-decoration: none;
-}
-* {
-	font-family: "Anonymous Pro", monospace, Sans-serif;
-	letter-spacing: 0.5px;
-	
-	background: #1c1c1c;
-	color: #ffffff;
-	
-	padding: 0;
-	margin:0;
-	font-size: 1.1em;
-}
-.unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/*Header*/
-.webHeader {
-	text-align: left;
-	font-size: 2em;
-	
-	padding: 1%;
-	padding-left: 5%;
-	padding-right: 5%;
-	
-	border-bottom: 1px dotted grey;
-}
-/*Header Menu*/
-.headerMenu {
-	padding: 6px;
-	padding-left: 5%;
-	border-bottom: 1px dotted grey;
-}
-.headerMenu ul {
-	color: #bfbfbf;
-	list-style: none;
-}
-.headerMenu ul li {
-	display: inline;
-}
-.headerMenu ul li a {
-	color: #bfbfbf;
-}
-.headerMenu ul li a:hover {
-	color: #d9d9d9;
-}
-
-/*Content Defaults*/
-.content {
-	margin-top: 2%;
-	
-	padding-left: 5%;
-	padding-right: 5%;
-}
-.content ul {
-	list-style: none;
-	line-height: 50px;
-}
-.postLink:hover {
-	text-decoration: underline;
-}
-.liDate {
-	color: #bfbfbf;
-}
-.asciiTree {
-	color: #bfbfbf;
-	letter-spacing: 0px;
-}
-
-/*Inspiration*/
-.treeWrap {
-	white-space: pre-wrap;
-}
-
-/*Portfolio*/
-.portCat {
-	color: #bfbfbf;
-}
-.portfolioList li {
-	display: inline;
-	line-height:30px;
-}
-.portImage:hover {
-	opacity: 0.8;
+.audioPlayButton {
 	cursor: pointer;
+	background: none;
+	border: none;
+	color: #bfbfbf;
+	font-size: 16px;
 }
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.9);
+.audioPlayButton:focus {
+	outline: none;
 }
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 20px;
-  background: none;
-}
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
-}
+
 
 /*Blog Title*/
 .blogTitle {
@@ -328,13 +180,12 @@ a {
 }
 .blogContent {
 	color: #bfbfbf;
-	float: left;
+	white-space: pre;
 }
 .codeBlock {
 	color: #c2c2c2;
 	background: #242424;
 	white-space: pre;
-	float: left;
 	
 	padding-left: 20px;
 	padding-right: 20px;
@@ -344,12 +195,9 @@ a {
 .blogSection {
 	font-size: 25px;
 	float: left;
-	margin: 25px;
-	margin-left: 0px;
 }
 
 /*Contact*/
 .contactLink:hover {
 	text-decoration: underline;
-}
 }

@@ -9,7 +9,7 @@
 	<body>
 		<header>
 			<div class="webHeader">
-				<span>Jonathan Kron</span>
+				<span><a href="../index.html">Jonathan Kron</a></span>
 			</div>
 			<div class="headerMenu">
 				<ul>
@@ -25,7 +25,7 @@
 		<main>
 			<div class="content">
 				
-				<span class="portCat">[Renders]</span> <br>
+				<span class="portCat">[Renders]</span><br>
 				<br>
 				<ul class="portfolioList">
 					<li><img onclick="openModal(this.src)" class="portImage" src="../images/portfolio/test.jpg" width="150px" height="150px"></li>
@@ -41,7 +41,6 @@
 					<img class="modal-content" id="imgModal">
 				</div>
 				
-				
 				<script>
 				var modal = document.getElementById("portModal");
 				var modalImg = document.getElementById("imgModal");
@@ -55,7 +54,56 @@
 				}
 				</script>
 				
-				<br><span class="portCat">[Music]</span> <br>
+				<br><span class="portCat">[Music]</span>  <div class="unselectable"><span onclick="volDown()" style="cursor:pointer;">&#171;</span> Vol: <span id="zeroCorrect"></span><span id="musicVol">50</span>% <span onclick="volUp()" style="cursor:pointer;">&#187;</span></div><br>
+				
+				<script>
+					function volUp() {
+						var orVol = document.getElementById("musicVol").innerHTML;
+						var newVol = parseInt(orVol) + 5;
+						if (orVol < 100){
+							document.getElementById("musicVol").innerHTML = newVol;
+						}
+						if (newVol < 10) {
+							document.getElementById("zeroCorrect").innerHTML = "0";
+						} else {
+						document.getElementById("zeroCorrect").innerHTML = "";
+						}
+					}
+					function volDown() {
+						var orVol = document.getElementById("musicVol").innerHTML;
+						var newVol = parseInt(orVol) - 5;
+						if (orVol > 0){
+							document.getElementById("musicVol").innerHTML = newVol;
+						}
+						if (newVol < 10) {
+							document.getElementById("zeroCorrect").innerHTML = "0";
+						} else {
+						document.getElementById("zeroCorrect").innerHTML = "";
+						}
+					}
+				</script>
+				
+				<ul class="portfolioListAudio">
+					<audio id="1_audio"><source src="../audio/portfolio/A_23_1.mp3" type="audio/mp3"></audio>
+					<li><button class="audioPlayButton" id="1" onclick="audioPlayer(this.innerHTML,id)" type="button">[Play Audio Track]</button> Track Name</li>
+				</ul>
+				
+				<script>
+					function audioPlayer(_name, _id) {
+						var or = _name;
+						var newName;
+						var audio = document.getElementById(_id+"_audio");
+						if (_name === "[Play Audio Track]"){
+							newName = "[Pause Audio Track]";
+							audio.volume = document.getElementById("musicVol").innerHTML/100;
+							audio.play();
+						} else {
+							newName = "[Play Audio Track]";
+							audio.pause();
+						}
+						document.getElementById(_id).innerHTML = newName;
+					}
+				</script>
 				
 			<div class="content">
 		</main>
