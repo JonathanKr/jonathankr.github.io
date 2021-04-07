@@ -57,12 +57,14 @@ a {
 	color: #d9d9d9;
 }
 
-/*Content*/
+/*Content Defaults*/
 .content {
 	margin-top: 0.5%;
 	
 	padding-left: 25%;
 	padding-right: 25%;
+	
+	line-height: 20px;
 }
 .content ul {
 	list-style: none;
@@ -73,15 +75,20 @@ a {
 .liDate {
 	color: #bfbfbf;
 }
+.asciiTree {
+	color: #bfbfbf;
+	letter-spacing: 0px;
+}
 
 /*Inspiration*/
 .treeWrap {
 	white-space: pre-wrap;
+	line-height: 19px;;
 }
 
 /*Portfolio*/
-.portCatList li {
-	display: inline;
+.portCat {
+	color: #bfbfbf;
 }
 .portfolioList li {
 	display: inline;
@@ -128,4 +135,34 @@ a {
   .modal-content {
     width: 100%;
   }
+}
+
+/*Blog Title*/
+.blogTitle {
+	font-size: 30px;
+	letter-spacing: 2px;
+	float: left;
+}
+.blogContent {
+	color: #bfbfbf;
+	white-space: pre;
+}
+.codeBlock {
+	color: #c2c2c2;
+	background: #242424;
+	white-space: pre;
+	
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 28px;
+	margin-bottom: 28px;
+}
+.blogSection {
+	font-size: 25px;
+	float: left;
+}
+
+/*Contact*/
+.contactLink:hover {
+	text-decoration: underline;
 }
