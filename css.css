@@ -1,9 +1,11 @@
-/*Defaults*/
 @font-face {
 	font-family: Anonymous Pro;
 	src: "./includes/fonts/Anonymous Pro.ttf";
 	
 }
+@media (min-width: 768px) {
+
+/*Defaults*/
 a {
 	text-decoration: none;
 }
@@ -165,4 +167,5 @@ a {
 /*Contact*/
 .contactLink:hover {
 	text-decoration: underline;
+}
 }
