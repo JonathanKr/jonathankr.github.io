@@ -102,6 +102,23 @@ a {
 .treeWrap {
 	white-space: pre-wrap;
 	line-height: 19px;
+	width: 50%;
+	float:left;
+}
+.inspirationToggleDiv {
+	float: right;
+	width: 50%;
+}
+.insToggleButton {
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.insToggleButton:hover {
+	text-decoration: underline;
 }
 
 /*Portfolio*/
