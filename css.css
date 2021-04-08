@@ -43,7 +43,9 @@ a {
     -ms-user-select: none;
     user-select: none;
 }
-
+main {
+	margin-top: 18px;
+}
 /*Header*/
 .webHeader {
 	text-align: left;

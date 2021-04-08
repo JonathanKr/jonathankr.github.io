@@ -68,6 +68,9 @@
 						} else {
 						document.getElementById("zeroCorrect").innerHTML = "";
 						}
+						
+						var sounds = document.getElementsByTagName('audio');
+						for(i=0; i<sounds.length; i++) sounds[i].volume = document.getElementById("musicVol").innerHTML/100;
 					}
 					function volDown() {
 						var orVol = document.getElementById("musicVol").innerHTML;
@@ -80,6 +83,9 @@
 						} else {
 						document.getElementById("zeroCorrect").innerHTML = "";
 						}
+						
+						var sounds = document.getElementsByTagName('audio');
+						for(i=0; i<sounds.length; i++) sounds[i].volume = document.getElementById("musicVol").innerHTML/100;
 					}
 				</script>
 				
