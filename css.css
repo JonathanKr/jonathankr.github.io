@@ -218,3 +218,6 @@ a {
 .contactLink:hover {
 	text-decoration: underline;
 }
+.socialMediaTree {
+	line-height: 19px;
+}
