@@ -17,16 +17,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #454545;
 }
+/*
 @font-face {
 	font-family: Anonymous Pro;
 	src: "./includes/fonts/Anonymous Pro.ttf";
 	
-}
+}*/
 a {
 	text-decoration: none;
 }
 * {
-	font-family: "Anonymous Pro", monospace, Sans-serif;
+	font-family: 'Anonymous Pro', monospace, Sans-serif;
 	letter-spacing: 0.5px;
 	
 	background: #1c1c1c;
@@ -300,16 +301,17 @@ footer {
 		text-align: left;
 		font-size: 1.5em;
 		
-		padding: 1%;
-		padding-left: 2%;
-		padding-right: 2%;
+		padding: 0;
+		padding-left: 10px;
+		padding-right: 10px;
 		
 		border-bottom: 1px dotted grey;
 	}
 	/*Header Menu*/
 	.headerMenu {
 		padding: 6px;
-		padding-left: 2%;
+		padding-left: 10px;
+		padding-right: 10px;
 		border-bottom: 1px dotted grey;
 		font-size: 20px;
 	}
@@ -331,8 +333,9 @@ footer {
 	.content {
 		margin-top: 4%;
 		
-		padding-left: 2%;
-		padding-right: 2%;
+		padding: 0;
+		padding-left: 10px;
+		padding-right: 10px;
 		
 		line-height: 22px;
 		
