@@ -136,6 +136,7 @@ footer {
 .inspirationToggleDiv {
 	float: right;
 	width: 50%;
+	margin-bottom: 20px;
 }
 .insToggleButton {
 	-webkit-touch-callout: none;
