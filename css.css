@@ -43,7 +43,11 @@ a {
     -ms-user-select: none;
     user-select: none;
 }
-/*
+.onlyMobile {
+	display: none;
+}
+
+/*Footer*//*
 main {
 	margin-top: 18px;
 	padding-bottom: 2.5rem;
@@ -243,4 +247,239 @@ footer {
 }
 .socialMediaTree {
 	line-height: 19px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+	.onlyMobile {
+		display: block;
+	}
+	/*Footer*//*
+	main {
+		margin-top: 18px;
+		padding-bottom: 2.5rem;
+	}
+	body {
+		position: relative;
+		min-height: 100vh;
+	}
+	footer {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		color: white;
+		text-align: center;
+		border-top: dotted 1px grey;
+		font-size: 13px;
+		color: #bfbfbf;
+		padding-top: 0.8rem;
+		padding-bottom: 0.8rem;
+	}
+	*/
+
+	/*Header*/
+	.webHeader {
+		text-align: left;
+		font-size: 1.5em;
+		
+		padding: 1%;
+		padding-left: 2%;
+		padding-right: 2%;
+		
+		border-bottom: 1px dotted grey;
+	}
+	/*Header Menu*/
+	.headerMenu {
+		padding: 6px;
+		padding-left: 2%;
+		border-bottom: 1px dotted grey;
+		font-size: 20px;
+	}
+	.headerMenu ul {
+		color: #bfbfbf;
+		list-style: none;
+	}
+	.headerMenu ul li {
+		display: inline;
+	}
+	.headerMenu ul li a {
+		color: #bfbfbf;
+	}
+	.headerMenu ul li a:hover {
+		color: #d9d9d9;
+	}
+
+	/*Content Defaults*/
+	.content {
+		margin-top: 4%;
+		
+		padding-left: 2%;
+		padding-right: 2%;
+		
+		line-height: 22px;
+		
+		font-size: 19px;
+	}
+	.content ul {
+		list-style: none;
+	}
+	.postLink:hover {
+		text-decoration: underline;
+	}
+	.liDate {
+		color: #bfbfbf;
+	}
+	.asciiTree {
+		color: #bfbfbf;
+		letter-spacing: 0px;
+	}
+	/*Index*/
+	.postLink {
+	}
+
+	/*Inspiration*/
+	.treeWrap {
+		white-space: pre-wrap;
+		line-height: 19px;
+		width: 50%;
+		float:left;
+	}
+	.inspirationToggleDiv {
+		float: right;
+		width: 50%;
+	}
+	.insToggleButton {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.insToggleButton:hover {
+		text-decoration: underline;
+	}
+
+	/*Portfolio*/
+	.portCat {
+		color: #bfbfbf;
+	}
+	.portfolioList li {
+		display: inline;
+		line-height:30px;
+	}
+	.portImage {
+		width: 200px;
+		height: 200px;
+	}
+	.portImage:hover {
+		opacity: 0.8;
+		cursor: pointer;
+	}
+	.modal {
+	  display: none;
+	  position: fixed;
+	  z-index: 1;
+	  padding-top: 100px;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  overflow: auto;
+	  background-color: rgb(0,0,0);
+	  background-color: rgba(0,0,0,0.9);
+	}
+	.modal-content {
+	  margin: auto;
+	  display: block;
+	  width: 80%;
+	  max-width: 700px;
+	}
+	.close {
+	  position: absolute;
+	  top: 15px;
+	  right: 35px;
+	  color: #f1f1f1;
+	  font-size: 20px;
+	  background: none;
+	}
+	.close:hover,
+	.close:focus {
+	  color: #bbb;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
+	@media only screen and (max-width: 700px){
+	  .modal-content {
+		width: 100%;
+	  }
+	}
+	.portfolioListAudio li {
+		line-height:25px;
+	}
+	.portfolioListAudio li button:hover {
+		text-decoration: underline;
+	}
+	.audioPlayButton {
+		cursor: pointer;
+		background: none;
+		border: none;
+		color: #bfbfbf;
+		font-size: 16px;
+	}
+	.audioPlayButton:focus {
+		outline: none;
+	}
+
+
+	/*Blog Title*/
+	.blogTitle {
+		font-size: 30px;
+		letter-spacing: 2px;
+		float: left;
+	}
+	.blogContent {
+		color: #bfbfbf;
+		white-space: normal;
+	}
+	.codeBlock {
+		color: #c2c2c2;
+		background: #242424;
+		white-space: pre;
+		
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-top: 28px;
+		margin-bottom: 28px;
+	}
+	.blogSection {
+		font-size: 25px;
+		float: left;
+	}
+
+	/*Contact*/
+	.contactLink:hover {
+		text-decoration: underline;
+	}
+	.socialMediaTree {
+		line-height: 19px;
+	}
 }
