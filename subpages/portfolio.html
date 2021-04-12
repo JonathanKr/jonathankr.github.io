@@ -5,8 +5,8 @@
 		
 		<!-- Links and Libraries -->
 		<link rel="stylesheet" href="../css.css">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+		
+		<!-- Font -->
 		
 		<!-- Phone -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +30,7 @@
 		<main>
 			<div class="content">
 				
-				<span class="portCat">[Renders]</span><br>  <div class="unselectable"><span onclick="toggleLinks()" id="toggleLinks_id" style="cursor:pointer; color: #ffffff; ">Link View</span> / <span onclick="toggleImages()" id="toggleImages_id" style="cursor:pointer; color: #bfbfbf;">Gallery View</span></div><br>
+				<span class="portCat">[Renders]</span><br>  <div class="unselectable"><span onclick="toggleLinks()" id="toggleLinks_id" style="cursor:pointer; color: #ffffff; ">Link View</span> \ <span onclick="toggleImages()" id="toggleImages_id" style="cursor:pointer; color: #bfbfbf;">Gallery View</span></div><br>
 				
 				<script>
 					function toggleLinks() {
@@ -73,6 +73,26 @@
 					<li><a onclick="openModal(this.id)" class="postLink" id="../images/portfolio/test3.jpg" style="cursor:pointer;"><span class="liDate">[06.04.2021]</span>&nbsp;Image Description</a></li>
 					<li><a onclick="openModal(this.id)" class="postLink" id="../images/portfolio/test4.jpg" style="cursor:pointer;"><span class="liDate">[06.04.2021]</span>&nbsp;Image Description</a></li>
 				</ul>
+				
+				<!-- Width -->
+				<script>
+				//window.onresize = setImageDim;
+				
+				function setImageDim() {
+					console.log(document.getElementsByClassName("portfolioList")[0].offsetWidth);
+					var divWidth = document.getElementsByClassName("portfolioList")[0].offsetWidth;
+					var imgWidth = (divWidth - 3*12)/8;
+					
+					var images = document.getElementsByClassName("portImage");
+					
+					Array.prototype.forEach.call(images, function(img) {
+						console.log(img)
+						img.style.width = imgWidth + "px";
+						img.style.height = imgWidth + "px";
+					});
+				}
+				
+				</script>
 				
 				<!-- Modal -->
 				<div id="portModal" class="modal">

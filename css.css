@@ -1,3 +1,4 @@
+/*Scrollbar*/
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
@@ -17,17 +18,18 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #454545;
 }
-/*
-@font-face {
-	font-family: Anonymous Pro;
-	src: "./includes/fonts/Anonymous Pro.ttf";
-	
-}*/
+
+/*Defaults*/
+/*@font-face {
+	font-family: 'DejaVu';
+	src: url('./includes/fonts/GohuFont-Medium.woff') format('woff'),
+	url('./includes/fonts/DejaVuSansMono.ttf') format('truetype');
+} */
 a {
 	text-decoration: none;
 }
 * {
-	font-family: 'Anonymous Pro', monospace, Sans-serif;
+	font-family: monospace, Sans-serif;
 	letter-spacing: 0.5px;
 	
 	background: #1c1c1c;
