@@ -107,7 +107,7 @@ footer {
 
 /*Content Defaults*/
 .content {
-	margin-top: 0.5%;
+	margin-top: 30px;
 	
 	padding-left: 25%;
 	padding-right: 25%;
@@ -126,6 +126,11 @@ footer {
 .asciiTree {
 	color: #bfbfbf;
 	letter-spacing: 0px;
+}
+
+/*Index*/
+.blogList {
+	line-height: 30px;
 }
 
 /*Inspiration*/
@@ -228,7 +233,8 @@ footer {
 }
 .blogContent {
 	color: #bfbfbf;
-	white-space: pre;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 .codeBlock {
 	color: #c2c2c2;
