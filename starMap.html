@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Index</title>
+		<style>
+			body {
+				margin: 0;
+				background: black;
+			}
+		</style>
+		
+		<!-- Scripts -->
+			<!-- ThreeJS -->
+		<script src="javascript/three.min.js"></script>
+		<script src="javascript/TrackballControls.js"></script>
+		<script src="javascript/three.interaction.js"></script>
+		<!-- TweenJS -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"
+			integrity="sha512-lIKG1kC5TMb1Zx32vdz1n31YJMZRknVY20U9MJ28hD3y2c0OKN0Ce5NhJji78v8zX5UOSsm+MTBOcJt7yMBnSg=="
+			crossorigin="anonymous">
+		</script>
+	</head>
+	<body>
+		<script>
+			//global const
+			const vec0 = new THREE.Vector3(0,0,0);
+			const bg_color = 0x171717;
+			//scene, camera
+			const scene = new THREE.Scene(); {
+				const color = 0x000000;
+				const near = 1;
+				const far = 100;
+				scene.fog = new THREE.Fog(color, near, far);
+				scene.background = new THREE.Color(bg_color);
+			}
+			const camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
+			
+			//render
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			document.body.appendChild(renderer.domElement);
+			
+			//controls
+			const controls = new THREE.TrackballControls(camera, renderer.domElement);
+			controls.rotateSpeed = 0.75;
+			controls.noPan = true;
+			controls.minDistance = 2.275;
+			const interaction = new THREE.Interaction(renderer, scene, camera);
+			
+			//mats
+			const planet_material_em = new THREE.MeshStandardMaterial({emissive: 0xFFFFFF, transparent: true});
+			const ring_material_em = new THREE.MeshStandardMaterial({emissive: 0x8a8a8a, transparent: true});
+			const bg_color_material = new THREE.MeshBasicMaterial({color: bg_color});
+			
+			//GEO and Lights
+			create_planet(true, 2, 0.1, 1000, 0, 0, 0);
+			
+			//lights
+
+			
+			//easy PRS changes
+			camera.position.x = 3;
+			camera.position.y = 3;
+			camera.position.z = 3;
+			
+			//Planets
+			function create_planet(is_ring, _plan_mult, _plan_randMult, _fib_samp, param_x, param_y, param_z) {
+				const planet_sphere_geometry = new THREE.SphereGeometry();
+				const ring_sphere_geometry = new THREE.SphereGeometry(1,2,2);
+				//Wireframe sphere
+				const wire_material = new THREE.MeshBasicMaterial({color: 0x595959, transparent: true, wireframe: true});
+				const wire_sphere_geo = new THREE.SphereGeometry(2,16,16);
+				const wire_sphere = new THREE.Mesh(wire_sphere_geo, wire_material);
+				wire_sphere.on('click', function(ev) {});
+				wire_sphere.position.x += param_x;
+				wire_sphere.position.y += param_y;
+				wire_sphere.position.z += param_z;
+				scene.add(wire_sphere);
+				//black inner sphere
+				const black_sphere_geo = new THREE.SphereGeometry(2,16,16);
+				const black_sphere = new THREE.Mesh(black_sphere_geo, bg_color_material);
+				black_sphere.on('click', function(ev) {});
+				black_sphere.position.x += param_x;
+				black_sphere.position.y += param_y;
+				black_sphere.position.z += param_z;
+				scene.add(black_sphere);
+				
+				//planet points
+				let plan_coords = fibonacci_sphere(_fib_samp);
+				let plan_sphere_array = []
+				let plan_mult = _plan_mult;
+				let plan_randMult = _plan_randMult;
+				for (let i = 0; i < plan_coords.length; i++){
+					const sphere = new THREE.Mesh(planet_sphere_geometry, planet_material_em);
+					
+					let x = plan_coords[i][0]*plan_mult;
+					let y = plan_coords[i][1]*plan_mult;
+					let z = plan_coords[i][2]*plan_mult;
+					
+					let vec = [x*(1+(Math.random()*plan_randMult)),y*(1+(Math.random()*plan_randMult)),z*(1+(Math.random()*plan_randMult))];
+					
+					sphere.position.x = vec[0]+param_x;
+					sphere.position.y = vec[1]+param_y;
+					sphere.position.z = vec[2]+param_z;
+					
+					let scale = getRndInteger(1,3)/100;
+					
+					sphere.scale.x = scale;
+					sphere.scale.y = scale;
+					sphere.scale.z = scale;
+					
+					sphere.cursor = 'pointer';
+					sphere.on('pointermove', function(ev) {});
+					sphere.on('click', goToPoint);
+					
+					scene.add(sphere);
+					plan_sphere_array.push(sphere);
+				}
+					//ring points
+				let ring_coords = fermats_spiral(3000,1.45);
+				let ring_sphere_array = []
+				let ring_mult = 2;
+				let ring_randMult = 0.1;
+				for (let i = 0; i < ring_coords.length; i++){
+					const sphere = new THREE.Mesh(ring_sphere_geometry, ring_material_em);
+					
+					let x = ring_coords[i][0]*ring_mult;
+					let z = ring_coords[i][1]*ring_mult;
+					
+					let vec = [x*(1+(Math.random()*ring_randMult)),(Math.random()-0.5)*0.5, z*(1+(Math.random()*ring_randMult))];
+					
+					sphere.position.x = vec[0]+param_x;
+					sphere.position.y = vec[1]+param_y;
+					sphere.position.z = vec[2]+param_z;
+					
+					let scale = getRndInteger(1,3)/200;
+					
+					sphere.scale.x = scale;
+					sphere.scale.y = scale;
+					sphere.scale.z = scale;
+					
+					scene.add(sphere);
+					ring_sphere_array.push(sphere);
+				}
+			}
+			
+			
+			
+			//Animation
+			function animate() {
+				requestAnimationFrame( animate );
+				renderer.render(scene, camera);
+				controls.update();
+				
+				if (camera.position.equals(vec0)) {
+					camera.position.x = 1;
+					camera.position.y = 1;
+					camera.position.z = 1;
+				}
+				
+				TWEEN.update();
+			}
+			animate();
+			
+			//Window Resize
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				
+				renderer.setSize(window.innerWidth, window.innerHeight);
+			}
+			window.addEventListener('resize', onWindowResize);
+			
+			//Dist Points on Sphere
+			function fibonacci_sphere(_samples){
+				let points = [];
+				let phi = Math.PI * (3.0 - Math.sqrt(5.0));
+				
+				for (let i = 0; i < _samples; i++){
+					let y = 1 - (i / parseFloat(_samples - 1)) * 2;
+					let radius = Math.sqrt(1 - y * y);
+
+					let theta = phi * i;
+
+					let x = Math.cos(theta) * radius;
+					let z = Math.sin(theta) * radius;
+					
+					points.push([x, y, z]);
+				}
+				return points;
+			}
+			
+			//Random
+			function getRndInteger(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) ) + min;
+			}
+			
+			//Fermat's Spiral
+			function fermats_spiral(_num, _minLenToZero) {
+				let points = [];
+				let scaleFactor = 0.05;
+				for (let i = 0; i < _num; i++) {
+					let theta = 2.39998131 * i;
+					let radius = scaleFactor * Math.sqrt(theta);
+					let x = Math.cos(theta) * radius;
+					let z = Math.sin(theta) * radius;
+					
+					if ((Math.pow(x,2) + Math.pow(z,2)) > Math.pow(_minLenToZero,2)) {
+						points.push([x, z]);
+					}
+				}
+				return points;
+			}
+			
+			//click to zoom in
+			function goToPoint(ev) {
+				const posToAnimateTo = ev.target.position;
+				const coords = {
+					x: camera.position.x,
+					y: camera.position.y,
+					z: camera.position.z,
+				};
+
+				let count = 0;
+
+				new TWEEN.Tween(coords)
+					.to({
+						x: posToAnimateTo.x,
+						y: posToAnimateTo.y,
+						z: posToAnimateTo.z,
+					})
+					.easing(TWEEN.Easing.Quadratic.Out)
+					.onUpdate(() => {
+						camera.position.set(coords.x, coords.y, coords.z);
+
+						if (count < 0.25) {
+							count += 0.01;
+						}
+						camera.translateOnAxis(new THREE.Vector3(0, 0, 1), count);
+					})
+				.start();
+			}
+		</script>
+	</body>
+</html>
