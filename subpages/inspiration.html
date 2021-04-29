@@ -27,6 +27,7 @@
 					<li><a href="./portfolio.html">Portfolio</a></li> <span class="unselectable">\</span>
 					<!-- <li><a href="./tutorials.html">Tutorials</a></li> <span class="unselectable">\</span> -->
 					<li><a href="./inspiration.html">Inspiration</a></li> <span class="unselectable">\</span>
+					<li><a href="./roadmap.html">Roadmap</a></li> <span class="unselectable">\</span>
 					<li><a href="./contact.html">Contact</a></li>
 				</ul>
 			</div>
@@ -36,7 +37,43 @@
 			<div class="content">
 			
 				<span class="blogSection">Inspiration</span>
-				<br><br>
+				<br>
+				<div class="unselectable"><span onclick="expandAll()" id="expandAll_id" style="cursor: pointer; color: #bfbfbf ">Expand All</span> \ <span onclick="collapseAll()" id="collapseAll_id" style="cursor:pointer; color: #ffffff;">Collapse All</span></div><br>
+				
+				<script>
+					function expandAll() {
+						const linkSpan = document.getElementById("expandAll_id");
+						const imageSpan = document.getElementById("collapseAll_id");
+						
+						const roadmapArray = document.getElementsByClassName("inspirationToggle");
+						
+						linkSpan.style.color = "#ffffff";
+						imageSpan.style.color = "#bfbfbf";
+
+						Array.from(roadmapArray).forEach(
+							function(element, index, array) {
+								element.style.display = "block";
+							}
+						);
+						
+					}
+					function collapseAll() {
+						const linkSpan = document.getElementById("expandAll_id");
+						const imageSpan = document.getElementById("collapseAll_id");
+						
+						const roadmapArray = document.getElementsByClassName("inspirationToggle");
+						
+						linkSpan.style.color = "#bfbfbf";
+						imageSpan.style.color = "#ffffff";
+						
+						Array.from(roadmapArray).forEach(
+							function(element, index, array) {
+								element.style.display = "none";
+							}
+						);
+					}
+				</script>
+				
 				<div class="treeWrap"><span class="liDate">Images</span>
 <span class="asciiTree">├──</span> <span class="liDate">Archillect</span>
 <span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_Architecture')" style="cursor: pointer;"><span id="Archillect_Architecture_a" style="display: none;">&#155; </span>Architecture</span>
