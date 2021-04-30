@@ -264,6 +264,7 @@ header {
 	float:left;
 	border: 1px dotted grey;
 	padding: 2px;
+	overflow: auto;
 }
 .roadmapInnerDiv {
 	overflow: auto;

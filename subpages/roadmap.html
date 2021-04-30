@@ -5,6 +5,8 @@
 		
 		<!-- Links and Libraries -->
 		<link rel="stylesheet" href="../css.css">
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+		<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/jquery.mousewheel@3.1.9/jquery.mousewheel.min.js'></script>
 		
 		<!-- Font -->
 		
@@ -175,6 +177,13 @@
 							toggleDiv.style.display = "none";
 						}
 					}
+					
+					$(document).ready(function() {
+						$(".roadmapInnerDiv").mousewheel(function(event, delta) {
+							this.scrollLeft -= (delta * 30);
+							event.preventDefault();
+						});
+					});
 				</script>
 
 			<div class="content">
