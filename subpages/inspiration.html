@@ -46,6 +46,7 @@
 						const imageSpan = document.getElementById("collapseAll_id");
 						
 						const roadmapArray = document.getElementsByClassName("inspirationToggle");
+						const openArrowArray = document.getElementsByClassName("openArrow_Class");
 						
 						linkSpan.style.color = "#ffffff";
 						imageSpan.style.color = "#bfbfbf";
@@ -55,6 +56,11 @@
 								element.style.display = "block";
 							}
 						);
+						Array.from(openArrowArray).forEach(
+							function(element, index, array) {
+								element.style.display = "inline";
+							}
+						);
 						
 					}
 					function collapseAll() {
@@ -62,6 +68,7 @@
 						const imageSpan = document.getElementById("collapseAll_id");
 						
 						const roadmapArray = document.getElementsByClassName("inspirationToggle");
+						const openArrowArray = document.getElementsByClassName("openArrow_Class");
 						
 						linkSpan.style.color = "#bfbfbf";
 						imageSpan.style.color = "#ffffff";
@@ -71,42 +78,50 @@
 								element.style.display = "none";
 							}
 						);
+						Array.from(openArrowArray).forEach(
+							function(element, index, array) {
+								element.style.display = "none";
+							}
+						);
 					}
 				</script>
 				
 				<div class="treeWrap"><span class="liDate">Images</span>
 <span class="asciiTree">├──</span> <span class="liDate">Archillect</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_Architecture')" style="cursor: pointer;"><span id="Archillect_Architecture_a" style="display: none;">&#155; </span>Architecture</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_Moody')" style="cursor: pointer;"><span id="Archillect_Moody_a" style="display: none;">&#155; </span>Moody</span>
-<span class="asciiTree">│	│   └──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_MBW')" style="cursor: pointer;"><span id="Archillect_MBW_a" style="display: none;">&#155; </span>Black and White</span>
-<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_RF')" style="cursor: pointer;"><span id="Archillect_RF_a" style="display: none;">&#155; </span>Retro Futurism</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_Architecture')" style="cursor: pointer;"><span class="openArrow_Class" id="Archillect_Architecture_a" style="display: none;">&#155; </span>Architecture</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_Moody')" style="cursor: pointer;"><span class="openArrow_Class" id="Archillect_Moody_a" style="display: none;">&#155; </span>Moody</span>
+<span class="asciiTree">│	│   └──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_MBW')" style="cursor: pointer;"><span class="openArrow_Class" id="Archillect_MBW_a" style="display: none;">&#155; </span>Black and White</span>
+<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('Archillect_RF')" style="cursor: pointer;"><span class="openArrow_Class" id="Archillect_RF_a" style="display: none;">&#155; </span>Retro Futurism</span>
 <span class="asciiTree">├──</span> <span class="liDate">Gif</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('GifRetro')" style="cursor: pointer;"><span id="GifRetro_a" style="display: none;">&#155; </span>Retro</span>
-<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('GifMoody')" style="cursor: pointer;"><span id="GifMoody_a" style="display: none;">&#155; </span>Moody</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('GifRetro')" style="cursor: pointer;"><span class="openArrow_Class" id="GifRetro_a" style="display: none;">&#155; </span>Retro</span>
+<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('GifMoody')" style="cursor: pointer;"><span class="openArrow_Class" id="GifMoody_a" style="display: none;">&#155; </span>Moody</span>
 <span class="asciiTree">├──</span> <span class="liDate">Artstation</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationAccounts')" style="cursor: pointer;"><span id="ArtstationAccounts_a" style="display: none;">&#155; </span>Accounts</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationImages')" style="cursor: pointer;"><span id="ArtstationImages_a" style="display: none;">&#155; </span>Images/Threads</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationPrints')" style="cursor: pointer;"><span id="ArtstationPrints_a" style="display: none;">&#155; </span>Prints</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationChallenges')" style="cursor: pointer;"><span id="ArtstationChallenges_a" style="display: none;">&#155; </span>Challenges</span>
-<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationBlogs')" style="cursor: pointer;"><span id="ArtstationBlogs_a" style="display: none;">&#155; </span>Blogs</span>
-<span class="asciiTree">└──</span> <span class="insToggleButton" onclick="toggleIns('ImagesOwnFinds')" style="cursor: pointer;"><span id="ImagesOwnFinds_a" style="display: none;">&#155; </span>Own Finds</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationAccounts')" style="cursor: pointer;"><span class="openArrow_Class" id="ArtstationAccounts_a" style="display: none;">&#155; </span>Accounts</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationImages')" style="cursor: pointer;"><span class="openArrow_Class" id="ArtstationImages_a" style="display: none;">&#155; </span>Images/Threads</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationPrints')" style="cursor: pointer;"><span class="openArrow_Class" id="ArtstationPrints_a" style="display: none;">&#155; </span>Prints</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationChallenges')" style="cursor: pointer;"><span class="openArrow_Class" id="ArtstationChallenges_a" style="display: none;">&#155; </span>Challenges</span>
+<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('ArtstationBlogs')" style="cursor: pointer;"><span class="openArrow_Class" id="ArtstationBlogs_a" style="display: none;">&#155; </span>Blogs</span>
+<span class="asciiTree">└──</span> <span class="insToggleButton" onclick="toggleIns('ImagesOwnFinds')" style="cursor: pointer;"><span class="openArrow_Class" id="ImagesOwnFinds_a" style="display: none;">&#155; </span>Own Finds</span>
+
 <span class="liDate">Videos</span>
 <span class="asciiTree">├──</span> <span class="liDate">Youtube</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeChannels')" style="cursor: pointer;"><span id="YoutubeChannels_a" style="display: none;">&#155; </span>Channels</span>
-<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeSingle')" style="cursor: pointer;"><span id="YoutubeSingle_a" style="display: none;">&#155; </span>Single Videos</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeChannels')" style="cursor: pointer;"><span class="openArrow_Class" id="YoutubeChannels_a" style="display: none;">&#155; </span>Channels</span>
+<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeSingle')" style="cursor: pointer;"><span class="openArrow_Class" id="YoutubeSingle_a" style="display: none;">&#155; </span>Single Videos</span>
 <span class="asciiTree">└──</span> <span class="liDate">Vimeo</span>
-<span class="asciiTree"> 	├──</span> <span class="insToggleButton" onclick="toggleIns('VimeoChannels')" style="cursor: pointer;"><span id="VimeoChannels_a" style="display: none;">&#155; </span>Channels</span>
-<span class="asciiTree"> 	└──</span> <span class="insToggleButton" onclick="toggleIns('VimeoSingle')" style="cursor: pointer;"><span id="VimeoSingle_a" style="display: none;">&#155; </span>Single Videos</span>
+<span class="asciiTree"> 	├──</span> <span class="insToggleButton" onclick="toggleIns('VimeoChannels')" style="cursor: pointer;"><span class="openArrow_Class" id="VimeoChannels_a" style="display: none;">&#155; </span>Channels</span>
+<span class="asciiTree"> 	└──</span> <span class="insToggleButton" onclick="toggleIns('VimeoSingle')" style="cursor: pointer;"><span class="openArrow_Class" id="VimeoSingle_a" style="display: none;">&#155; </span>Single Videos</span>
+
 <span class="liDate">Music</span>
 <span class="asciiTree">├──</span> <span class="liDate">Youtube</span>
-<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeVocals')" style="cursor: pointer;"><span id="YoutubeVocals_a" style="display: none;">&#155; </span>Vocals</span>
-<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeInstrumentals')" style="cursor: pointer;"><span id="YoutubeInstrumentals_a" style="display: none;">&#155; </span>Instrumentals</span>
+<span class="asciiTree">│	├──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeVocals')" style="cursor: pointer;"><span class="openArrow_Class" id="YoutubeVocals_a" style="display: none;">&#155; </span>Vocals</span>
+<span class="asciiTree">│	└──</span> <span class="insToggleButton" onclick="toggleIns('YoutubeInstrumentals')" style="cursor: pointer;"><span class="openArrow_Class" id="YoutubeInstrumentals_a" style="display: none;">&#155; </span>Instrumentals</span>
 <span class="asciiTree">└──</span> <span class="liDate">Spotify</span>
-<span class="asciiTree"> 	├──</span> <span class="insToggleButton" onclick="toggleIns('SpotifyVocals')" style="cursor: pointer;"><span id="SpotifyVocals_a" style="display: none;">&#155; </span>Vocals</span>
-<span class="asciiTree"> 	└──</span> <span class="insToggleButton" onclick="toggleIns('SpotifyInstrumentals')" style="cursor: pointer;"><span id="SpotifyInstrumentals_a" style="display: none;">&#155; </span>Instrumentals</span>
+<span class="asciiTree"> 	├──</span> <span class="insToggleButton" onclick="toggleIns('SpotifyVocals')" style="cursor: pointer;"><span class="openArrow_Class" id="SpotifyVocals_a" style="display: none;">&#155; </span>Vocals</span>
+<span class="asciiTree"> 	└──</span> <span class="insToggleButton" onclick="toggleIns('SpotifyInstrumentals')" style="cursor: pointer;"><span class="openArrow_Class" id="SpotifyInstrumentals_a" style="display: none;">&#155; </span>Instrumentals</span>
+
 <span class="liDate">Github</span>
-<span class="asciiTree">├──</span> <span class="insToggleButton" onclick="toggleIns('GithubAccounts')" style="cursor: pointer;"><span id="GithubAccounts_a" style="display: none;">&#155; </span>Accounts</span>
-<span class="asciiTree">└──</span> <span class="insToggleButton" onclick="toggleIns('GithubRepos')" style="cursor: pointer;"><span id="GithubRepos_a" style="display: none;">&#155; </span>Repositories</span>
+<span class="asciiTree">├──</span> <span class="insToggleButton" onclick="toggleIns('GithubAccounts')" style="cursor: pointer;"><span class="openArrow_Class" id="GithubAccounts_a" style="display: none;">&#155; </span>Accounts</span>
+<span class="asciiTree">└──</span> <span class="insToggleButton" onclick="toggleIns('GithubRepos')" style="cursor: pointer;"><span class="openArrow_Class" id="GithubRepos_a" style="display: none;">&#155; </span>Repositories</span>
 				</div>
 
 				<div class="inspirationToggleDiv">

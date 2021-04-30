@@ -48,6 +48,7 @@
 						const imageSpan = document.getElementById("collapseAll_id");
 						
 						const roadmapArray = ["videos_toggle","coding_toggle","gumroad_toggle","blog_toggle"];
+						const openArrowArray = document.getElementsByClassName("openArrow_Class");
 						
 						linkSpan.style.color = "#ffffff";
 						imageSpan.style.color = "#bfbfbf";
@@ -57,12 +58,18 @@
 						function displayAll(value){
 							document.getElementById(value).style.display = "block";
 						}
+						Array.from(openArrowArray).forEach(
+							function(element, index, array) {
+								element.style.display = "inline";
+							}
+						);
 					}
 					function collapseAll() {
 						const linkSpan = document.getElementById("expandAll_id");
 						const imageSpan = document.getElementById("collapseAll_id");
 						
 						const roadmapArray = ["videos_toggle","coding_toggle","gumroad_toggle","blog_toggle"];
+						const openArrowArray = document.getElementsByClassName("openArrow_Class");
 						
 						linkSpan.style.color = "#bfbfbf";
 						imageSpan.style.color = "#ffffff";
@@ -72,98 +79,77 @@
 						function displayNone(value){
 							document.getElementById(value).style.display = "none";
 						}
+						Array.from(openArrowArray).forEach(
+							function(element, index, array) {
+								element.style.display = "none";
+							}
+						);
 					}
 				</script>
 				
 				<div class="roadmapWrapper">
 					<div class="roadmapContainer">
-						<span class="unselectable"><span class="liDate" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="videos">[Videos]</span></span><br>
+						<span class="unselectable"><span class="openArrow_Class" id="videos_toggle_arrow" style="display: none;">&#155; </span><span class="roadMapHoverTopic" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="videos">[Videos]</span></span><br>
 						<div class="roadmapInnerDiv" id="videos_toggle" style="display: none">
-							testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
+							<ul>
+								<li onclick="openModal(this.id)" id="customTestID"><span class="liDate">[06.04.2021]</span>&nbsp;Description</li>
+								<div id="customTestID_text" style="display: none">
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+								</div>
+							</ul>
 						</div>
 					</div>
 					<div class="roadmapContainer">
-						<span class="unselectable"><span class="liDate" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="coding">[Coding Projects]</span></span><br>
+						<span class="unselectable"><span class="openArrow_Class" id="coding_toggle_arrow" style="display: none;">&#155; </span><span class="roadMapHoverTopic" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="coding">[Coding Projects]</span></span><br>
 						<div class="roadmapInnerDiv" id="coding_toggle" style="display: none">
-							testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
-							test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>
+							<ul>
+								<li onclick="openModal(this.id)" id="customTestID2"><span class="liDate">[06.04.2021]</span>&nbsp;Description</li>
+								<div id="customTestID2_text" style="display: none">
+									This is a test <br>
+									This is a tes6t <br>
+									This is a test <br>
+									This is a test5 <br>
+									This is a test <br>
+									This is a test <br>
+								</div>
+							</ul>
 						</div>
 					</div>
 					<div class="roadmapContainer">
-						<span class="unselectable"><span class="liDate" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="gumroad">[Gumroad Products]</span></span><br>
+						<span class="unselectable"><span class="openArrow_Class" id="gumroad_toggle_arrow" style="display: none;">&#155; </span><span class="roadMapHoverTopic" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="gumroad">[Gumroad]</span></span><br>
 						<div class="roadmapInnerDiv" id="gumroad_toggle" style="display: none">
-							testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
+							<ul>
+								<li onclick="openModal(this.id)" id="customTestID3"><span class="liDate">[06.04.2021]</span>&nbsp;Description</li>
+								<div id="customTestID3_text" style="display: none">
+									This is a test3 <br>
+									This is a test4 <br>
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+								</div>
+							</ul>
 						</div>
 					</div>
 					<div class="roadmapContainer">
-						<span class="unselectable"><span class="liDate" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="blog">[Blog Posts]</span></span><br>
+						<span class="unselectable"><span class="openArrow_Class" id="blog_toggle_arrow" style="display: none;">&#155; </span><span class="roadMapHoverTopic" style="cursor: pointer;" onclick="toggleRoadMap(this.id)" id="blog">[Blog Posts]</span></span><br>
 						<div class="roadmapInnerDiv" id="blog_toggle" style="display: none">
-							testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttest<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
-							test<br>
+							<ul>
+								<li onclick="openModal(this.id)" id="customTestID4"><span class="liDate">[06.04.2021]</span>&nbsp;Description</li>
+								<div id="customTestID4_text" style="display: none">
+									This is a test2 <br>
+									This is a test2 <br>
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+									This is a test <br>
+								</div>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -171,10 +157,14 @@
 				<script>
 					function toggleRoadMap(_name){
 						const toggleDiv = document.getElementById(_name + ("_toggle"));
+						const toggleArrow = document.getElementById(_name + ("_toggle_arrow"));
+						
 						if (toggleDiv.style.display === "none"){
 							toggleDiv.style.display = "block";
+							toggleArrow.style.display = "inline";
 						} else {
 							toggleDiv.style.display = "none";
+							toggleArrow.style.display = "none";
 						}
 					}
 					
@@ -184,6 +174,29 @@
 							event.preventDefault();
 						});
 					});
+				</script>
+				
+				<!-- Modal -->
+				<div id="roadModal" class="roadMapModal">
+					<span class="close">&#10005;</span>
+					<div id="roadMapModalContent" class="roadMapModalContent">
+					</div>
+				</div>
+				
+				<script>
+				const modal = document.getElementById("roadModal");
+				const modalContent = document.getElementById("roadMapModalContent");
+				
+				function openModal(_id) {
+					const text_innerHtml = document.getElementById(_id+"_text").innerHTML;
+
+					modalContent.innerHTML = text_innerHtml;
+					modal.style.display = "block";
+				}
+				var span = document.getElementsByClassName("close")[0];
+				span.onclick = function() {
+					modal.style.display = "none";
+				}
 				</script>
 
 			<div class="content">
