@@ -14,7 +14,7 @@
 		<!-- Icon -->
 		<link rel="icon" type="image/png" href="../images/favicon-192x192.png">
 	</head>
-	<body>
+	<body onload="setLinkOrGallery()">
 		<header>
 			<div class="webHeader">
 				<div class="webHeaderText">
@@ -41,6 +41,22 @@
 				<div class="unselectable"><span onclick="toggleLinks()" id="toggleLinks_id" style="cursor:pointer; color: #ffffff; ">Link View</span> \ <span onclick="toggleImages()" id="toggleImages_id" style="cursor:pointer; color: #bfbfbf;">Gallery View</span></div><br>
 				
 				<script>
+					function setLinkOrGallery(){
+						console.log("test")
+						//Params
+						const parameters = location.search.substring(1).split("&");
+						const temp = parameters[0].split("=");
+
+						const linkOrGal = temp[1];
+						
+						//Toggle
+						if (linkOrGal == "G"){
+							toggleImages();
+						}
+						else if (linkOrGal == "L"){
+							toggleLinks();
+						}
+					}
 					function toggleLinks() {
 						const linkSpan = document.getElementById("toggleLinks_id");
 						const imageSpan = document.getElementById("toggleImages_id");
@@ -70,55 +86,24 @@
 				</script>
 
 				<ul class="portfolioList" style="display: none;">
-					<li><img onclick="openModal(this.src)" class="portImage" src="../images/portfolio/test.jpg" width="150px" height="150px"></li>
-					<li><img onclick="openModal(this.src)" class="portImage" src="../images/portfolio/test2.jpg" width="150px" height="150px"></li>
-					<li><img onclick="openModal(this.src)" class="portImage" src="../images/portfolio/test3.jpg" width="150px" height="150px"></li>
-					<li><img onclick="openModal(this.src)" class="portImage" src="../images/portfolio/test4.jpg" width="150px" height="150px"></li>
+					<!-- <li><img onclick="openImageViewer(this.src, "G")" class="portImage" src="../images/portfolio/test.jpg" width="150px" height="150px"></li> -->
+					<!-- Image Insert Start -->
+					<!-- Image Insert End -->
 				</ul>
 				<ul class="portfolioLinkList" style="display: block;">
-					<li><a onclick="openModal(this.id)" class="postLink" id="../images/portfolio/test.jpg" style="cursor:pointer;"><span class="liDate">[06.04.2021]</span>&nbsp;Image Description</a></li>
-					<li><a onclick="openModal(this.id)" class="postLink" id="../images/portfolio/test2.jpg" style="cursor:pointer;"><span class="liDate">[06.04.2021]</span>&nbsp;Image Description</a></li>
-					<li><a onclick="openModal(this.id)" class="postLink" id="../images/portfolio/test3.jpg" style="cursor:pointer;"><span class="liDate">[06.04.2021]</span>&nbsp;Image Description</a></li>
-					<li><a onclick="openModal(this.id)" class="postLink" id="../images/portfolio/test4.jpg" style="cursor:pointer;"><span class="liDate">[06.04.2021]</span>&nbsp;Image Description</a></li>
+					<!-- <li><a onclick="openImageViewer(this.id, "L")" class="postLink" id="../images/portfolio/test.jpg" style="cursor:pointer;"><span class="liDate">[06.04.2021]</span>&nbsp;Image Description</a></li> -->
+					<!-- Image_Link Insert Start -->
+					<!-- Image_Link Insert End -->
 				</ul>
-				
-				<!-- Width -->
+
 				<script>
-				//window.onresize = setImageDim;
-				
-				function setImageDim() {
-					console.log(document.getElementsByClassName("portfolioList")[0].offsetWidth);
-					var divWidth = document.getElementsByClassName("portfolioList")[0].offsetWidth;
-					var imgWidth = (divWidth - 3*12)/8;
-					
-					var images = document.getElementsByClassName("portImage");
-					
-					Array.prototype.forEach.call(images, function(img) {
-						console.log(img)
-						img.style.width = imgWidth + "px";
-						img.style.height = imgWidth + "px";
-					});
-				}
-				
-				</script>
-				
-				<!-- Modal -->
-				<div id="portModal" class="modal">
-					<span class="close">&#10005;</span>
-					<img class="modal-content" id="imgModal">
-				</div>
-				
-				<script>
-				var modal = document.getElementById("portModal");
-				var modalImg = document.getElementById("imgModal");
-				function openModal(_src) {
-					modal.style.display = "block";
-					modalImg.src = _src;
-				}
-				var span = document.getElementsByClassName("close")[0];
-				span.onclick = function() {
-					modal.style.display = "none";
-				}
+					function openImageViewer(_src, _lg){
+						const splitString = _src.split("/");
+						let name = splitString[splitString.length - 1];
+						name = name.replace(".jpg","");
+						console.log(name);
+						location.href = "./showImage.html?" + name + "=" + _src + _lg;
+					}
 				</script>
 
 				<br>
@@ -160,6 +145,8 @@
 				</script>
 				
 				<ul class="portfolioListAudio">
+					<!-- <audio id="0_audio"><source src="../audio/portfolio/A_25.mp3" type="audio/mp3"></audio>
+					<li><button class="audioPlayButton" id="0" onclick="audioPlayer(this.innerHTML,id)" type="button">[Play Audio Track]</button> A_25</li> -->
 					<!-- Audio Insert Start -->
 					<!-- Audio Insert End -->
 				</ul>
@@ -181,7 +168,7 @@
 					}
 				</script>
 				
-			<div class="content">
+			</div>
 		</main>
 		
 		<footer></footer>
