@@ -95,6 +95,27 @@
 								<!-- <li class="unselectable" onclick="openModal(this.id)" id="video_id_1"><span class="liDate">[DATE]</span>&nbsp;Topic</li>
 								<div id="video_id_1_text" style="display: none; padding-left: 20px;">
 								</div> -->
+								<li class="unselectable" onclick="openModal(this.id)" id="video_id_1"><span class="liDate">[28.05.2021]</span>&nbsp;POV Videos</li>
+								<div id="video_id_1_text" style="display: none; padding-left: 20px;">
+									<ol class="roadmapInnerDivOL">
+										<li>POV Photogrammetry</li>
+										<li>POV Blender/Graphic-Work</li>
+										<li>POV Music-Producing</li>
+										<li>POV Coding</li>
+									</ol>
+								</div>
+								<li class="unselectable" onclick="openModal(this.id)" id="video_id_2"><span class="liDate">[28.05.2021]</span>&nbsp;Functional Wallpapers</li>
+								<div id="video_id_2_text" style="display: none; padding-left: 20px;">
+								Incorporate functional designs (e.g. circle of fifths) into wallpapers.
+								</div>
+								<li class="unselectable" onclick="openModal(this.id)" id="video_id_3"><span class="liDate">[28.05.2021]</span>&nbsp;This Website</li>
+								<div id="video_id_3_text" style="display: none; padding-left: 20px;">
+								How and with what in mind I created this website
+								</div>
+								<li class="unselectable" onclick="openModal(this.id)" id="video_id_4"><span class="liDate">[28.05.2021]</span>&nbsp;Different Social Media Platforms</li>
+								<div id="video_id_4_text" style="display: none; padding-left: 20px;">
+								(How to) diversify your content to different platforms
+								</div>
 							</ul>
 						</div>
 					</div>
@@ -105,6 +126,10 @@
 								<!-- <li class="unselectable" onclick="openModal(this.id)" id="coding_id_1"><span class="liDate">[DATE]</span>&nbsp;Topic</li>
 								<div id="coding_id_1_text" style="display: none; padding-left: 20px;">
 								</div> -->
+								<li class="unselectable" onclick="openModal(this.id)" id="coding_id_1"><span class="liDate">[28.05.2021]</span>&nbsp;Starmap</li>
+								<div id="coding_id_1_text" style="display: none; padding-left: 20px;">
+								Based on previous a design create a fully functional web-based star/galaxymap
+								</div>
 							</ul>
 						</div>
 					</div>
@@ -115,6 +140,11 @@
 								<!-- <li class="unselectable" onclick="openModal(this.id)" id="gumroad_id_1"><span class="liDate">[DATE]</span>&nbsp;Topic</li>
 								<div id="gumroad_id_1_text" style="display: none; padding-left: 20px;">
 								</div> -->
+								<li class="unselectable" onclick="openModal(this.id)" id="gumroad_id_1"><span class="liDate">[28.05.2021]</span>&nbsp;360 HDRI Pack</li>
+								<div id="gumroad_id_1_text" style="display: none; padding-left: 20px;">
+								Release (maybe fro free) a 360 HDRI/Environment pack<br>
+								under usage of the Insta 360 One X
+								</div>
 							</ul>
 						</div>
 					</div>
@@ -152,29 +182,7 @@
 					});
 				</script>
 				
-				<!-- Modal -->
-				<div id="roadModal" class="roadMapModal">
-					<span class="close">&#10005;</span>
-					<div id="roadMapModalContent" class="roadMapModalContent">
-					</div>
-				</div>
-				
 				<script>
-				/*
-				const modal = document.getElementById("roadModal");
-				const modalContent = document.getElementById("roadMapModalContent");
-				
-				function openModal(_id) {
-					const text_innerHtml = document.getElementById(_id + "_text").innerHTML;
-
-					modalContent.innerHTML = text_innerHtml;
-					modal.style.display = "block";
-				}
-				
-				var span = document.getElementsByClassName("close")[0];
-				span.onclick = function() {
-					modal.style.display = "none";
-				}*/
 				function openModal(_id) {
 					const li_toggle = document.getElementById(_id + "_text");
 					if (li_toggle.style.display === "none"){
