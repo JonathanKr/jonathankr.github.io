@@ -48,7 +48,7 @@
 						const parameters = location.search.substring(1).split("&");
 						const temp = parameters[0].split("=");
 						
-						const name = temp[0];
+						const name = temp[0].replace("%20"," ");
 						
 						const img_src = temp[1].slice(0,-1);
 						const lg = temp[1].slice(-1);

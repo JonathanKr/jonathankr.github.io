@@ -83,7 +83,7 @@ for filename in os.listdir(image_directory):
 # Insert Images
 # HTML Strings
 imageTag_first = "<li><img onclick=\"openImageViewer(this.src, 'G')\" class=\"portImage\" src=\"../images/portfolio/"
-imageTag_second = "\" width=\"150px\" height=\"150px\"></li>"
+imageTag_second = "\" height=\"150px\"></li>"
 
 flinesD = flinesC[:]
 lineStart = 1
