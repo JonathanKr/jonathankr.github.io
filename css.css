@@ -435,4 +435,32 @@ header {
 	.socialMediaTree {
 		line-height: 19px;
 	}
+	/*RoadMap*/
+	.roadmapWrapper {
+	}
+	.roadMapHoverTopic {
+		color: #bfbfbf;
+	}
+	.roadMapHoverTopic:hover {
+		text-decoration: underline;
+	}
+	.roadmapContainer {
+		width: 100%;
+		margin-bottom: 10px;
+		border: 1px dotted grey;
+		padding: 6px;
+		overflow: auto;
+		white-space: nowrap;
+	}
+	.roadmapInnerDiv {
+		overflow: auto;
+	}
+	.roadmapInnerDiv li:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.roadmapInnerDivOL li:hover {
+		text-decoration: none;
+		cursor: auto;
+	}
 }
