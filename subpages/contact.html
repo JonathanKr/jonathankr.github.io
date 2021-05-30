@@ -39,7 +39,7 @@
 				<span class="liDate">Name:</span> Jonathan Kron<br>
 				<span class="liDate">E-Mail:</span> <a class="postLink" href="mailto:jonathan@indistinctstudios.com">jonathan@indistinctstudios.com</a><br>
 				<br>
-				Social Media <br>
+				Social Media<span onclick="removeAboutMe()" class="flicker">!</span> <br>
 				<div class="socialMediaTree">
 					<!-- <span class="asciiTree">├──</span> <span class="liDate">Discord:</span> <a href="" class="contactLink">TODO</a><br> -->
 					<span class="asciiTree">├──</span> <span class="liDate">Youtube:</span> <a href="https://youtube.com/JonathanKron" class="contactLink" target="_blank">Jonathan Kron</a><br>
@@ -49,11 +49,50 @@
 				</div>
 				<br><br>
 				<span class="blogSection">About Me</span><br><br>
-				I am a 3D artist and content creator from Germany who mainly uses Blender for his work. Having learned Blender for a couple of years I started my own Youtube channel on which I regularly upload educational videos. 
-				<br><br>
-				Additionally, I'm also creating content for the different platforms listed above.
-				<br><br>
-				And thank you for visiting my website :)
+					<div id="aboutmeDiv">
+					I am a 3D artist and content creator from Germany who mainly uses Blender for his work. Having learned Blender for a couple of years I started my own Youtube channel on which I regularly upload educational videos. 
+					<br><br>
+					Additionally, I'm also creating content for the different platforms listed above.
+					<br><br>
+					And thank you for visiting my website
+				</div>
+				
+				<div id="newText" style="display:none;">
+					Both of us see a cloud or whatever we may believe
+					<br>
+					Being it may be proud or whatever we want to see
+					<br>
+					Okay, jump
+				</div>
+				
+				<script>
+					function sleep(ms) {
+						return new Promise(resolve => setTimeout(resolve, ms));
+					}
+					async function removeAboutMe(){
+						const newText = document.getElementById("newText").innerHTML;
+						let newText_array = newText.split(" ");
+						const newText_length = newText_array.length;
+						
+						const aboutMeHtml = document.getElementById("aboutmeDiv").innerHTML;
+						let splitArray = aboutMeHtml.split(" ");
+						
+						const initLength = splitArray.length - newText_length;
+						
+						for (i = 0; i < initLength; i++){
+							splitArray.pop();
+							document.getElementById("aboutmeDiv").innerHTML = splitArray.join(" ");
+							await sleep(100);
+						}
+						await sleep(500);
+						for (i = 0; i < newText_length; i++){
+							splitArray[i] = newText_array[i];
+							document.getElementById("aboutmeDiv").innerHTML = splitArray.join(" ");
+							await sleep(100);
+						}
+					}
+				</script>
+				
 			</div>
 		</main>
 		
