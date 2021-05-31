@@ -58,11 +58,8 @@
 				</div>
 				
 				<div id="newText" style="display:none;">
-					Both of us see a cloud or whatever we may believe
-					<br>
-					Being it may be proud or whatever we want to see
-					<br>
-					Okay, jump
+					Still to be written...
+		
 				</div>
 				
 				<script>
@@ -79,11 +76,13 @@
 						
 						const initLength = splitArray.length - newText_length;
 						
+						//remove
 						for (i = 0; i < initLength; i++){
 							splitArray.pop();
 							document.getElementById("aboutmeDiv").innerHTML = splitArray.join(" ");
 							await sleep(100);
 						}
+						//write
 						await sleep(500);
 						for (i = 0; i < newText_length; i++){
 							splitArray[i] = newText_array[i];
