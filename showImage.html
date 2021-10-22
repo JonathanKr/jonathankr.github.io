@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Jonathan Kron Image Viewer</title>
+
+	<!-- Links and Libraries -->
+	<link rel="stylesheet" href="./css.css">
+
+	<!-- Font -->
+
+	<!-- Phone -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Icon -->
+	<link rel="icon" type="image/png" href="./images/favicon-192x192.png">
+</head>
+
+<body onload="renderImage()">
+	<header>
+		<div class="webHeader">
+			<div class="webHeaderText">
+				<span><a href="./index.html">Jonathan Kron</a></span>
+			</div>
+		</div>
+		<div class="headerMenu">
+			<ul>
+				<li><a href="./index.html">Home</a></li> <span class="unselectable">\</span>
+				<!-- <li><a href="./tutorials.html">Tutorials</a></li> <span class="unselectable">\</span> -->
+				<!-- <li><a href="./inspiration.html">Inspiration</a></li> <span class="unselectable">\</span> -->
+				<!-- <li><a href="./roadmap.html">Roadmap</a></li> <span class="unselectable">\</span> -->
+				<li><a href="./subpages/contact.html">Contact</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<main>
+		<div class="content">
+			<span id="imageName" class="blogSection">Image Name</span>
+			<br>
+			<a id="backLinkID" href="./index.html" style="color: #bfbfbf;">
+				<-- Back</a>
+					<br><br>
+
+					<img id="imageTag" src="" alt="Image Viewer" style="width: 100%"></img>
+
+					<script>
+						function renderImage() {
+							//Params
+							const parameters = location.search.substring(1);
+							console.log(parameters);
+							const temp = parameters.split("=");
+							console.log(temp);
+							const name = temp[0].replace("%20", " "); //for correct whitesapces
+							console.log(name);
+							const img_src = temp[1];
+							console.log(img_src);
+							//Assigning
+							const nameSpan = document.getElementById("imageName");
+							nameSpan.textContent = name;
+
+							const imageTag = document.getElementById("imageTag");
+							imageTag.src = img_src
+						}
+					</script>
+
+		</div>
+	</main>
+
+	<footer></footer>
+</body>
+
+</html>

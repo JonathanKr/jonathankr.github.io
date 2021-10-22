@@ -257,11 +257,25 @@ header {
 }
 
 
-
-
-
-
-
+/*Index Gallery*/
+.gallery {
+	display: flex;
+}
+.gallery__column {
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+}
+.gallery__image:hover {
+	filter: grayscale(1);
+	cursor: pointer;
+}
+.gallery__image {
+	display: block;
+	width: 100%;
+	transition: .3s;
+	position: relative;
+}
 
 
 
