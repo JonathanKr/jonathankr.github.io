@@ -267,7 +267,7 @@ header {
 	width: 25%;
 }
 .gallery__image:hover {
-	filter: grayscale(1);
+	filter: grayscale(0);
 	cursor: pointer;
 }
 .gallery__image {
@@ -275,6 +275,7 @@ header {
 	width: 100%;
 	transition: .3s;
 	position: relative;
+	filter: grayscale(1);
 }
 
 
