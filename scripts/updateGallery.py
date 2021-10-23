@@ -1,5 +1,16 @@
 import os
 import glob
+from PIL import Image
+
+# constants
+image_directory = "../images/portfolio/"
+
+# convert iamges to downscaled webp
+for filename in os.listdir(image_directory):
+    if filename.endswith(".jpg"):
+        image = Image.open(image_directory + filename)
+        if(not os.path.isfile(image_directory + filename[:-4] + ".webp")):
+            image.save(image_directory + filename[:-4] + ".webp", "webp")
 
 # read code file
 f = open("../indexCode.html", "r")
@@ -7,8 +18,7 @@ flines = f.readlines()
 f.close()
 
 # number of images
-image_directory = "../images/portfolio/"
-jpgs = glob.glob1(image_directory, "*.jpg")
+jpgs = glob.glob1(image_directory, "*.webp")
 fourCount = len(jpgs) - (len(jpgs) % 4)
 column_one = jpgs[0:int(fourCount/4)]
 column_two = jpgs[int(fourCount/4):int((fourCount/4)*2)]
@@ -57,7 +67,7 @@ flines_after_column_four = flines[countFour:int(len(flines))]
 # Add Image Strings
 # HTML Strings
 imageTag_first = "<img onclick=\"openImageViewer(this.src)\" src=\"images/portfolio/"
-imageTag_second = "\" class=\"gallery__image\">\n"
+imageTag_second = "\" class=\"gallery__image\" loading=lazy>\n"
 
 # Append
 flinesA = flines_pre_column_one

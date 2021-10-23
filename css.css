@@ -256,7 +256,6 @@ header {
 	cursor: auto;
 }
 
-
 /*Index Gallery*/
 .gallery {
 	display: flex;
@@ -488,5 +487,23 @@ header {
 	.roadmapInnerDivOL li:hover {
 		text-decoration: none;
 		cursor: auto;
+	}
+
+
+
+	/*Index Gallery*/
+	.gallery {
+		display: block;
+	}
+	.gallery__column {
+		display: block;
+		width: 100%;
+	}
+	.gallery__image:hover {
+		filter: grayscale(0);
+		cursor: pointer;
+	}
+	.gallery__image {
+		width: 100%;
 	}
 }

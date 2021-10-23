@@ -51,7 +51,7 @@
 		function openImageViewer(_src) {
 			const splitString = _src.split("/");
 			let name = splitString[splitString.length - 1];
-			name = name.replace(".jpg", "");
+			name = name.replace(".webp", "");
 			//console.log(name);
 			location.href = "./showImage.html?" + name + "=" + _src;
 		}
@@ -63,7 +63,8 @@
 			<br><br>
 			<div class="gallery">
 				<div class="gallery__column">
-					<!-- <img onclick="openImageViewer(this.src)" src="images/portfolio/img.jpg" class="gallery__image"> -->
+					<!-- <img onclick="openImageViewer(this.src)" src="images/portfolio/img.jpg" class="gallery__image"
+						loading=lazy> -->
 					<!-- Column One Instert Start -->
 
 					<!-- Column One Instert End -->

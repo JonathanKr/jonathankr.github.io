@@ -53,7 +53,7 @@
 							console.log(temp);
 							const name = temp[0].replace("%20", " "); //for correct whitesapces
 							console.log(name);
-							const img_src = temp[1];
+							const img_src = temp[1].replace(".webp", ".jpg");
 							console.log(img_src);
 							//Assigning
 							const nameSpan = document.getElementById("imageName");

@@ -51,7 +51,7 @@
 		function openImageViewer(_src) {
 			const splitString = _src.split("/");
 			let name = splitString[splitString.length - 1];
-			name = name.replace(".jpg", "");
+			name = name.replace(".webp", "");
 			//console.log(name);
 			location.href = "./showImage.html?" + name + "=" + _src;
 		}
@@ -63,34 +63,35 @@
 			<br><br>
 			<div class="gallery">
 				<div class="gallery__column">
-					<!-- <img onclick="openImageViewer(this.src)" src="images/portfolio/img.jpg" class="gallery__image"> -->
+					<!-- <img onclick="openImageViewer(this.src)" src="images/portfolio/img.jpg" class="gallery__image"
+						loading=lazy> -->
 					<!-- Column One Instert Start -->
-<img onclick="openImageViewer(this.src)" src="images/portfolio/0008.jpg" class="gallery__image">
-<img onclick="openImageViewer(this.src)" src="images/portfolio/7.jpg" class="gallery__image">
+<img onclick="openImageViewer(this.src)" src="images/portfolio/0008.webp" class="gallery__image" loading=lazy>
+<img onclick="openImageViewer(this.src)" src="images/portfolio/7.webp" class="gallery__image" loading=lazy>
 
 					<!-- Column One Instert End -->
 				</div>
 
 				<div class="gallery__column">
 					<!-- Column Two Instert Start -->
-<img onclick="openImageViewer(this.src)" src="images/portfolio/planet wallpaper.jpg" class="gallery__image">
-<img onclick="openImageViewer(this.src)" src="images/portfolio/Render (2).jpg" class="gallery__image">
+<img onclick="openImageViewer(this.src)" src="images/portfolio/planet wallpaper.webp" class="gallery__image" loading=lazy>
+<img onclick="openImageViewer(this.src)" src="images/portfolio/Render (2).webp" class="gallery__image" loading=lazy>
 
 					<!-- Column Two Instert End -->
 				</div>
 
 				<div class="gallery__column">
 					<!-- Column Three Instert Start -->
-<img onclick="openImageViewer(this.src)" src="images/portfolio/Render.jpg" class="gallery__image">
-<img onclick="openImageViewer(this.src)" src="images/portfolio/Render1.jpg" class="gallery__image">
+<img onclick="openImageViewer(this.src)" src="images/portfolio/Render.webp" class="gallery__image" loading=lazy>
+<img onclick="openImageViewer(this.src)" src="images/portfolio/Render1.webp" class="gallery__image" loading=lazy>
 
 					<!-- Column Three Instert End -->
 				</div>
 
 				<div class="gallery__column">
 					<!-- Column Four Instert Start -->
-<img onclick="openImageViewer(this.src)" src="images/portfolio/Render2.1.jpg" class="gallery__image">
-<img onclick="openImageViewer(this.src)" src="images/portfolio/RenderEdit.jpg" class="gallery__image">
+<img onclick="openImageViewer(this.src)" src="images/portfolio/Render2.1.webp" class="gallery__image" loading=lazy>
+<img onclick="openImageViewer(this.src)" src="images/portfolio/RenderEdit.webp" class="gallery__image" loading=lazy>
 
 					<!-- Column Four Instert End -->
 				</div>
