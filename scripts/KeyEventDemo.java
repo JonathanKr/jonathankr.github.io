@@ -2,8 +2,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.*;
 
-import javax.security.sasl.RealmCallback;
-import javax.sound.midi.SysexMessage;
 import javax.swing.*;
 
 import java.util.Timer;
@@ -25,6 +23,10 @@ public class KeyEventDemo extends JFrame implements KeyListener {
 
     boolean isLastDot = true;
 
+    String tempTrans = "";
+
+    String[] displayText = new String[] { "", "" };
+
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -44,7 +46,10 @@ public class KeyEventDemo extends JFrame implements KeyListener {
                 if (releaseTime >= 7 * timeunit) {
                     if (!isLastDot) {
                         releaseTime = 0;
-                        displayArea.setText(displayArea.getText() + morseDict.getContent() + ". ");
+                        if (!tempTrans.equals("\\")) {
+                            displayText[0] += morseDict.getContent() + ". ";
+                            displayArea.setText(displayText[0]);
+                        }
                         morseDict = binaryTreeDict();
                         isLastDot = true;
                     }
@@ -65,6 +70,8 @@ public class KeyEventDemo extends JFrame implements KeyListener {
         // Display the window.
         frame.pack();
         frame.setVisible(true);
+
+        frame.setSize(1500, 500);
     }
 
     private void addComponentsToPane() {
@@ -94,15 +101,19 @@ public class KeyEventDemo extends JFrame implements KeyListener {
 
             if (releaseTime >= timeunit && releaseTime < 3 * timeunit) {
                 if (firstPress) {
-                    displayArea.setText(displayArea.getText() + morseDict.getContent());
-
+                    if (!tempTrans.equals("\\") && !morseDict.getContent().equals("Dictionary")) {
+                        displayText[0] += morseDict.getContent() + "";
+                        displayArea.setText(displayText[0]);
+                    }
                     morseDict = binaryTreeDict();
                     isLastDot = false;
                 }
             } else if (releaseTime >= 3 * timeunit && releaseTime < 7 * timeunit) {
                 if (firstPress) {
-                    displayArea.setText(displayArea.getText() + morseDict.getContent() + " ");
-
+                    if (!tempTrans.equals("\\") && !morseDict.getContent().equals("Dictionary")) {
+                        displayText[0] += morseDict.getContent() + " ";
+                        displayArea.setText(displayText[0]);
+                    }
                     morseDict = binaryTreeDict();
                     isLastDot = false;
                 }
@@ -112,7 +123,6 @@ public class KeyEventDemo extends JFrame implements KeyListener {
         // button is beeing pressed
         isPressing = true;
 
-        // detect first key press
         if (!firstPress) {
             firstPress = true;
         }
@@ -122,15 +132,41 @@ public class KeyEventDemo extends JFrame implements KeyListener {
         isPressing = false;
 
         long milliSec = System.currentTimeMillis() - pressBegin;
+        System.out.println(milliSec);
 
         if (milliSec <= timeunit) {
             System.out.println("dot");
-            morseDict = morseDict.getLeftTree();
+
+            if (morseDict.getLeftTree().getContent() == null) {
+                System.out.println("undef");
+                tempTrans = "\\";
+            } else {
+                morseDict = morseDict.getLeftTree();
+                tempTrans = morseDict.getContent();
+            }
+
+            System.out.println(tempTrans);
+            displayText[1] = tempTrans;
+
+            displayArea.setText(displayText[0] + displayText[1]);
         } else if (milliSec > timeunit) {
             System.out.println("dash");
-            morseDict = morseDict.getRightTree();
-        }
 
+            if (morseDict.getRightTree().getContent() == null) {
+                System.out.println("undef");
+                tempTrans = "\\";
+            } else {
+                morseDict = morseDict.getRightTree();
+                tempTrans = morseDict.getContent();
+            }
+
+            System.out.println(tempTrans);
+            displayText[1] = tempTrans;
+
+            displayArea.setText(displayText[0] + displayText[1]);
+        }
+        // starting new character
+        isLastDot = false;
         releaseTime = 0;
     }
 
@@ -170,5 +206,13 @@ public class KeyEventDemo extends JFrame implements KeyListener {
         BinaryTree<String> t = new BinaryTree<String>("T", n, m);
 
         return new BinaryTree<String>("Dictionary", e, t);
+    }
+
+    public static String removeCharacterFromEnd(String str, int numChar) {
+        String result = null;
+        if ((str != null) && (str.length() > 0)) {
+            result = str.substring(0, str.length() - numChar);
+        }
+        return result;
     }
 }
