@@ -16,7 +16,7 @@
 	<link rel="icon" type="image/png" href="../images/favicon-192x192.png">
 </head>
 
-<body>
+<body onload="setDates()">
 	<header>
 		<div class="webHeader">
 			<div class="webHeaderText">
@@ -39,13 +39,93 @@
 	<main>
 		<div class="content">
 			<span class="blogSection">Posts</span>
-			<br><br>
+			<br>
+			<div class="unselectable"><span onclick="dateForm()" id="dateForm_id"
+					style="cursor: pointer; color: #bfbfbf ">Dates</span> \ <span onclick="hexDates()" id="hexDates_id"
+					style="cursor:pointer; color: #ffffff;">Hex</span></div><br>
+
 			<ul class="blogList">
-				<li><a href="../blogposts/preset.html" class="postLink"><span class="liDate">[DATE]</span>&nbsp;<br
-							class="onlyMobile">Preset Blog Post</a><br class="onlyMobile"><br class="onlyMobile"></li>
+				<li><a href="../blogposts/preset.html" class="postLink"><span class="liDate"
+							id="Jun 8, 2005"></span>&nbsp;<br class="onlyMobile">Preset Blog Post</a><br
+						class="onlyMobile"><br class="onlyMobile"></li>
 			</ul>
 		</div>
 	</main>
+
+	<script>
+		function setDates() {
+			const liDates = document.getElementsByClassName("liDate");
+			for (let i = 0; i < liDates.length; i++) {
+				liDates[i].innerHTML = "[" + Math.round((Date.parse(liDates[i].id) / 1000)).toString(16) + "]";
+			}
+		}
+	</script>
+
+	<script>
+		function sleep(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+		async function dateForm() {
+			const dateForm = document.getElementById("dateForm_id");
+			const hexDates = document.getElementById("hexDates_id");
+
+			if (dateForm.style.color == "rgb(191, 191, 191)") {
+				dateForm.style.color = "#ffffff";
+				hexDates.style.color = "#bfbfbf";
+
+				const liDates = document.getElementsByClassName("liDate");
+
+				for (let i = 0; i < liDates.length; i++) {
+					let hex = Math.round((Date.parse(liDates[i].id) / 1000)).toString(16);
+					const hex_length = hex.length;
+					for (let j = 0; j < hex_length; j++) {
+						hex = hex.substring(0, hex.length - 1);
+						liDates[i].innerHTML = "[" + hex + "]";
+						await sleep(1);
+					}
+
+					let date = liDates[i].id;
+					let new_date = "";
+					const date_length = date.length;
+					for (let j = 0; j < date_length; j++) {
+						new_date += date[j];
+						liDates[i].innerHTML = "[" + new_date + "]";
+						await sleep(1);
+					}
+				}
+			}
+
+		}
+		async function hexDates() {
+			const dateForm = document.getElementById("dateForm_id");
+			const hexDates = document.getElementById("hexDates_id");
+
+			if (hexDates.style.color == "rgb(191, 191, 191)") {
+				dateForm.style.color = "#bfbfbf";
+				hexDates.style.color = "#ffffff";
+
+				const liDates = document.getElementsByClassName("liDate");
+				for (let i = 0; i < liDates.length; i++) {
+					let date = liDates[i].id;
+					const date_length = date.length;
+					for (let j = 0; j < date_length; j++) {
+						date = date.substring(0, date.length - 1);
+						liDates[i].innerHTML = "[" + date + "]";
+						await sleep(1);
+					}
+
+					let hex = Math.round((Date.parse(liDates[i].id) / 1000)).toString(16);
+					let new_hex = "";
+					const hex_length = hex.length;
+					for (let j = 0; j < hex_length; j++) {
+						new_hex += hex[j];
+						liDates[i].innerHTML = "[" + new_hex + "]";
+						await sleep(1);
+					}
+				}
+			}
+		}
+	</script>
 
 	<footer>
 		<!--Copyright © 2021 Jonathan Kron-->
