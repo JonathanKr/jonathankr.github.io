@@ -62,6 +62,9 @@
 	</script>
 
 	<script>
+		function replaceAt(input_str, index, replacement) {
+			return input_str.substr(0, index) + replacement + input_str.substr(index + replacement.length);
+		}
 		function sleep(ms) {
 			return new Promise(resolve => setTimeout(resolve, ms));
 		}
@@ -78,19 +81,23 @@
 				for (let i = 0; i < liDates.length; i++) {
 					let hex = Math.round((Date.parse(liDates[i].id) / 1000)).toString(16);
 					const hex_length = hex.length;
-					for (let j = 0; j < hex_length; j++) {
-						hex = hex.substring(0, hex.length - 1);
-						liDates[i].innerHTML = "[" + hex + "]";
-						await sleep(1);
-					}
-
 					let date = liDates[i].id;
 					let new_date = "";
 					const date_length = date.length;
+					//delte hex to correct length
+					if (hex_length > date_length) {
+						for (let j = 0; j < (hex_length - date_length); j++) {
+							hex = hex.substring(0, hex.length - 1);
+							liDates[i].innerHTML = "[" + hex + "]";
+							await sleep(20);
+						}
+					}
+
+					//replace hex with date chars
 					for (let j = 0; j < date_length; j++) {
-						new_date += date[j];
-						liDates[i].innerHTML = "[" + new_date + "]";
-						await sleep(1);
+						hex = replaceAt(hex, j, date[j]);
+						liDates[i].innerHTML = "[" + hex + "]";
+						await sleep(20);
 					}
 				}
 			}
@@ -106,21 +113,25 @@
 
 				const liDates = document.getElementsByClassName("liDate");
 				for (let i = 0; i < liDates.length; i++) {
+					let hex = Math.round((Date.parse(liDates[i].id) / 1000)).toString(16);
+					const hex_length = hex.length;
 					let date = liDates[i].id;
+					let new_date = "";
 					const date_length = date.length;
-					for (let j = 0; j < date_length; j++) {
-						date = date.substring(0, date.length - 1);
-						liDates[i].innerHTML = "[" + date + "]";
-						await sleep(1);
+					//delte date to correct length
+					if (date_length > hex_length) {
+						for (let j = 0; j < (date_length - hex_length); j++) {
+							date = date.substring(0, date.length - 1);
+							liDates[i].innerHTML = "[" + date + "]";
+							await sleep(20);
+						}
 					}
 
-					let hex = Math.round((Date.parse(liDates[i].id) / 1000)).toString(16);
-					let new_hex = "";
-					const hex_length = hex.length;
+					//replace date with hex chars
 					for (let j = 0; j < hex_length; j++) {
-						new_hex += hex[j];
-						liDates[i].innerHTML = "[" + new_hex + "]";
-						await sleep(1);
+						date = replaceAt(date, j, hex[j]);
+						liDates[i].innerHTML = "[" + date + "]";
+						await sleep(20);
 					}
 				}
 			}
