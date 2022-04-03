@@ -82,6 +82,13 @@ html {
 	margin: auto;
 	padding: 15px;
 }
+.webHeaderImage {
+	float: right;
+}
+.webHeaderIcon {
+	width: auto;
+	height: 1.25em;
+}
 /*Header Menu*/
 header {
 	border-bottom: 1px dotted grey;

@@ -33,7 +33,7 @@ column_four = jpgs[int((fourCount/4)*3):int(len(jpgs))]
 # One
 countOne = 1
 for line in flines:
-    if ("<!-- Column One Instert Start -->" in line):
+    if ("<!-- Column One Insert Start -->" in line):
         break
     countOne += 1
 flines_pre_column_one = flines[0:countOne]
@@ -41,7 +41,7 @@ flines_pre_column_one = flines[0:countOne]
 # Two
 countTwo = 1
 for line in flines:
-    if ("<!-- Column Two Instert Start -->" in line):
+    if ("<!-- Column Two Insert Start -->" in line):
         break
     countTwo += 1
 flines_pre_column_two = flines[countOne:countTwo]
@@ -49,7 +49,7 @@ flines_pre_column_two = flines[countOne:countTwo]
 # Three
 countThree = 1
 for line in flines:
-    if ("<!-- Column Three Instert Start -->" in line):
+    if ("<!-- Column Three Insert Start -->" in line):
         break
     countThree += 1
 flines_pre_column_three = flines[countTwo:countThree]
@@ -57,7 +57,7 @@ flines_pre_column_three = flines[countTwo:countThree]
 # Four
 countFour = 1
 for line in flines:
-    if ("<!-- Column Four Instert Start -->" in line):
+    if ("<!-- Column Four Insert Start -->" in line):
         break
     countFour += 1
 flines_pre_column_four = flines[countThree:countFour]
