@@ -65,9 +65,26 @@
 
 							const imageTag = document.getElementById("imageTag");
 							imageTag.src = img_src
+
+							//render Text
+							renderText(img_src.replace(".jpg", ".txt"));
 						}
 					</script>
+					<br><br>
+					<!-- Description text for image-->
+					<div id="textDisplayArea">
 
+					</div>
+					<script>
+						function renderText(url) {
+							fetch(url)
+								.then(response => response.text())
+								.then(data => {
+									// Do something with your data
+									document.getElementById('textDisplayArea').innerText = data;
+								});
+						}
+					</script>
 		</div>
 	</main>
 
