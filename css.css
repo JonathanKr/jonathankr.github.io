@@ -592,13 +592,14 @@ header {
 	}
 
 	.socialMediaTree {
-		line-height: 19px;
+		/*line-height: 19px;*/
+		line-height: 22px;
 	}
 
 	.aboutImage {
 		float: initial;
 		margin: auto;
-		width: 50%;
+		width: 100%;
 	}
 
 	.aboutImage img {
