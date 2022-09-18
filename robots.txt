@@ -4,5 +4,4 @@ Allow: /
 
 # Group 2
 User-agent: *
-Disallow: /images/
-Disallow: /audio/
+Disallow: /graphics/
