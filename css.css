@@ -32,6 +32,8 @@
 
     font-family: monospace, Sans-serif;
     /*letter-spacing: 0.5px;*/
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
