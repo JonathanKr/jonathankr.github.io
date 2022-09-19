@@ -6,6 +6,7 @@
 
     <!-- Links and Libraries -->
     <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="anim.css">
 
     <!-- Font -->
 
@@ -32,6 +33,17 @@
             <img id="logoGif" src="graphics/In.gif" width="250">
             <img id="logoGif" src="graphics/Out.gif" width="250" style="display: none;">
         </a>
+        <br><br>
+        <!--
+        <input type="range" min="1" max="100" value="1" class="volSliderC" id="volSliderID">
+        -->
+        <script>
+            var slider = document.getElementById("volSliderID");
+
+            slider.oninput = function () {
+                console.log(this.value);
+            }
+        </script>
     </div>
 
     <div id="scroll-down">
