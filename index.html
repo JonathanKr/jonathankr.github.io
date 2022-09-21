@@ -7,6 +7,7 @@
     <!-- Links and Libraries -->
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="anim.css">
+    <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
 
     <!-- Font -->
 
@@ -116,6 +117,7 @@
 
     <script>
         function scroller() {
+            /*
             const sec_amount = 6;
             const sec_height = document.body.scrollHeight / sec_amount - 4;
             //console.log(sec_amount, sec_height);
@@ -134,22 +136,73 @@
                     }
                 }
             }
+            */
+            window.scrollTo(0, window.innerHeight);
+            document.getElementById('scroll-down').className = 'scrollerOutAnim';
         }
     </script>
 
 
 
     <div id="content" style="display: none;">
-        <!--<video muted loop id="mainVideo">
-    <source src="graphics/MainVideo.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-        </video>-->
-        <h1 id="Sec1" class="sectionHeadings">Videography</h1>
-        <h1 id="Sec2" class="sectionHeadings">Photography</h1>
-        <h1 id="Sec3" class="sectionHeadings">YouTube</h1>
-        <h1 id="Sec4" class="sectionHeadings">Products</h1>
-        <h1 id="Sec5" class="sectionHeadings">Lore</h1>
-        <h1 id="Sec6" class="sectionHeadings">Contact</h1>
+        <!--<div id="content">-->
+        <div id="videoDiv">
+            <video muted loop id="mainVideo">
+                <source src="graphics/MainVideo.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="sectionHeadings">
+            <button id="btnVideography" onclick="changeTabs('btnVideography', 'secVideography')"
+                style="background-color: #272727 !important; color: white !important;">Videography</button>
+            <button id="btnPhotography" onclick="changeTabs('btnPhotography', 'secPhotography')">Photography</button>
+            <button id="btnYouTube" onclick="changeTabs('btnYouTube', 'secYouTube')">YouTube</button>
+            <button id="btnLore" onclick="changeTabs('btnLore', 'secLore')">Lore</button>
+            <button id="btnProducts" onclick="changeTabs('btnProducts', 'secProducts')">Products</button>
+            <script>
+                function changeTabs(tab, sec) {
+                    clearActiveTab();
+                    clearSections();
+                    document.getElementById(tab).setAttribute('style', 'background-color: #272727 !important; color: white !important;');
+                    document.getElementById(sec).setAttribute('style', 'display: default');
+                }
+
+                function clearActiveTab() {
+                    document.getElementById('btnVideography').setAttribute('style', 'background-color: black; color: #bebebe;');
+                    document.getElementById('btnPhotography').setAttribute('style', 'background-color: black; color: #bebebe;');
+                    document.getElementById('btnYouTube').setAttribute('style', 'background-color: black; color: #bebebe;');
+                    document.getElementById('btnLore').setAttribute('style', 'background-color: black; color: #bebebe;');
+                    document.getElementById('btnProducts').setAttribute('style', 'background-color: black; color: #bebebe;');
+                }
+
+                function clearSections() {
+                    document.getElementById('secVideography').setAttribute('style', 'display: none');
+                    document.getElementById('secPhotography').setAttribute('style', 'display: none');
+                    document.getElementById('secYouTube').setAttribute('style', 'display: none');
+                    document.getElementById('secLore').setAttribute('style', 'display: none');
+                    document.getElementById('secProducts').setAttribute('style', 'display: none');
+                }
+            </script>
+        </div>
+
+        <div id="secVideography" style="display: default;">
+            I'm still unsure about these tabs.
+        </div>
+
+        <div id="secPhotography" style="display: none;">
+            I will probably remove them
+        </div>
+
+        <div id="secYouTube" style="display: none;">
+            YouTube
+        </div>
+
+        <div id="secLore" style="display: none;">
+            Lore
+        </div>
+
+        <div id="secProducts" style="display: none;">
+            Products
+        </div>
     </div>
 
 </body>
