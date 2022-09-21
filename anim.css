@@ -78,6 +78,20 @@
     }
 }
 
+@-webkit-keyframes translateY_-150To0 {
+    from {
+        -moz-transform: translateY(-150%);
+        -webkit-transform: translateY(-150%);
+        transform: translateY(-150%);
+    }
+
+    to {
+        -moz-transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+}
+
 @-webkit-keyframes slider_width_0To150 {
     from {
         width: 0px;

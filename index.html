@@ -15,23 +15,28 @@
 
     <!-- Icon -->
     <link rel="icon" type="image/png" href="./images/favicon-192x192.png">
+
+    <script>
+        console.log('(:');
+    </script>
 </head>
 
 <body>
     <div id="logoGifDiv">
-        <a href="#" onclick="logoClick()">
+        <a onclick="logoClick()">
             <img id="logoGif" src="graphics/In512.gif" width="250">
             <img id="logoGif" src="graphics/Out512.gif" width="250" style="display: none;">
         </a>
-
     </div>
 
-    <div id="vol-slider">
-        <button id="soundCalButton" onclick="startcal()">
-            Sound Calibration
-        </button>
+    <div id="vol-slider" class="volSliderFirstAnim">
 
-        <br>
+        <a id="soundCalButton" onclick="startcal()">
+            <img id="volGif" src="graphics/Mute.gif" width="32">
+            <img id="volGif" src="graphics/Unmute.gif" width="32" style="display: none;">
+        </a>
+
+        <br><br>
 
         <input type="range" min="0" max="100" value="50" id="volSliderID">
         <audio id="volumeTone">
@@ -40,30 +45,33 @@
         <script>
             var slider = document.getElementById("volSliderID");
             const simpleTone = document.getElementById('volumeTone');
-            simpleTone.volume = 0;
+            simpleTone.volume = 0.01;
+
             function startcal() {
-                if (simpleTone.paused) {
-                    simpleTone.play();
-                    var fAudio = setInterval(function () {
-                        simpleTone.volume += 0.01
-                        console.log(simpleTone.volume);
-                        if (simpleTone.volume >= 0.5) {
-                            clearInterval(fAudio);
-                        };
-                    }, 50);
-                    document.getElementById('volSliderID').className = 'volSliderExtendAnim';
-                }
-                else if (!simpleTone.paused) {
-                    var fAudio = setInterval(function () {
-                        simpleTone.volume -= 0.01
-                        console.log(simpleTone.volume);
-                        if (simpleTone.volume <= 0.02) {
-                            simpleTone.pause();
-                            clearInterval(fAudio);
-                        };
-                    }, 50);
-                    document.getElementById('volSliderID').className = 'volSliderShrinkAnim';
-                }
+                var cur_play;
+
+                cur_play = simpleTone.paused ? false : true;
+                console.log(cur_play);
+
+                if (!cur_play) simpleTone.play();
+                const val_to_substract = cur_play ? -0.01 : 0.01;
+
+                document.getElementById('soundCalButton').setAttribute('style', 'pointer-events: none;');
+                document.getElementById('volGif').src = cur_play ? 'graphics/Mute.gif' : 'graphics/Unmute.gif';
+
+                var fInOutAudio = setInterval(function () {
+                    simpleTone.volume += val_to_substract;
+                    console.log(simpleTone.volume);
+
+                    if (simpleTone.volume >= 0.5 && !cur_play || simpleTone.volume <= 0.02 && cur_play) {
+                        if (cur_play) simpleTone.pause();
+                        clearInterval(fInOutAudio);
+                        document.getElementById('soundCalButton').setAttribute('style', 'pointer-events: all;');
+                    };
+                }, 10);
+
+
+                document.getElementById('volSliderID').className = cur_play ? 'volSliderShrinkAnim' : 'volSliderExtendAnim';
             };
             slider.oninput = function () {
                 simpleTone.volume = this.value / 100;
@@ -84,6 +92,7 @@
             document.getElementById('content').className = 'fadeIn';
             document.getElementById('content').setAttribute('style', 'display: default;')
 
+            document.getElementById('vol-slider').classList.remove = 'volSliderFirstAnim';
             document.getElementById('vol-slider').className = 'volSliderAnim';
 
             if (!simpleTone.paused) {
@@ -100,24 +109,47 @@
     </script>
 
     <div id="scroll-down">
-        <a href="#test-scroll-to">
+        <a onclick="scroller()">
             <img src="graphics/arrow-down.svg" width="50px">
         </a>
     </div>
+
+    <script>
+        function scroller() {
+            const sec_amount = 6;
+            const sec_height = document.body.scrollHeight / sec_amount - 4;
+            //console.log(sec_amount, sec_height);
+
+            for (let i = 1; i <= sec_amount; i++) {
+                const bottom_dist = document.getElementById('Sec' + i).getBoundingClientRect().bottom;
+                if (bottom_dist > 0 && bottom_dist < sec_height) {
+                    if (bottom_dist > 500) {
+                        window.scrollTo(0, sec_height * (i - 1));
+                        //console.log("bottom_dist>500", bottom_dist, sec_height * (i - 1));
+                        break;
+                    } else {
+                        window.scrollTo(0, sec_height * i);
+                        //console.log("bottom_dist<=500", bottom_dist, sec_height * i);
+                        break;
+                    }
+                }
+            }
+        }
+    </script>
+
+
 
     <div id="content" style="display: none;">
         <!--<video muted loop id="mainVideo">
     <source src="graphics/MainVideo.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
         </video>-->
-        <h1 style="margin-bottom: 500px;">Hello</h1>
-        <h1 style="margin-bottom: 500px;">Hello2</h1>
-        <h1 style="margin-bottom: 500px;">Hello3</h1>
-        <h1 style="margin-bottom: 500px;">Hello4</h1>
-        <h1 id="test-scroll-to" style="margin-bottom: 500px;">Hello5</h1>
-        <h1 style="margin-bottom: 500px;">Hello6</h1>
-        <h1 style="margin-bottom: 500px;">Hello7</h1>
-        <h1 style="margin-bottom: 500px;">Hello8</h1>
+        <h1 id="Sec1" class="sectionHeadings">Videography</h1>
+        <h1 id="Sec2" class="sectionHeadings">Photography</h1>
+        <h1 id="Sec3" class="sectionHeadings">YouTube</h1>
+        <h1 id="Sec4" class="sectionHeadings">Products</h1>
+        <h1 id="Sec5" class="sectionHeadings">Lore</h1>
+        <h1 id="Sec6" class="sectionHeadings">Contact</h1>
     </div>
 
 </body>
