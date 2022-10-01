@@ -86,6 +86,7 @@
         function logoClick() {
             document.getElementById('logoGif').src = 'graphics/Out512.gif';
             document.getElementById('logoGif').setAttribute('style', 'pointer-events: none;');
+            document.getElementById('logoGifDiv').setAttribute('style', 'cursor: default !important;');
 
             document.getElementById('scroll-down').className = 'fadeIn';
 
@@ -109,11 +110,13 @@
         };
     </script>
 
+    <!--
     <div id="scroll-down">
         <a onclick="scroller()">
             <img src="graphics/arrow-down.svg" width="50px">
         </a>
     </div>
+    -->
 
     <script>
         function scroller() {
@@ -143,10 +146,10 @@
     </script>
 
 
-
-    <div id="content" style="display: none;">
-        <!--<div id="content">-->
-        <div id="videoDiv">
+    <!--
+    <div id="content" style="display: none;">-->
+    <!--<div id="content">-->
+    <!--<div id="videoDiv">
             <video muted loop id="mainVideo">
                 <source src="graphics/MainVideo.mp4" type="video/mp4">
             </video>
@@ -203,7 +206,7 @@
         <div id="secProducts" style="display: none;">
             Products
         </div>
-    </div>
+    </div>-->
 
 </body>
 
