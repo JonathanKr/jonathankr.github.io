@@ -105,8 +105,10 @@ a {
     grid-column-gap: 0px;
     grid-row-gap: 0px;
 
+    /*
     border-left: 2px solid white;
     border-right: 2px solid white;
+    */
 }
 
 .main-title {
@@ -137,6 +139,10 @@ a {
         margin-bottom: 1em;
 
         font-family: 'Abril Fatface', cursive;
+    }
+
+    .main-grid {
+        margin-top: -10em;
     }
 }
 
