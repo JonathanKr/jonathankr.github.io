@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="onSiteLoad()">
     <div class="page-header"></div>
     <div class="grid-flex-wrapper">
         <div class="main-grid">
@@ -25,15 +25,18 @@
                 Jonathan Kron
             </div>
 
-            <div class="main-text">
+            <div class="main-menu">
                 <div>
-                    Photography
+                    <span id="id-photo" style="color: white; cursor: pointer;"
+                        onclick="clickMenu('id-photo', 'id-photo-gallery')">Photography</span>
                 </div>
                 <div>
-                    <span style="color: grey; cursor: pointer;">Videography</span>
+                    <span id="id-video" style="color: grey; cursor: pointer;"
+                        onclick="clickMenu('id-video', 'id-video-gallery')">Videography</span>
                 </div>
-                <div style="color: grey; cursor: pointer;">
-                    <span style="color: grey; cursor: pointer;">Music</span>
+                <div>
+                    <span id="id-music" style="color: grey; cursor: pointer;"
+                        onclick="clickMenu('id-music', 'id-music-gallery')">Music</span>
                 </div>
             </div>
         </div>
@@ -50,14 +53,42 @@
             window.scrollTo(0, window.innerHeight);
             document.getElementById('scroll-down').className = 'scrollerOutAnim';
         }
+        function clickMenu(menuText, menuGallery) {
+            //reset colors
+            document.getElementById("id-photo").style.color = "grey";
+            document.getElementById("id-video").style.color = "grey";
+            document.getElementById("id-music").style.color = "grey";
+            //reset galleries
+            document.getElementById("id-photo-gallery").style.display = "none";
+            document.getElementById("id-video-gallery").style.display = "none";
+            document.getElementById("id-music-gallery").style.display = "none";
+
+            document.getElementById(menuText).style.color = "white";
+            document.getElementById(menuGallery).style.display = "flex";
+            console.log(menuGallery)
+
+            //scroller();
+        }
+        function onSiteLoad() {
+            document.getElementById('scroll-down').className = 'fadeIn';
+        }
     </script>
 
-    <hr>
-    <div class="image-gallery">
-        <h1>Gallery TODO</h1>
+    <!--<hr>-->
+
+    <div id="id-photo-gallery" class="photo-gallery" style="display: default;">
+        <h1>Photo Gallery TODO</h1>
     </div>
-    <hr>
-    <div class="image-gallery">
+    <div id="id-video-gallery" class="video-gallery" style="display: none;">
+        <h1>Video Gallery TODO</h1>
+    </div>
+    <div id="id-music-gallery" class="music-gallery" style="display: none;">
+        <h1>Music Gallery TODO</h1>
+    </div>
+
+    <!--<hr>-->
+
+    <div class="photo-gallery">
         <h1>Contact TODO</h1>
     </div>
 
