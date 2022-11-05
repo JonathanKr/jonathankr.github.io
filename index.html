@@ -1,212 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Kron</title>
-
-    <!-- Links and Libraries -->
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="anim.css">
-    <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
-
-    <!-- Font -->
-
-    <!-- Phone -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Icon -->
-    <link rel="icon" type="image/png" href="./images/favicon-192x192.png">
-
-    <script>
-        console.log('(:');
-    </script>
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="logoGifDiv">
-        <a onclick="logoClick()">
-            <img id="logoGif" src="graphics/In512.gif" width="250">
-            <img id="logoGif" src="graphics/Out512.gif" width="250" style="display: none;">
-        </a>
+    <div class="page-header"></div>
+    <div class="grid-flex-wrapper">
+        <div class="main-grid">
+            <div class="main-text">
+            </div>
+            <div class="main-title">
+                Jonathan Kron
+            </div>
+
+            <div class="main-text">
+                <div>
+                    Photography
+                </div>
+                <div>
+                    <span style="color: grey; cursor: pointer;">Videography</span>
+                </div>
+                <div style="color: grey; cursor: pointer;">
+                    <span style="color: grey; cursor: pointer;">Music</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="vol-slider" class="volSliderFirstAnim">
-
-        <a id="soundCalButton" onclick="startcal()">
-            <img id="volGif" src="graphics/Mute.gif" width="32">
-            <img id="volGif" src="graphics/Unmute.gif" width="32" style="display: none;">
-        </a>
-
-        <br><br>
-
-        <input type="range" min="0" max="100" value="50" id="volSliderID">
-        <audio id="volumeTone">
-            <source src="audio/track_1.wav" type="audio/wav">
-        </audio>
-        <script>
-            var slider = document.getElementById("volSliderID");
-            const simpleTone = document.getElementById('volumeTone');
-            simpleTone.volume = 0.01;
-
-            function startcal() {
-                var cur_play;
-
-                cur_play = simpleTone.paused ? false : true;
-                console.log(cur_play);
-
-                if (!cur_play) simpleTone.play();
-                const val_to_substract = cur_play ? -0.01 : 0.01;
-
-                document.getElementById('soundCalButton').setAttribute('style', 'pointer-events: none;');
-                document.getElementById('volGif').src = cur_play ? 'graphics/Mute.gif' : 'graphics/Unmute.gif';
-
-                var fInOutAudio = setInterval(function () {
-                    simpleTone.volume += val_to_substract;
-                    console.log(simpleTone.volume);
-
-                    if (simpleTone.volume >= 0.5 && !cur_play || simpleTone.volume <= 0.02 && cur_play) {
-                        if (cur_play) simpleTone.pause();
-                        clearInterval(fInOutAudio);
-                        document.getElementById('soundCalButton').setAttribute('style', 'pointer-events: all;');
-                    };
-                }, 10);
-
-
-                document.getElementById('volSliderID').className = cur_play ? 'volSliderShrinkAnim' : 'volSliderExtendAnim';
-            };
-            slider.oninput = function () {
-                simpleTone.volume = this.value / 100;
-            };
-        </script>
-    </div>
-
-
-
-    <script>
-        function logoClick() {
-            document.getElementById('logoGif').src = 'graphics/Out512.gif';
-            document.getElementById('logoGif').setAttribute('style', 'pointer-events: none;');
-            document.getElementById('logoGifDiv').setAttribute('style', 'cursor: default !important;');
-
-            document.getElementById('scroll-down').className = 'fadeIn';
-
-            //document.getElementById('mainVideo').play();
-            document.getElementById('content').className = 'fadeIn';
-            document.getElementById('content').setAttribute('style', 'display: default;')
-
-            document.getElementById('vol-slider').classList.remove = 'volSliderFirstAnim';
-            document.getElementById('vol-slider').className = 'volSliderAnim';
-
-            if (!simpleTone.paused) {
-                var fAudio = setInterval(function () {
-                    simpleTone.volume -= 0.01
-                    console.log(simpleTone.volume);
-                    if (simpleTone.volume <= 0.02) {
-                        simpleTone.pause();
-                        clearInterval(fAudio);
-                    };
-                }, 50);
-            };
-        };
-    </script>
-
-    <!--
     <div id="scroll-down">
         <a onclick="scroller()">
             <img src="graphics/arrow-down.svg" width="50px">
         </a>
     </div>
-    -->
 
     <script>
         function scroller() {
-            /*
-            const sec_amount = 6;
-            const sec_height = document.body.scrollHeight / sec_amount - 4;
-            //console.log(sec_amount, sec_height);
-
-            for (let i = 1; i <= sec_amount; i++) {
-                const bottom_dist = document.getElementById('Sec' + i).getBoundingClientRect().bottom;
-                if (bottom_dist > 0 && bottom_dist < sec_height) {
-                    if (bottom_dist > 500) {
-                        window.scrollTo(0, sec_height * (i - 1));
-                        //console.log("bottom_dist>500", bottom_dist, sec_height * (i - 1));
-                        break;
-                    } else {
-                        window.scrollTo(0, sec_height * i);
-                        //console.log("bottom_dist<=500", bottom_dist, sec_height * i);
-                        break;
-                    }
-                }
-            }
-            */
             window.scrollTo(0, window.innerHeight);
             document.getElementById('scroll-down').className = 'scrollerOutAnim';
         }
     </script>
 
-
-    <!--
-    <div id="content" style="display: none;">-->
-    <!--<div id="content">-->
-    <!--<div id="videoDiv">
-            <video muted loop id="mainVideo">
-                <source src="graphics/MainVideo.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div id="sectionHeadings">
-            <button id="btnVideography" onclick="changeTabs('btnVideography', 'secVideography')"
-                style="background-color: #272727 !important; color: white !important;">Videography</button>
-            <button id="btnPhotography" onclick="changeTabs('btnPhotography', 'secPhotography')">Photography</button>
-            <button id="btnYouTube" onclick="changeTabs('btnYouTube', 'secYouTube')">YouTube</button>
-            <button id="btnLore" onclick="changeTabs('btnLore', 'secLore')">Lore</button>
-            <button id="btnProducts" onclick="changeTabs('btnProducts', 'secProducts')">Products</button>
-            <script>
-                function changeTabs(tab, sec) {
-                    clearActiveTab();
-                    clearSections();
-                    document.getElementById(tab).setAttribute('style', 'background-color: #272727 !important; color: white !important;');
-                    document.getElementById(sec).setAttribute('style', 'display: default');
-                }
-
-                function clearActiveTab() {
-                    document.getElementById('btnVideography').setAttribute('style', 'background-color: black; color: #bebebe;');
-                    document.getElementById('btnPhotography').setAttribute('style', 'background-color: black; color: #bebebe;');
-                    document.getElementById('btnYouTube').setAttribute('style', 'background-color: black; color: #bebebe;');
-                    document.getElementById('btnLore').setAttribute('style', 'background-color: black; color: #bebebe;');
-                    document.getElementById('btnProducts').setAttribute('style', 'background-color: black; color: #bebebe;');
-                }
-
-                function clearSections() {
-                    document.getElementById('secVideography').setAttribute('style', 'display: none');
-                    document.getElementById('secPhotography').setAttribute('style', 'display: none');
-                    document.getElementById('secYouTube').setAttribute('style', 'display: none');
-                    document.getElementById('secLore').setAttribute('style', 'display: none');
-                    document.getElementById('secProducts').setAttribute('style', 'display: none');
-                }
-            </script>
-        </div>
-
-        <div id="secVideography" style="display: default;">
-            I'm still unsure about these tabs.
-        </div>
-
-        <div id="secPhotography" style="display: none;">
-            I will probably remove them
-        </div>
-
-        <div id="secYouTube" style="display: none;">
-            YouTube
-        </div>
-
-        <div id="secLore" style="display: none;">
-            Lore
-        </div>
-
-        <div id="secProducts" style="display: none;">
-            Products
-        </div>
-    </div>-->
+    <hr>
+    <div class="image-gallery">
+        <h1>Gallery TODO</h1>
+    </div>
+    <hr>
+    <div class="image-gallery">
+        <h1>Contact TODO</h1>
+    </div>
 
 </body>
 

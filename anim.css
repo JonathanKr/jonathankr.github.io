@@ -1,10 +1,36 @@
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
+@keyframes grain {
+
+    0%,
+    100% {
+        transform: translate(10%, 0)
     }
 
-    to {
-        opacity: 1;
+    12.5% {
+        transform: translate(5%, 5%)
+    }
+
+    25% {
+        transform: translate(0, 10%)
+    }
+
+    37.5% {
+        transform: translate(-5%, 5%)
+    }
+
+    50% {
+        transform: translate(-10%, 0%)
+    }
+
+    62.5% {
+        transform: translate(-5%, -5%)
+    }
+
+    75% {
+        transform: translate(0%, -10%)
+    }
+
+    87.5% {
+        transform: translate(5%, -5%)
     }
 }
 
@@ -36,34 +62,6 @@
     }
 }
 
-@-webkit-keyframes scale_1To11 {
-    from {
-        -moz-transform: scale(1);
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-
-    to {
-        -moz-transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-}
-
-@-webkit-keyframes scale_11To1 {
-    from {
-        -moz-transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
-
-    to {
-        -moz-transform: scale(1);
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
 @-webkit-keyframes translateY_0To150 {
     from {
         -moz-transform: translateY(0%);
@@ -75,57 +73,5 @@
         -moz-transform: translateY(150%);
         -webkit-transform: translateY(150%);
         transform: translateY(150%);
-    }
-}
-
-@-webkit-keyframes translateY_0To-150 {
-    from {
-        -moz-transform: translateY(0%);
-        -webkit-transform: translateY(0%);
-        transform: translateY(0%);
-    }
-
-    to {
-        -moz-transform: translateY(-150%);
-        -webkit-transform: translateY(-150%);
-        transform: translateY(-150%);
-    }
-}
-
-@-webkit-keyframes translateY_-150To0 {
-    from {
-        -moz-transform: translateY(-150%);
-        -webkit-transform: translateY(-150%);
-        transform: translateY(-150%);
-    }
-
-    to {
-        -moz-transform: translateY(0%);
-        -webkit-transform: translateY(0%);
-        transform: translateY(0%);
-    }
-}
-
-@-webkit-keyframes slider_width_0To150 {
-    from {
-        width: 0px;
-        opacity: 0;
-    }
-
-    to {
-        width: 150px;
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes slider_width_150To0 {
-    from {
-        width: 150px;
-        opacity: 1;
-    }
-
-    to {
-        width: 0px;
-        opacity: 0;
     }
 }
