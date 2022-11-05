@@ -8,11 +8,14 @@
     <title>Jonathan Kron</title>
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="anim.css">
+    <link rel="icon" type="image/x-icon" href="/graphics/favicon-192x192.png">
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap" rel="stylesheet">
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body onload="onSiteLoad()">
@@ -71,7 +74,22 @@
             document.getElementById('scroll-down').className = 'fadeIn';
 
 
-            console.log();
+            var folder = "photos/";
+
+            let countJ = 0;
+            $.ajax({
+                url: folder,
+                success: function (data) {
+                    $(data).find("a").attr("href", function (i, val) {
+                        if (val.match(/\.(jpe?g|png|gif)$/)) {
+                            console.log(countJ);
+                            countJ++;
+                            if (countJ == 4) { countJ = 0 };
+                            $("#col-" + countJ + "").append("<img src='" + val + "' style='width:100%' loading='lazy'>");
+                        }
+                    });
+                }
+            });
         }
     </script>
 
@@ -81,41 +99,13 @@
 
         <!-- Photo Grid -->
         <div class="row">
-            <div class="column">
-                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
+            <div class="column" id="col-0">
             </div>
-            <div class="column">
-                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
+            <div class="column" id="col-1">
             </div>
-            <div class="column">
-                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
+            <div class="column" id="col-2">
             </div>
-            <div class="column">
-                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
-                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
+            <div class="column" id="col-3">
             </div>
         </div>
     </div>
