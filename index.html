@@ -19,8 +19,6 @@
     <div class="page-header"></div>
     <div class="grid-flex-wrapper">
         <div class="main-grid">
-            <div class="main-text">
-            </div>
             <div class="main-title">
                 Jonathan Kron
             </div>
@@ -71,13 +69,55 @@
         }
         function onSiteLoad() {
             document.getElementById('scroll-down').className = 'fadeIn';
+
+
+            console.log();
         }
     </script>
 
     <!--<hr>-->
 
     <div id="id-photo-gallery" class="photo-gallery" style="display: default;">
-        <h1>Photo Gallery TODO</h1>
+
+        <!-- Photo Grid -->
+        <div class="row">
+            <div class="column">
+                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
+            </div>
+            <div class="column">
+                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
+            </div>
+            <div class="column">
+                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
+            </div>
+            <div class="column">
+                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/1.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/2.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/3.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/4.jpg" style="width:100%" loading="lazy">
+                <img src="/photos/5.jpg" style="width:100%" loading="lazy">
+            </div>
+        </div>
     </div>
     <div id="id-video-gallery" class="video-gallery" style="display: none;">
         <h1>Video Gallery TODO</h1>
@@ -87,10 +127,11 @@
     </div>
 
     <!--<hr>-->
-
+    <!--
     <div class="photo-gallery">
         <h1>Contact TODO</h1>
     </div>
+    -->
 
 </body>
 

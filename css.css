@@ -89,7 +89,6 @@ a {
 }
 
 /*Main*/
-
 .grid-flex-wrapper {
     display: flex;
     height: 100vh;
@@ -102,9 +101,12 @@ a {
     width: 75%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+
+    border-left: 2px solid white;
+    border-right: 2px solid white;
 }
 
 .main-title {
@@ -206,9 +208,57 @@ a {
 .photo-gallery {
     display: flex;
     height: 100vh;
-    text-align: center;
+    /*text-align: center;*/
+    padding: 0em;
+}
+
+/*Photo Gallery*/
+.row {
+    display: -ms-flexbox;
+    /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap;
+    /* IE10 */
+    flex-wrap: wrap;
+
     justify-content: center;
-    align-items: center;
+
+    z-index: 0;
+
+
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    -ms-flex: 25%;
+    /* IE10 */
+    flex: 25%;
+    max-width: 20%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
 }
 
 .video-gallery {
