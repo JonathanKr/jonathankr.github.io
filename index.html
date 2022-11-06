@@ -31,6 +31,7 @@
                     <span id="id-photo" style="color: white; cursor: pointer;"
                         onclick="clickMenu('id-photo', 'id-photo-gallery')">Photography</span>
                 </div>
+                <!--
                 <div>
                     <span id="id-video" style="color: grey; cursor: pointer; text-decoration: line-through;"
                         onclick="clickMenu('id-video', 'id-video-gallery')">Videography</span>
@@ -39,6 +40,7 @@
                     <span id="id-music" style="color: grey; cursor: pointer; text-decoration: line-through;"
                         onclick="clickMenu('id-music', 'id-music-gallery')">Music</span>
                 </div>
+                -->
             </div>
         </div>
     </div>
@@ -73,36 +75,25 @@
             //scroller();
         }
         function onSiteLoad() {
-            document.getElementById('scroll-down').className = 'fadeIn';
+            //document.getElementById('scroll-down').className = 'fadeIn';
 
-
-            /*
-            var folder = "photos/";
 
             let countJ = 0;
-            $.ajax({
-                url: folder,
-                success: function (data) {
-                    $(data).find("a").attr("href", function (i, val) {
-                        if (val.match(/\.(jpe?g|png|gif)$/)) {
-                            console.log(countJ);
-                            countJ++;
-                            if (countJ == 4) { countJ = 0 };
-                            $("#col-" + countJ + "").append("<img src='" + val + "' style='width:100%' loading='lazy'>");
-                        }
-                    });
-                }
-            });
-            */
+            for (let i = 1; i <= 19; i++) {
+                countJ++;
+                if (countJ == 4) { countJ = 0; }
+                $("#col-" + countJ + "").append("<img src='photos/" + i + ".jpg' style='width:100%' loading='lazy'>");
+            }
+
 
             $(".row img").click(function () {
                 $("#full-image").attr("src", $(this).attr("src"));
-                $('#image-viewer').show();
+                $('#image-viewer').css("display", "flex");;
             });
 
             $("#image-viewer").click(function (event) {
                 if (event.target.className != "modal-content") {
-                    $('#image-viewer').hide();
+                    $('#image-viewer').css("display", "none");;
                 }
             });
         }
@@ -111,20 +102,15 @@
     <!--<hr>-->
 
     <div id="id-photo-gallery" class="photo-gallery" style="display: flex;">
-        <!-- Photo Grid -->
+        <!-- Photo Grid <img src="photos/1.jpg" style='width:100%' loading='lazy'> -->
         <div class="row">
             <div class="column" id="col-0">
-                <img src="photos/1.jpg" style='width:100%' loading='lazy'>
-                <img src="photos/2.jpg" style='width:100%' loading='lazy'>
             </div>
             <div class="column" id="col-1">
-                <img src="photos/3.jpg" style='width:100%' loading='lazy'>
             </div>
             <div class="column" id="col-2">
-                <img src="photos/4.jpg" style='width:100%' loading='lazy'>
             </div>
             <div class="column" id="col-3">
-                <img src="photos/5.jpg" style='width:100%' loading='lazy'>
             </div>
         </div>
     </div>
