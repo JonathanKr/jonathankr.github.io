@@ -267,12 +267,28 @@ a {
     }
 }
 
+/*Video Gallery*/
 .video-gallery {
-    display: flex;
     height: 100vh;
+    /*
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    */
+    /*
+    display: flex;
+    
     text-align: center;
     justify-content: center;
     align-items: center;
+    */
+}
+
+#test-button {
+    position: relative;
+    left: 20%;
+    top: 10%;
 }
 
 .music-gallery {
