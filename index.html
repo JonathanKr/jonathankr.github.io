@@ -20,6 +20,7 @@
 
 <body onload="onSiteLoad()">
     <div class="page-header"></div>
+
     <div class="grid-flex-wrapper">
         <div class="main-grid">
             <div class="main-title">
@@ -31,33 +32,19 @@
                     <span id="id-photo" style="color: white; cursor: pointer;"
                         onclick="clickMenu('id-photo', 'id-photo-gallery')">Photography</span>
                 </div>
-                <!--
                 <div>
-                    <span id="id-video" style="color: grey; cursor: pointer; text-decoration: line-through;"
+                    <span id="id-video" style="color: grey; cursor: pointer;"
                         onclick="clickMenu('id-video', 'id-video-gallery')">Videography</span>
                 </div>
                 <div>
-                    <span id="id-music" style="color: grey; cursor: pointer; text-decoration: line-through;"
+                    <span id="id-music" style="color: grey; cursor: pointer;"
                         onclick="clickMenu('id-music', 'id-music-gallery')">Music</span>
                 </div>
-                -->
             </div>
         </div>
     </div>
 
-    <!--
-    <div id="scroll-down">
-        <a onclick="scroller()">
-            <img src="graphics/arrow-down.svg" width="50px">
-        </a>
-    </div>
-    -->
-
     <script>
-        function scroller() {
-            window.scrollTo(0, window.innerHeight);
-            document.getElementById('scroll-down').className = 'scrollerOutAnim';
-        }
         function clickMenu(menuText, menuGallery) {
             //reset colors
             document.getElementById("id-photo").style.color = "grey";
@@ -72,12 +59,12 @@
             document.getElementById(menuGallery).style.display = "flex";
             console.log(menuGallery)
 
-            //scroller();
+            scroller()
+        }
+        function scroller() {
+            window.scrollTo(0, window.innerHeight);
         }
         function onSiteLoad() {
-            //document.getElementById('scroll-down').className = 'fadeIn';
-
-
             let countJ = 0;
             for (let i = 1; i <= 19; i++) {
                 countJ++;
@@ -99,8 +86,6 @@
         }
     </script>
 
-    <!--<hr>-->
-
     <div id="id-photo-gallery" class="photo-gallery" style="display: flex;">
         <!-- Photo Grid <img src="photos/1.jpg" style='width:100%' loading='lazy'> -->
         <div class="row">
@@ -114,19 +99,69 @@
             </div>
         </div>
     </div>
+
     <div id="id-video-gallery" class="video-gallery" style="display: none;">
-        <!--<span id="test-button">test</span>-->
-    </div>
-    <div id="id-music-gallery" class="music-gallery" style="display: none;">
-        <!--<h1>Music Gallery TODO</h1>-->
+        Hey, this isn't finished yet!
     </div>
 
-    <!--<hr>-->
+    <div id="id-music-gallery" class="music-gallery" style="display: none;">
+        <!--<div class="music-gallery-background-image"></div>-->
+
+        <div class="audio-player-div">
+            <audio src="audio/1.wav"></audio>
+            <button onclick="playAudio(event)">play</button><br><br>
+            <input type="range" id="volume" max="100" value="50" oninput="setVol(event)">
+            <input type="range" id="duration" max="100" value="0" oninput="setTime(event)">
+        </div>
+
+        <script>
+            function playAudio(e) {
+                const audio_e = e.srcElement.parentNode.children[0];
+
+                audio_e.volume = e.srcElement.parentNode.children[4].value / 100;
+
+                if (audio_e.paused) {
+                    audio_e.play();
+                    e.srcElement.innerHTML = "pause";
+
+                    //console.log(e)
+
+                    audio_e.addEventListener("timeupdate", function () {
+                        displayDuration(e.srcElement.innerHTML, audio_e, e.srcElement.parentNode.children[5])
+                    }, false);
+                } else {
+                    audio_e.pause();
+                    e.srcElement.innerHTML = "play";
+                    audio_e.removeEventListener("timeupdate", function () {
+                        displayDuration(e.srcElement.innerHTML, audio_e, e.srcElement.parentNode.children[5])
+                    }, false);
+                }
+            }
+
+            function setVol(e) {
+                e.srcElement.parentNode.children[0].volume = e.srcElement.value / 100;
+            }
+
+            function setTime(e) {
+                e.srcElement.parentNode.children[0].currentTime = e.srcElement.value / 100 * e.srcElement.parentNode.children[0].duration;
+            }
+
+            function displayDuration(btnHTML, audio, slider) {
+                slider.value = Math.floor(audio.currentTime / audio.duration * 100);
+                if (audio.currentTime == audio.duration) {
+                    //change button text to play
+                    // remove event listener
+                }
+            }
+        </script>
+    </div>
+
     <!--
     <div class="photo-gallery">
         <h1>Contact TODO</h1>
     </div>
     -->
+
 
 
     <div id="image-viewer">
