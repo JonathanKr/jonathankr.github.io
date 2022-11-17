@@ -274,7 +274,27 @@ a {
     height: 100vh;
     text-align: center;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
+}
+
+.video-gallery ul {
+    list-style: none;
+    margin-top: 2em;
+}
+
+.video-gallery ul li {
+    display: inline;
+    margin: 1em;
+    transition: .5s;
+}
+
+.video-gallery ul li:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.video-gallery ul li img {
+    margin-bottom: 2em;
 }
 
 /*Music Gallery*/
