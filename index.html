@@ -20,44 +20,81 @@
 
 <body onload="onSiteLoad()">
     <div class="page-header"></div>
+    <div class="grid-main-two-column">
+        <div class="grid-flex-wrapper">
+            <div class="main-grid">
+                <div class="main-title">
+                    Jonathan Kron
+                </div>
 
-    <div class="grid-flex-wrapper">
-        <div class="main-grid">
-            <div class="main-title">
-                Jonathan Kron
+                <div class="main-menu">
+                    <div>
+                        <span id="id-photo" style="color: white; cursor: pointer;"
+                            onclick="clickMenu('id-photo', 'id-photo-gallery')">Photography</span>
+                    </div>
+                    <div>
+                        <span id="id-video" style="color: grey; cursor: pointer;"
+                            onclick="clickMenu('id-video', 'id-video-gallery')">Videography</span>
+                    </div>
+                    <div>
+                        <span id="id-music" style="color: grey; cursor: pointer;"
+                            onclick="clickMenu('id-music', 'id-music-gallery')">Music</span>
+                    </div>
+                    <div>
+                        <span class="only-phone-block" id="id-about-me" style="color: grey; cursor: pointer;"
+                            onclick="clickMenu('id-about-me', 'id-about-me-text')">About Me</span>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="main-contact">
+            <!-- <div class="main-img"></div> -->
+            <!-- <br> -->
+            <div class="main-grid">
+                <div class="main-title">
+                    About Me
+                </div>
 
-            <div class="main-menu">
-                <div>
-                    <span id="id-photo" style="color: white; cursor: pointer;"
-                        onclick="clickMenu('id-photo', 'id-photo-gallery')">Photography</span>
+                <div class="main-image">
                 </div>
-                <div>
-                    <span id="id-video" style="color: grey; cursor: pointer;"
-                        onclick="clickMenu('id-video', 'id-video-gallery')">Videography</span>
-                </div>
-                <div>
-                    <span id="id-music" style="color: grey; cursor: pointer;"
-                        onclick="clickMenu('id-music', 'id-music-gallery')">Music</span>
+
+                <div class="contact-text">
+                    Laboris do commodo id nostrud voluptate magna esse adipisicing duis laboris. Incididunt duis ullamco
+                    in
+                    esse
+                    mollit in in irure Lorem consectetur laborum labore excepteur magna. Officia fugiat magna ut eiusmod
+                    minim
+                    ullamco amet aliquip ullamco sunt sunt. Tempor irure pariatur excepteur tempor culpa reprehenderit
+                    occaecat
+                    <br><br>
+
+                    E-Mail: <a href="mailto:none">E-Mail</a>
                 </div>
             </div>
         </div>
     </div>
-
     <script>
         function clickMenu(menuText, menuGallery) {
-            //reset colors
+            //reset colors 1
             document.getElementById("id-photo").style.color = "grey";
             document.getElementById("id-video").style.color = "grey";
             document.getElementById("id-music").style.color = "grey";
+            document.getElementById("id-about-me").style.color = "grey";
+            //reset colors 2
+            document.getElementById("id-photo-2").style.color = "grey";
+            document.getElementById("id-video-2").style.color = "grey";
+            document.getElementById("id-music-2").style.color = "grey";
+            document.getElementById("id-about-me-2").style.color = "grey";
             //reset galleries
             document.getElementById("id-photo-gallery").style.display = "none";
             document.getElementById("id-video-gallery").style.display = "none";
             document.getElementById("id-music-gallery").style.display = "none";
+            document.getElementById("id-about-me-text").style.display = "none";
 
             document.getElementById(menuText).style.color = "white";
+            document.getElementById(menuText + "-2").style.color = "white";
             document.getElementById(menuGallery).style.display = "flex";
-            console.log(menuGallery)
+            // console.log(menuGallery)
 
             scroller()
         }
@@ -75,16 +112,31 @@
 
             $(".row img").click(function () {
                 $("#full-image").attr("src", $(this).attr("src"));
-                $('#image-viewer').css("display", "flex");;
+                $('#image-viewer').css("display", "flex");
             });
 
             $("#image-viewer").click(function (event) {
                 if (event.target.className != "modal-content") {
-                    $('#image-viewer').css("display", "none");;
+                    $('#image-viewer').css("display", "none");
                 }
             });
         }
     </script>
+
+
+    <div class="simple-nav-menu">
+        <span id="id-photo-2" style="color: white; cursor: pointer;"
+            onclick="clickMenu('id-photo', 'id-photo-gallery')">Photography</span>
+        &nbsp&nbsp&nbsp
+        <span id="id-video-2" style="color: grey; cursor: pointer;"
+            onclick="clickMenu('id-video', 'id-video-gallery')">Videography</span>
+        &nbsp&nbsp&nbsp
+        <span id="id-music-2" style="color: grey; cursor: pointer;"
+            onclick="clickMenu('id-music', 'id-music-gallery')">Music</span>
+        &nbsp&nbsp&nbsp
+        <span class="only-phone-block" id="id-about-me-2" style="color: grey; cursor: pointer;"
+            onclick="clickMenu('id-about-me', 'id-about-me-text')">About Me</span>
+    </div>
 
     <div id="id-photo-gallery" class="photo-gallery" style="display: flex;">
         <!-- Photo Grid <img src="photos/1.jpg" style='width:100%' loading='lazy'> -->
@@ -168,13 +220,36 @@
         </script>
     </div>
 
-    <!--
-    <div class="music-gallery">
-        <h1>Contact TODO</h1>
+    <div id="id-about-me-text" style="display: none;">
+        <div class="grid-flex-wrapper">
+            <div class="main-grid">
+                <div class="main-title">
+                    About Me
+                </div>
+
+                <div class="main-image">
+                </div>
+
+
+                <div class="contact-text">
+                    Laboris do commodo id nostrud voluptate magna esse adipisicing duis laboris. Incididunt duis ullamco
+                    in
+                    esse
+                    mollit in in irure Lorem consectetur laborum labore excepteur magna. Officia fugiat magna ut eiusmod
+                    minim
+                    ullamco amet aliquip ullamco sunt sunt. Tempor irure pariatur excepteur tempor culpa reprehenderit
+                    occaecat
+                    sint eiusmod esse adipisicing laboris. Ipsum do tempor nisi do voluptate nostrud. Qui irure irure
+                    proident
+                    consequat.
+
+                    <br><br>
+
+                    E-Mail: <a href="mailto:none">E-Mail</a>
+                </div>
+            </div>
+        </div>
     </div>
-    -->
-
-
 
 
     <div id="image-viewer">
