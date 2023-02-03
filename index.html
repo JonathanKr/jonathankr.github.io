@@ -106,7 +106,7 @@
             for (let i = 1; i <= 19; i++) {
                 countJ++;
                 if (countJ == 4) { countJ = 0; }
-                $("#col-" + countJ + "").append("<img src='photos/" + i + ".jpg' style='width:100%' loading='lazy'>");
+                $("#col-" + countJ + "").append("<img class='imgIdentifier' src='photos/" + i + ".jpg' style='width:100%' loading='lazy'>");
             }
 
 
@@ -254,7 +254,25 @@
 
     <div id="image-viewer">
         <span class="close">&times;</span>
-        <img class="modal-content" id="full-image">
+        <img class="modal-content" id="full-image" onclick="imgModalClick(this, event)">
+        <script>
+            function imgModalClick(obj, e) {
+                const test = "test/test";
+                let splitSlash = obj.src.split("/");
+                let splitDot = splitSlash[splitSlash.length - 1].split(".");
+
+                let nextImg;
+                if (e.offsetX > obj.width / 2) nextImg = parseInt(splitDot[0]) + 1;
+                else nextImg = parseInt(splitDot[0]) - 1;
+
+                if (nextImg > document.getElementsByClassName("imgIdentifier").length) nextImg = 1;
+                else if (nextImg < 1) nextImg = document.getElementsByClassName("imgIdentifier").length;
+
+                splitSlash[splitSlash.length - 1] = splitSlash[splitSlash.length - 1].replace(splitDot[0], nextImg);
+                let nextImgLink = splitSlash.join("/");
+                document.getElementById("full-image").src = nextImgLink;
+            }
+        </script>
     </div>
 
 </body>
