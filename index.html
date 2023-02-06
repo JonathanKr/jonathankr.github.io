@@ -116,7 +116,8 @@
             });
 
             $("#image-viewer").click(function (event) {
-                if (event.target.className != "modal-content") {
+                // console.log(event)
+                if (event.target.className == "") {
                     $('#image-viewer').css("display", "none");
                 }
             });
@@ -254,15 +255,23 @@
 
     <div id="image-viewer">
         <span class="close">&times;</span>
-        <img class="modal-content" id="full-image" onclick="imgModalClick(this, event)">
+        <div class="img-viewer-overlay">
+            <img class="modal-content" id="full-image" onclick="imgModalClick(this, event)">
+            <div class="img-description">
+                <div class="img-side-hover-left" onclick="imgModalClick('full-image', false)"></div>
+                <div class="img-side-hover-right" onclick="imgModalClick('full-image', true)"></div>
+            </div>
+        </div>
         <script>
-            function imgModalClick(obj, e) {
-                const test = "test/test";
+            function imgModalClick(imgID, right) {
+
+                let obj = document.getElementById(imgID);
+
                 let splitSlash = obj.src.split("/");
                 let splitDot = splitSlash[splitSlash.length - 1].split(".");
 
                 let nextImg;
-                if (e.offsetX > obj.width / 2) nextImg = parseInt(splitDot[0]) + 1;
+                if (right) nextImg = parseInt(splitDot[0]) + 1;
                 else nextImg = parseInt(splitDot[0]) - 1;
 
                 if (nextImg > document.getElementsByClassName("imgIdentifier").length) nextImg = 1;
