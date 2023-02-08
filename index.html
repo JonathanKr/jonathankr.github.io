@@ -117,7 +117,7 @@
 
             $("#image-viewer").click(function (event) {
                 // console.log(event)
-                if (event.target.className == "") {
+                if (event.target.className == "" || event.target.className == "close") {
                     $('#image-viewer').css("display", "none");
                 }
             });
