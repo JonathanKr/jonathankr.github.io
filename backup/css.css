@@ -1,0 +1,38 @@
+.main-menu {
+    text-align: center;
+    font-size: 1.5em;
+
+    font-family: 'Abhaya Libre', serif;
+    /* font-family: monospace; */
+    font-weight: 100;
+
+    /*
+    padding-left: 25%;
+    padding-right: 25%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 30px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    */
+}
+
+/*
+#id-photo:hover {
+    background: url("graphics/output-onlinegiftools.gif");
+    background: url("graphics/output2.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 15px;
+    padding-top: 5px;
+    background-blend-mode: screen;
+}
+*/
+#id-video:hover {}
+
+#id-music:hover {
+    /* background: url("graphics/output2.gif"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
