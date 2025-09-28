@@ -11,8 +11,31 @@ export function meta({}: Route.MetaArgs) {
 
 const Home = () => {
   return (
-    <div className="flex h-screen w-full items-center justify-evenly bg-black">
-      <img src={waterGif} className="w-80" />
+    <div className="w-full bg-black">
+      <header className="fixed top-0 z-50 flex w-full items-center justify-between p-5">
+        <img src={logoSVG} alt="Logo" className="w-5" />
+        <nav className="flex gap-6">
+          <Link to={"/"} className="hover:text-white/75">
+            Home
+          </Link>
+          <Link to={"/"} className="hover:text-white/75">
+            Projects
+          </Link>
+          <Link to={"/"} className="hover:text-white/75">
+            Research
+          </Link>
+          <Link to={"/"} className="hover:text-white/75">
+            Contact
+          </Link>
+        </nav>
+      </header>
+
+      <section
+        id="hero"
+        className="flex h-screen w-full flex-col items-center justify-center px-4 text-center"
+      >
+        <img src={waterGif} className="mb-6 w-80" alt="Hero animation" />
+      </section>
     </div>
   );
 };
