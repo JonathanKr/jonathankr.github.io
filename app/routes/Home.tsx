@@ -1,5 +1,5 @@
+import waterGif from "/gif/out.gif";
 import trainGif from "/gif/train.gif";
-import waterGif from "/gif/water.gif";
 import logoSVG from "/svg/logo.svg";
 import { Link } from "react-router";
 
@@ -11,8 +11,8 @@ export function meta({}: Route.MetaArgs) {
 
 const Home = () => {
   return (
-    <div className="w-full bg-black">
-      <header className="fixed top-0 z-50 flex w-full items-center justify-between p-5">
+    <div className="h-screen w-full bg-black">
+      <header className="fixed top-0 z-50 flex w-full items-center justify-between bg-black p-5">
         <img src={logoSVG} alt="Logo" className="w-5" />
         <nav className="flex gap-6">
           <Link to={"/"} className="hover:text-white/75">
@@ -32,9 +32,13 @@ const Home = () => {
 
       <section
         id="hero"
-        className="flex h-screen w-full flex-col items-center justify-center px-4 text-center"
+        className="flex h-screen w-full flex-col items-center justify-center text-center"
       >
-        <img src={waterGif} className="mb-6 w-80" alt="Hero animation" />
+        <img
+          src={waterGif}
+          alt="Hero animation"
+          className="w-80 rounded-full mix-blend-lighten contrast-150"
+        />
       </section>
     </div>
   );
