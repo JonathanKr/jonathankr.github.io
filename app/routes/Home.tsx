@@ -1,6 +1,7 @@
 import waterGif from "/gif/out.gif";
 import trainGif from "/gif/train.gif";
 import logoSVG from "/svg/logo.svg";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 
 import type { Route } from "./+types/Home";
@@ -10,36 +11,33 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const Home = () => {
-  return (
-    <div className="h-screen w-full bg-black">
-      <header className="fixed top-0 z-50 flex w-full items-center justify-between bg-black p-5">
-        <img src={logoSVG} alt="Logo" className="w-5" />
-        <nav className="flex gap-6">
-          <Link to={"/"} className="hover:text-white/75">
-            Home
-          </Link>
-          <Link to={"/"} className="hover:text-white/75">
-            Projects
-          </Link>
-          <Link to={"/"} className="hover:text-white/75">
-            Research
-          </Link>
-          <Link to={"/"} className="hover:text-white/75">
-            Contact
-          </Link>
-        </nav>
-      </header>
+  const links = [
+    { link: "/photography", label: "Photography" },
+    { link: "/videography", label: "Videography" },
+    { link: "/research", label: "Research" },
+    { link: "/contact", label: "Contact" },
+  ];
 
-      <section
-        id="hero"
-        className="flex h-screen w-full flex-col items-center justify-center text-center"
-      >
-        <img
-          src={waterGif}
-          alt="Hero animation"
-          className="w-80 rounded-full mix-blend-lighten contrast-150"
-        />
-      </section>
+  return (
+    <div className="flex h-screen w-full flex-col items-center justify-center bg-teal-900">
+      <h1 className="z-1 font-sans text-5xl font-bold text-white/40">
+        Hello, I am
+      </h1>
+      <h1 className="z-1 font-sans text-8xl font-bold text-white/100">
+        Jonathan Kron
+      </h1>
+      <div className="z-1 mt-5 flex gap-5">
+        {links.map((e) => (
+          <Link className="font-mono text-white hover:underline" to={e.link}>
+            {e.label}
+          </Link>
+        ))}
+      </div>
+      <img
+        src={logoSVG}
+        alt="Logo"
+        className="absolute z-0 ml-16 w-80 opacity-3 select-none"
+      />
     </div>
   );
 };
