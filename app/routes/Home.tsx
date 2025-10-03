@@ -4,6 +4,7 @@ import logoSVG from "/svg/logo.svg";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 
+import { LINKS } from "~/constants/links";
 import type { Route } from "./+types/Home";
 
 export function meta({}: Route.MetaArgs) {
@@ -11,13 +12,6 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const Home = () => {
-  const links = [
-    { link: "/photography", label: "Photography" },
-    { link: "/videography", label: "Videography" },
-    { link: "/research", label: "Research" },
-    { link: "/contact", label: "Contact" },
-  ];
-
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center bg-teal-900">
       <h1 className="z-1 font-sans text-5xl font-bold text-white/40">
@@ -27,7 +21,7 @@ const Home = () => {
         Jonathan Kron
       </h1>
       <div className="z-1 mt-5 flex gap-5">
-        {links.map((e) => (
+        {LINKS.map((e) => (
           <Link className="font-mono text-white hover:underline" to={e.link}>
             {e.label}
           </Link>
