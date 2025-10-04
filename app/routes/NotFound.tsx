@@ -1,29 +1,15 @@
 import logoSVG from "/svg/logo.svg";
-import { Link } from "react-router";
 
-import { LINKS } from "~/constants/links";
+import HeroSection from "~/components/HeroSection";
+import Navigation from "~/components/Navigation";
+import type { Route } from "./+types/NotFound";
+
+export function meta({}: Route.MetaArgs) {
+  return [{ title: "404" }];
+}
 
 const NotFound = () => {
-  return (
-    <div className="flex h-screen w-full flex-col items-center justify-center bg-teal-900">
-      <h1 className="z-1 font-sans text-5xl font-bold text-white/40">
-        Not Found
-      </h1>
-      <h1 className="z-1 font-sans text-8xl font-bold text-white/100">404</h1>
-      <div className="z-1 mt-5 flex gap-5">
-        {LINKS.map((e) => (
-          <Link className="font-mono text-white hover:underline" to={e.link}>
-            {e.label}
-          </Link>
-        ))}
-      </div>
-      <img
-        src={logoSVG}
-        alt="Logo"
-        className="absolute z-0 ml-16 w-80 opacity-3 select-none"
-      />
-    </div>
-  );
+  return <HeroSection overline="Not Found" heading="404" />;
 };
 
 export default NotFound;
