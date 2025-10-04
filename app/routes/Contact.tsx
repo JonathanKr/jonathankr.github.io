@@ -9,7 +9,7 @@ export function meta({}: Route.MetaArgs) {
 const Contact = () => {
   return (
     <div className="">
-      <HeroSection overline="Your welcome to" heading="Contact Me" />
+      <HeroSection overline="You're welcome to" heading="Contact Me" />
     </div>
   );
 };
