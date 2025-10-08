@@ -6,7 +6,26 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-html,
+html {
+  overflow-y: scroll;
+}
+
 body {
   color: white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-teal-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c6d67;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d7971;
 }

@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router";
 
 const LINKS = [
   { link: "/", label: "Home" },
+  { link: "/software", label: "Software" },
   { link: "/photography", label: "Photography" },
   { link: "/videography", label: "Videography" },
   { link: "/research", label: "Research" },

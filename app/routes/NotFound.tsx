@@ -1,7 +1,4 @@
-import logoSVG from "/svg/logo.svg";
-
 import HeroSection from "~/components/HeroSection";
-import Navigation from "~/components/Navigation";
 import type { Route } from "./+types/NotFound";
 
 export function meta({}: Route.MetaArgs) {
@@ -9,7 +6,14 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const NotFound = () => {
-  return <HeroSection overline="Not Found" heading="404" />;
+  return (
+    <div className="flex h-screen flex-col bg-teal-900">
+      <HeroSection overline="Not Found" heading="404" />
+      <footer className="flex flex-1 items-center justify-center font-mono text-white/40">
+        2025
+      </footer>
+    </div>
+  );
 };
 
 export default NotFound;

@@ -7,8 +7,11 @@ export function meta({}: Route.MetaArgs) {
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex h-screen flex-col bg-teal-900">
       <HeroSection overline="Hello I'm" heading="Jonathan Kron" />
+      <footer className="flex flex-1 items-center justify-center font-mono text-white/40">
+        2025
+      </footer>
     </div>
   );
 };
