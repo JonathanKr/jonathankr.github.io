@@ -22,7 +22,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="prose prose-neutral max-w-none font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:font-sans">
+    <div className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:font-sans">
       <h1>Jonathan Kron</h1>
       Welcome to my personal website. Have a look at my:
       <ol>

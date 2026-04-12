@@ -1,4 +1,3 @@
-import HeroSection from "~/components/HeroSection";
 import type { Route } from "./+types/NotFound";
 
 export function meta({}: Route.MetaArgs) {
