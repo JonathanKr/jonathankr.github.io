@@ -12,6 +12,30 @@ interface MarkdownEntry {
   title: string;
 }
 
+type Skill = {
+  name: string;
+  link: string;
+};
+const programmingLanguages: Skill[] = [
+  { name: "Python", link: "#" },
+  { name: "Rust", link: "#" },
+  { name: "Java", link: "#" },
+  { name: "Java-/Typescript", link: "#" },
+];
+
+const frameworks: Skill[] = [
+  { name: "React", link: "#" },
+  { name: "Angular", link: "#" },
+  { name: "NestJS", link: "#" },
+];
+
+const tools: Skill[] = [
+  { name: "VS Code", link: "#" },
+  { name: "Typst", link: "#" },
+  { name: "Cubase", link: "#" },
+  { name: "Blender", link: "#" },
+];
+
 const Home = () => {
   const [entries, setEntries] = useState<MarkdownEntry[]>([]);
 
@@ -47,23 +71,49 @@ const Home = () => {
         </Link>{" "}
         at Cologne University of Applied Sciences. Throughout my studies I
         specialized in machine learning and acoustical programming, with many
-        projects also involving web development. I am proficient in{" "}
-        <Link to="#" target="_blank">
-          Python
-        </Link>
-        ,{" "}
-        <Link to="#" target="_blank">
-          TypeScript
-        </Link>{" "}
-        and{" "}
-        <Link to="#" target="_blank">
-          Rust
-        </Link>
-        . Technologies and frameworks I have worked with include{" "}
-        <Link to="#" target="_blank">
-          React, bun, uv, angular, nestjs, pytorch, etc.
-        </Link>
+        projects also involving web development. Here is an overview of things I
+        have worked with:
       </p>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div>
+          <h3 className="mt-0 border-b border-gray-200 pb-2 font-sans">
+            Programming Languages
+          </h3>
+          <ul>
+            {programmingLanguages.map((e) => (
+              <li key={e.name}>
+                <Link to={e.link}>{e.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="mt-0 border-b border-gray-200 pb-2 font-sans">
+            Frameworks
+          </h3>
+          <ul>
+            {frameworks.map((e) => (
+              <li key={e.name}>
+                <Link to={e.link}>{e.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="mt-0 border-b border-gray-200 pb-2 font-sans">
+            Software and Tools
+          </h3>
+          <ul>
+            {tools.map((e) => (
+              <li key={e.name}>
+                <Link to={e.link}>{e.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <p>
         You can find me on{" "}
         <Link to="https://github.com/JonathanKr" target="_blank">
