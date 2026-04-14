@@ -46,7 +46,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:font-sans">
+    <div className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:my-2 [&_h2]:font-sans">
       <h1>Jonathan Kron</h1>
       Welcome to my personal website. Have a look at my:
       <ol>
@@ -58,6 +58,9 @@ const Home = () => {
         </li>
         <li>
           <Link to="#cv">CV</Link>
+        </li>
+        <li>
+          <Link to="#skills">Tools & Technologies I Work With</Link>
         </li>
       </ol>
       <p>
@@ -71,51 +74,11 @@ const Home = () => {
         </Link>{" "}
         at Cologne University of Applied Sciences. Throughout my studies I
         specialized in machine learning and acoustical programming, with many
-        projects also involving web development. Here is an overview of things I
-        have worked with:
+        projects also involving web development.
       </p>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div>
-          <h3 className="mt-0 border-b border-gray-200 pb-2 font-sans">
-            Programming Languages
-          </h3>
-          <ul>
-            {programmingLanguages.map((e) => (
-              <li key={e.name}>
-                <Link to={e.link}>{e.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="mt-0 border-b border-gray-200 pb-2 font-sans">
-            Frameworks
-          </h3>
-          <ul>
-            {frameworks.map((e) => (
-              <li key={e.name}>
-                <Link to={e.link}>{e.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="mt-0 border-b border-gray-200 pb-2 font-sans">
-            Software and Tools
-          </h3>
-          <ul>
-            {tools.map((e) => (
-              <li key={e.name}>
-                <Link to={e.link}>{e.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
       <p>
-        You can find me on{" "}
+        Feel free to send me an <Link to="mailto:#">E-Mail</Link>.
+        Alternatively, you can find me on{" "}
         <Link to="https://github.com/JonathanKr" target="_blank">
           Github
         </Link>
@@ -130,7 +93,7 @@ const Home = () => {
         >
           ResearchGate
         </Link>
-        . Feel free to send me an <Link to="mailto:#">E-Mail</Link> (:
+        . (:
       </p>
       <h2 id="projects">Projects</h2>
       {entries.map((entry) => (
@@ -141,7 +104,63 @@ const Home = () => {
         </div>
       ))}
       <h2 id="publications">Publications</h2>
+      {entries.map((entry) => (
+        <div key={entry.slug} className="mb-10">
+          <div className="hover:cursor-pointer hover:underline">
+            <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
+          </div>
+        </div>
+      ))}
       <h2 id="cv">CV</h2>
+      {entries.map((entry) => (
+        <div key={entry.slug} className="mb-10">
+          <div className="hover:cursor-pointer hover:underline">
+            <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
+          </div>
+        </div>
+      ))}
+      <h2 id="skills">Tools & Technologies I Work With</h2>
+      Here is an overview of things I have worked with:
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div>
+          <h3 className="border-b border-gray-200 pb-2 font-sans">
+            Programming Languages
+          </h3>
+          <ul>
+            {programmingLanguages.map((e) => (
+              <li key={e.name}>
+                <Link to={e.link}>{e.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="border-b border-gray-200 pb-2 font-sans">
+            Frameworks
+          </h3>
+          <ul>
+            {frameworks.map((e) => (
+              <li key={e.name}>
+                <Link to={e.link}>{e.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="border-b border-gray-200 pb-2 font-sans">
+            Software and Tools
+          </h3>
+          <ul>
+            {tools.map((e) => (
+              <li key={e.name}>
+                <Link to={e.link}>{e.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
