@@ -1,1 +1,56 @@
-[{ "slug": "projects/wavefront", "title": "Wavefront" }]
+{
+  "projects": [
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    }
+  ],
+  "publications": [
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront2",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront2",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront2",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront2",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    },
+    {
+      "slug": "projects/wavefront",
+      "title": "Wavefront2",
+      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+    }
+  ]
+}

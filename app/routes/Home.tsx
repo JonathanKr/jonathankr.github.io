@@ -10,6 +10,7 @@ export function meta({}: Route.MetaArgs) {
 interface MarkdownEntry {
   slug: string;
   title: string;
+  desc: string;
 }
 
 type Skill = {
@@ -37,12 +38,16 @@ const tools: Skill[] = [
 ];
 
 const Home = () => {
-  const [entries, setEntries] = useState<MarkdownEntry[]>([]);
+  const [projects, setProjects] = useState<MarkdownEntry[]>([]);
+  const [publications, setPublications] = useState<MarkdownEntry[]>([]);
 
   useEffect(() => {
     fetch("/markdown/index.json")
       .then((r) => r.json())
-      .then(setEntries);
+      .then((r) => {
+        setProjects(r["projects"]);
+        setPublications(r["publications"]);
+      });
   }, []);
 
   return (
@@ -57,7 +62,7 @@ const Home = () => {
           <Link to="#publications">Publications</Link>
         </li>
         <li>
-          <Link to="#cv">CV</Link>
+          <Link to="#cv">Curriculum Vitae</Link>
         </li>
         <li>
           <Link to="#skills">Tools & Technologies I Work With</Link>
@@ -93,37 +98,31 @@ const Home = () => {
         >
           ResearchGate
         </Link>
-        . (:
+        .
       </p>
       <h2 id="projects">Projects</h2>
-      {entries.map((entry) => (
-        <div key={entry.slug} className="mb-10">
-          <div className="hover:cursor-pointer hover:underline">
-            <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
-          </div>
-        </div>
-      ))}
+      <ol>
+        {projects.map((entry) => (
+          <li key={entry.slug}>
+            <Link to={`/md/${entry.slug}`}>{entry.title}</Link>: {entry.desc}
+          </li>
+        ))}
+      </ol>
       <h2 id="publications">Publications</h2>
-      {entries.map((entry) => (
-        <div key={entry.slug} className="mb-10">
-          <div className="hover:cursor-pointer hover:underline">
-            <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
-          </div>
-        </div>
-      ))}
-      <h2 id="cv">CV</h2>
-      {entries.map((entry) => (
-        <div key={entry.slug} className="mb-10">
-          <div className="hover:cursor-pointer hover:underline">
-            <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
-          </div>
-        </div>
-      ))}
+      <ol>
+        {publications.map((entry) => (
+          <li key={entry.slug}>
+            <Link to={`/md/${entry.slug}`}>{entry.title}</Link>: {entry.desc}
+          </li>
+        ))}
+      </ol>
+      <h2 id="cv">Curriculum Vitae</h2>
+      TODO: add some things from the cv in typst
       <h2 id="skills">Tools & Technologies I Work With</h2>
       Here is an overview of things I have worked with:
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <div>
-          <h3 className="border-b border-gray-200 pb-2 font-sans">
+          <h3 className="mt-2 border-b border-gray-200 pb-2 font-sans">
             Programming Languages
           </h3>
           <ul>
@@ -136,7 +135,7 @@ const Home = () => {
         </div>
 
         <div>
-          <h3 className="border-b border-gray-200 pb-2 font-sans">
+          <h3 className="mt-2 border-b border-gray-200 pb-2 font-sans">
             Frameworks
           </h3>
           <ul>
@@ -149,7 +148,7 @@ const Home = () => {
         </div>
 
         <div>
-          <h3 className="border-b border-gray-200 pb-2 font-sans">
+          <h3 className="mt-2 border-b border-gray-200 pb-2 font-sans">
             Software and Tools
           </h3>
           <ul>

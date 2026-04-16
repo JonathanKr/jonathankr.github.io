@@ -22,7 +22,7 @@ export default function MarkdownPage() {
   return (
     <div>
       <Navigation />
-      <article className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:font-sans">
+      <article className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:my-2 [&_h2]:font-sans">
         <ReactMarkdown>{content}</ReactMarkdown>
       </article>
     </div>
