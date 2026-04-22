@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
+import Navigation from "~/components/Navigation";
+import markdownIndex from "../markdown/index.json";
 import type { Route } from "./+types/Home";
 
 export function meta({}: Route.MetaArgs) {
@@ -38,20 +40,12 @@ const tools: Skill[] = [
 ];
 
 const Home = () => {
-  const [projects, setProjects] = useState<MarkdownEntry[]>([]);
-  const [publications, setPublications] = useState<MarkdownEntry[]>([]);
-
-  useEffect(() => {
-    fetch("/markdown/index.json")
-      .then((r) => r.json())
-      .then((r) => {
-        setProjects(r["projects"]);
-        setPublications(r["publications"]);
-      });
-  }, []);
+  const projects: MarkdownEntry[] = markdownIndex.projects;
+  const publications: MarkdownEntry[] = markdownIndex.publications;
 
   return (
     <div className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:my-2 [&_h2]:font-sans">
+      <Navigation />
       <h1>Jonathan Kron</h1>
       Welcome to my personal website. Have a look at my:
       <ol>
@@ -160,6 +154,12 @@ const Home = () => {
           </ul>
         </div>
       </div>
+      {/* <embed
+        src="public/pdf/Klingetal.-2025-WavefrontATLM-basedSimulationPlatformforTeachingBasicWavePropagationPrinciples.pdf"
+        type="application/pdf"
+        width="100%"
+        height={500}
+      /> */}
     </div>
   );
 };

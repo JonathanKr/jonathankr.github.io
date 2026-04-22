@@ -1,6 +1,10 @@
 import { Link, useLocation } from "react-router";
 
-const LINKS = [{ link: "/", label: "Home" }];
+const LINKS = [
+  { link: "/", label: "Home" },
+  { link: "/", label: "Photography" },
+  { link: "/", label: "Gym" },
+];
 
 const Navigation = () => {
   const pathname = useLocation().pathname;
