@@ -13,7 +13,7 @@ const Navigation = () => {
     <div className="z-1 flex gap-5">
       {LINKS.map((e) => (
         <Link
-          className={`font-mono hover:underline ${pathname === e.link ? "text-white" : "text-white/60"}`}
+          className={`font-serif hover:underline ${pathname === e.link ? "text-white" : "text-white/60"}`}
           to={e.link}
           key={e.label}
         >
