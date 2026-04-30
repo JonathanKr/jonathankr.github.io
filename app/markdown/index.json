@@ -1,16 +1,36 @@
 {
   "projects": [
     {
-      "slug": "projects/wavefront",
-      "title": "Wavefront",
-      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+      "slug": "projects/bathesis",
+      "title": "Bachelor Thesis",
+      "desc": "Realtime Dereverberation Using Deep Learning"
+    },
+    {
+      "slug": "projects/ertsi",
+      "title": "Ertsi",
+      "desc": "Estimation of Reverberation Time From a Single Image"
+    },
+    {
+      "slug": "projects/dumpster",
+      "title": "Dumpster Diving",
+      "desc": "An Educational Game Utilizing a Visual Node Editor"
+    },
+    {
+      "slug": "projects/nimamp",
+      "title": "Nimamp",
+      "desc": "An Audio Player Implementation in C++ Using Qt"
+    },
+    {
+      "slug": "projects/phyrustum",
+      "title": "Phyrustum",
+      "desc": "A Physarum Transport Network Implementation in Rust"
     }
   ],
   "publications": [
     {
-      "slug": "projects/wavefront",
-      "title": "Wavefront2",
-      "desc": "lorem ipsum dolor sit amet test est test ets test etstste"
+      "slug": "publications/wavefront",
+      "title": "Wavefront",
+      "desc": "A TLM-based Simulation Platform for Teaching Basic Wave Propagation Principles"
     }
   ]
 }

@@ -38,7 +38,7 @@ export default function MarkdownPage() {
 
   return (
     <div>
-      <article className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:my-2 [&_h2]:font-sans">
+      <article className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:my-2 [&_h1]:text-left [&_h1]:font-sans [&_h2]:my-2 [&_h2]:text-left [&_h2]:font-sans [&_h3]:my-2 [&_h3]:text-left [&_h3]:font-sans">
         <Navigation />
         <MDXProvider components={components}>
           {notFound && <h1>Not found</h1>}

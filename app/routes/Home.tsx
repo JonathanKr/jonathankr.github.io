@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 import Navigation from "~/components/Navigation";
@@ -44,7 +43,7 @@ const Home = () => {
   const publications: MarkdownEntry[] = markdownIndex.publications;
 
   return (
-    <div className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:mb-2 [&_h1]:font-sans [&_h2]:my-2 [&_h2]:font-sans">
+    <div className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:my-2 [&_h1]:text-left [&_h1]:font-sans [&_h2]:my-2 [&_h2]:text-left [&_h2]:font-sans [&_h3]:my-2 [&_h3]:text-left [&_h3]:font-sans">
       <Navigation />
       <h1>Jonathan Kron</h1>
       Welcome to my personal website. Have a look at my:
@@ -111,12 +110,25 @@ const Home = () => {
         ))}
       </ol>
       <h2 id="cv">Curriculum Vitae</h2>
-      TODO: add some things from the cv in typst
+      <h3>Work Experience</h3>
+      <ol>
+        <li>Fullstack Webdevelopment at sovanta</li>
+        <li>Softwaredevelopment - Wavefront</li>
+        <li>Research Assistant in Acoustics at TH Köln</li>
+        <li>Tutor of Signal Theory and Applied Mathematics at TH Köln</li>
+        <li>Audio Production Assistant</li>
+      </ol>
+      <h3>Education</h3>
+      <ol>
+        <li>B.Sc. Mediatechnology</li>
+        <li>High School Diploma (Abitur)</li>
+      </ol>
       <h2 id="skills">Tools & Technologies I Work With</h2>
-      Here is an overview of things I have worked with:
+      Here is an overview of programming languages, software and web frameworks
+      I have worked with over the recent years:
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <div>
-          <h3 className="mt-2 border-b border-gray-200 pb-2 font-sans">
+          <h3 className="border-b border-gray-200 pb-2">
             Programming Languages
           </h3>
           <ul>
@@ -129,9 +141,7 @@ const Home = () => {
         </div>
 
         <div>
-          <h3 className="mt-2 border-b border-gray-200 pb-2 font-sans">
-            Frameworks
-          </h3>
+          <h3 className="border-b border-gray-200 pb-2">Web Frameworks</h3>
           <ul>
             {frameworks.map((e) => (
               <li key={e.name}>
@@ -142,9 +152,7 @@ const Home = () => {
         </div>
 
         <div>
-          <h3 className="mt-2 border-b border-gray-200 pb-2 font-sans">
-            Software and Tools
-          </h3>
+          <h3 className="border-b border-gray-200 pb-2">Software and Tools</h3>
           <ul>
             {tools.map((e) => (
               <li key={e.name}>
@@ -154,12 +162,6 @@ const Home = () => {
           </ul>
         </div>
       </div>
-      {/* <embed
-        src="public/pdf/Klingetal.-2025-WavefrontATLM-basedSimulationPlatformforTeachingBasicWavePropagationPrinciples.pdf"
-        type="application/pdf"
-        width="100%"
-        height={500}
-      /> */}
     </div>
   );
 };
