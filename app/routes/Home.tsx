@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import Navigation from "~/components/Navigation";
+import Page from "~/components/Page";
 import markdownIndex from "../markdown/index.json";
 import type { Route } from "./+types/Home";
 
@@ -31,11 +31,40 @@ const frameworks: Skill[] = [
   { name: "NestJS", link: "#" },
 ];
 
-const tools: Skill[] = [
+const pythonLibraries = [
+  { name: "PyTorch", link: "#" },
+  { name: "Pandas", link: "#" },
+  { name: "NumPy", link: "#" },
+  { name: "Scikit-learn", link: "#" },
+  { name: "Matplotlib", link: "#" },
+];
+
+const databases = [
+  { name: "MongoDB", link: "#" },
+  { name: "H2", link: "#" },
+];
+
+const devTools = [
+  { name: "Git", link: "#" },
+  { name: "Docker", link: "#" },
   { name: "VS Code", link: "#" },
-  { name: "Typst", link: "#" },
-  { name: "Cubase", link: "#" },
+];
+
+const designTools = [
   { name: "Blender", link: "#" },
+  { name: "Figma", link: "#" },
+  { name: "GIMP", link: "#" },
+];
+
+const audioTools = [
+  { name: "Cubase", link: "#" },
+  { name: "Audacity", link: "#" },
+];
+
+const creativeSoftware = [
+  { name: "Inkscape", link: "#" },
+  { name: "Krita", link: "#" },
+  { name: "DaVinci Resolve", link: "#" },
 ];
 
 const Home = () => {
@@ -43,8 +72,7 @@ const Home = () => {
   const publications: MarkdownEntry[] = markdownIndex.publications;
 
   return (
-    <div className="prose prose-neutral max-w-none text-justify font-serif [&_h1]:my-2 [&_h1]:text-left [&_h1]:font-sans [&_h2]:my-2 [&_h2]:text-left [&_h2]:font-sans [&_h3]:my-2 [&_h3]:text-left [&_h3]:font-sans">
-      <Navigation />
+    <Page>
       <h1>Jonathan Kron</h1>
       Welcome to my personal website. Have a look at my:
       <ol>
@@ -55,7 +83,10 @@ const Home = () => {
           <Link to="#publications">Publications</Link>
         </li>
         <li>
-          <Link to="#cv">Curriculum Vitae</Link>
+          <Link to="#work">Work Experience</Link>
+        </li>
+        <li>
+          <Link to="#education">Education</Link>
         </li>
         <li>
           <Link to="#skills">Tools & Technologies I Work With</Link>
@@ -109,8 +140,7 @@ const Home = () => {
           </li>
         ))}
       </ol>
-      <h2 id="cv">Curriculum Vitae</h2>
-      <h3>Work Experience</h3>
+      <h2 id="work">Work Experience</h2>
       <ol>
         <li>Fullstack Webdevelopment at sovanta</li>
         <li>Softwaredevelopment - Wavefront</li>
@@ -118,7 +148,7 @@ const Home = () => {
         <li>Tutor of Signal Theory and Applied Mathematics at TH Köln</li>
         <li>Audio Production Assistant</li>
       </ol>
-      <h3>Education</h3>
+      <h2 id="education">Education</h2>
       <ol>
         <li>B.Sc. Mediatechnology</li>
         <li>High School Diploma (Abitur)</li>
@@ -126,43 +156,50 @@ const Home = () => {
       <h2 id="skills">Tools & Technologies I Work With</h2>
       Here is an overview of programming languages, software and web frameworks
       I have worked with over the recent years:
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div>
-          <h3 className="border-b border-gray-200 pb-2">
-            Programming Languages
-          </h3>
-          <ul>
-            {programmingLanguages.map((e) => (
-              <li key={e.name}>
-                <Link to={e.link}>{e.name}</Link>
-              </li>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-gray-200">
+              <th className="w-36 py-2 pr-4 text-left font-semibold whitespace-nowrap">
+                Category
+              </th>
+              <th className="py-2 text-left font-semibold">Items</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { label: "Programming Languages", data: programmingLanguages },
+              { label: "Web Frameworks", data: frameworks },
+              { label: "Python Libraries", data: pythonLibraries },
+              { label: "Databases", data: databases },
+              { label: "Dev Tools", data: devTools },
+              { label: "3D & Design", data: designTools },
+              { label: "Audio & Music", data: audioTools },
+              { label: "Creative Software", data: creativeSoftware },
+            ].map(({ label, data }) => (
+              <tr key={label} className="border-b border-gray-100 align-top">
+                <td className="w-36 py-2 pr-4 font-medium whitespace-nowrap text-gray-600">
+                  {label}
+                </td>
+                <td className="flex flex-wrap gap-x-1 gap-y-1 py-2">
+                  {data.map((e, i) => (
+                    <span key={e.name}>
+                      <Link
+                        to={e.link}
+                        className="text-blue-600 hover:underline"
+                      >
+                        {e.name}
+                      </Link>
+                      {i < data.length - 1 && ","}
+                    </span>
+                  ))}
+                </td>
+              </tr>
             ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="border-b border-gray-200 pb-2">Web Frameworks</h3>
-          <ul>
-            {frameworks.map((e) => (
-              <li key={e.name}>
-                <Link to={e.link}>{e.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="border-b border-gray-200 pb-2">Software and Tools</h3>
-          <ul>
-            {tools.map((e) => (
-              <li key={e.name}>
-                <Link to={e.link}>{e.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+          </tbody>
+        </table>
       </div>
-    </div>
+    </Page>
   );
 };
 

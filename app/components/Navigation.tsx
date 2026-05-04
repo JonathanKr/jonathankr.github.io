@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router";
 
 const LINKS = [
   { link: "/", label: "Home" },
-  { link: "/", label: "Photography" },
+  { link: "/photography", label: "Photography" },
   { link: "/", label: "Gym" },
 ];
 
