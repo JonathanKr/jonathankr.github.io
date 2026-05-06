@@ -142,10 +142,16 @@ const Home = () => {
       </ol>
       <h2 id="work">Work Experience</h2>
       <ol>
-        <li>Fullstack Webdevelopment at sovanta</li>
-        <li>Softwaredevelopment - Wavefront</li>
-        <li>Research Assistant in Acoustics at TH Köln</li>
-        <li>Tutor of Signal Theory and Applied Mathematics at TH Köln</li>
+        <li>Fullstack Webdevelopment at sovanta AG</li>
+        <li>Softwaredevelopment at Cologne University of Applied Sciences</li>
+        <li>
+          Research Assistant in Acoustics at Cologne University of Applied
+          Sciences
+        </li>
+        <li>
+          Tutor of Signal Theory and Applied Mathematics at Cologne University
+          of Applied Sciences
+        </li>
         <li>Audio Production Assistant</li>
       </ol>
       <h2 id="education">Education</h2>
@@ -158,14 +164,6 @@ const Home = () => {
       I have worked with over the recent years:
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead>
-            <tr className="border-b border-gray-200">
-              <th className="w-36 py-2 pr-4 text-left font-semibold whitespace-nowrap">
-                Category
-              </th>
-              <th className="py-2 text-left font-semibold">Items</th>
-            </tr>
-          </thead>
           <tbody>
             {[
               { label: "Programming Languages", data: programmingLanguages },
@@ -177,19 +175,12 @@ const Home = () => {
               { label: "Audio & Music", data: audioTools },
               { label: "Creative Software", data: creativeSoftware },
             ].map(({ label, data }) => (
-              <tr key={label} className="border-b border-gray-100 align-top">
-                <td className="w-36 py-2 pr-4 font-medium whitespace-nowrap text-gray-600">
-                  {label}
-                </td>
+              <tr key={label} className="border-b border-black/10 align-top">
+                <td>{label}</td>
                 <td className="flex flex-wrap gap-x-1 gap-y-1 py-2">
                   {data.map((e, i) => (
                     <span key={e.name}>
-                      <Link
-                        to={e.link}
-                        className="text-blue-600 hover:underline"
-                      >
-                        {e.name}
-                      </Link>
+                      <Link to={e.link}>{e.name}</Link>
                       {i < data.length - 1 && ","}
                     </span>
                   ))}
