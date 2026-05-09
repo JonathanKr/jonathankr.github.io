@@ -1,5 +1,5 @@
 import type { PDFDocumentProxy } from "pdfjs-dist/types/src/display/api";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
@@ -51,6 +51,7 @@ const PdfEmbed = ({ src }: { src: string }) => {
       <Document file={src} onLoadSuccess={onDocumentLoadSuccess}>
         {Array.from(new Array(numPages), (_el, index) => (
           <Page
+            className="my-2 border-2 border-black/10"
             key={`page_${index + 1}`}
             pageNumber={index + 1}
             width={width}
