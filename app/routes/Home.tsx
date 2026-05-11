@@ -1,6 +1,18 @@
 import { Link } from "react-router";
 
 import Page from "~/components/Page";
+import { EDUCATION } from "~/constants/edu";
+import {
+  AUDIOTOOLS,
+  CREATIVESOFTWARE,
+  DATABASES,
+  DESIGNTOOLS,
+  DEVTOOLS,
+  FRAMEWORKS,
+  PROGRAMMINGLANGUAGES,
+  PYTHONLIBRARIES,
+} from "~/constants/skills";
+import { WORK } from "~/constants/work";
 import markdownIndex from "../markdown/index.json";
 import type { Route } from "./+types/Home";
 
@@ -13,59 +25,6 @@ interface MarkdownEntry {
   title: string;
   desc: string;
 }
-
-type Skill = {
-  name: string;
-  link: string;
-};
-const programmingLanguages: Skill[] = [
-  { name: "Python", link: "#" },
-  { name: "Rust", link: "#" },
-  { name: "Java", link: "#" },
-  { name: "Java-/Typescript", link: "#" },
-];
-
-const frameworks: Skill[] = [
-  { name: "React", link: "#" },
-  { name: "Angular", link: "#" },
-  { name: "NestJS", link: "#" },
-];
-
-const pythonLibraries = [
-  { name: "PyTorch", link: "#" },
-  { name: "Pandas", link: "#" },
-  { name: "NumPy", link: "#" },
-  { name: "Scikit-learn", link: "#" },
-  { name: "Matplotlib", link: "#" },
-];
-
-const databases = [
-  { name: "MongoDB", link: "#" },
-  { name: "H2", link: "#" },
-];
-
-const devTools = [
-  { name: "Git", link: "#" },
-  { name: "Docker", link: "#" },
-  { name: "VS Code", link: "#" },
-];
-
-const designTools = [
-  { name: "Blender", link: "#" },
-  { name: "Figma", link: "#" },
-  { name: "GIMP", link: "#" },
-];
-
-const audioTools = [
-  { name: "Cubase", link: "#" },
-  { name: "Audacity", link: "#" },
-];
-
-const creativeSoftware = [
-  { name: "Inkscape", link: "#" },
-  { name: "Krita", link: "#" },
-  { name: "DaVinci Resolve", link: "#" },
-];
 
 const Home = () => {
   const projects: MarkdownEntry[] = markdownIndex.projects;
@@ -142,22 +101,26 @@ const Home = () => {
       </ol>
       <h2 id="work">Work Experience</h2>
       <ol>
-        <li>Fullstack Webdevelopment at sovanta AG</li>
-        <li>Softwaredevelopment at Cologne University of Applied Sciences</li>
-        <li>
-          Research Assistant in Acoustics at Cologne University of Applied
-          Sciences
-        </li>
-        <li>
-          Tutor of Signal Theory and Applied Mathematics at Cologne University
-          of Applied Sciences
-        </li>
-        <li>Audio Production Assistant</li>
+        {WORK.map(({ name, company, date, desc }) => (
+          <li key={name}>
+            {name} {company ? "at " + company : ""} |{" "}
+            <span className="text-black/50">{date}</span>
+            {desc.map((e) => (
+              <div key={e} className="ml-4 text-black/50">
+                &#8627; {e}
+              </div>
+            ))}
+          </li>
+        ))}
       </ol>
       <h2 id="education">Education</h2>
       <ol>
-        <li>B.Sc. Mediatechnology</li>
-        <li>High School Diploma (Abitur)</li>
+        {EDUCATION.map(({ name, date, desc }) => (
+          <li key={name}>
+            {name} | <span className="text-black/50">{date}</span>
+            <div className="ml-4 text-black/50">&#8627; {desc}</div>
+          </li>
+        ))}
       </ol>
       <h2 id="skills">Tools & Technologies I Work With</h2>
       Here is an overview of programming languages, software and web frameworks
@@ -166,14 +129,14 @@ const Home = () => {
         <table className="w-full">
           <tbody>
             {[
-              { label: "Programming Languages", data: programmingLanguages },
-              { label: "Web Frameworks", data: frameworks },
-              { label: "Python Libraries", data: pythonLibraries },
-              { label: "Databases", data: databases },
-              { label: "Dev Tools", data: devTools },
-              { label: "3D & Design", data: designTools },
-              { label: "Audio & Music", data: audioTools },
-              { label: "Creative Software", data: creativeSoftware },
+              { label: "Programming Languages", data: PROGRAMMINGLANGUAGES },
+              { label: "Web Frameworks", data: FRAMEWORKS },
+              { label: "Python Libraries", data: PYTHONLIBRARIES },
+              { label: "Databases", data: DATABASES },
+              { label: "Dev Tools", data: DEVTOOLS },
+              { label: "3D & Design", data: DESIGNTOOLS },
+              { label: "Audio & Music", data: AUDIOTOOLS },
+              { label: "Creative Software", data: CREATIVESOFTWARE },
             ].map(({ label, data }) => (
               <tr key={label} className="border-b border-black/10 align-top">
                 <td>{label}</td>
