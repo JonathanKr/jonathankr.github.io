@@ -1,23 +1,27 @@
 {
   "images": [
     {
-      "path": "images/A834329-R1-04-5.webp",
+      "path": "/images/A834329-R1-04-5.webp",
       "title": "title"
     },
     {
-      "path": "images/R1-07240-0002.webp",
+      "path": "/images/R1-07240-0002.webp",
       "title": "title"
     },
     {
-      "path": "images/R1-07240-0005.webp",
+      "path": "/images/R1-07240-0006.webp",
       "title": "title"
     },
     {
-      "path": "images/R1-07240-0006.webp",
+      "path": "/images/R1-07240-0005.webp",
       "title": "title"
     },
     {
-      "path": "images/R1-07240-0007.webp",
+      "path": "/images/DSC04363.webp",
+      "title": "title"
+    },
+    {
+      "path": "/images/R1-07240-0007.webp",
       "title": "title"
     }
   ]

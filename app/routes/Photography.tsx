@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 import Page from "~/components/Page";
 import imageIndex from "~/images/index.json";
@@ -17,16 +18,26 @@ const Photography = () => {
   return (
     <Page>
       <h1>Photography</h1>
-      Nothing you see here is AI-generated.
-      {images.map((e, index) => (
-        <img
-          key={e.path}
-          src={index < loadedCount ? e.path : undefined}
-          alt={e.title}
-          className="mt-2 mb-4"
-          onLoad={() => handleLoad(index)}
-        />
-      ))}
+      <div
+        style={{
+          columns: "2 300px",
+          columnGap: "12px",
+        }}
+      >
+        {images.map((e, index) => (
+          <Link to={e.path} key={e.path} target="_blank">
+            <img
+              src={index < loadedCount ? e.path : undefined}
+              alt={e.title}
+              onLoad={() => handleLoad(index)}
+              className="mt-0 mb-3"
+            />
+          </Link>
+        ))}
+      </div>
+      <div className="my-5 w-full text-center">
+        This gallery features no AI-generated content.
+      </div>
     </Page>
   );
 };
