@@ -103,8 +103,8 @@ const Home = () => {
       <ol>
         {WORK.map(({ name, company, date, desc }) => (
           <li key={name}>
-            {name} {company ? "at " + company : ""} |{" "}
-            <span className="text-black/50">{date}</span>
+            {name} {company ? "at " + company : ""}
+            <span className="text-black/50"> | {date}</span>
             {desc.map((e) => (
               <div key={e} className="ml-4 text-black/50">
                 &#8627; {e}
