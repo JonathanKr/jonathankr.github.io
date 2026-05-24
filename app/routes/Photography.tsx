@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router";
 
 import Page from "~/components/Page";
@@ -6,14 +5,6 @@ import imageIndex from "~/images/index.json";
 
 const Photography = () => {
   const images = imageIndex.images;
-
-  const [loadedCount, setLoadedCount] = useState(1);
-
-  const handleLoad = (index: number) => {
-    if (index + 1 === loadedCount) {
-      setLoadedCount((c) => c + 1);
-    }
-  };
 
   return (
     <Page>
@@ -24,12 +15,12 @@ const Photography = () => {
           columnGap: "12px",
         }}
       >
-        {images.map((e, index) => (
+        {images.map((e) => (
           <Link to={e.path} key={e.path} target="_blank">
             <img
-              src={index < loadedCount ? e.path : undefined}
+              loading="lazy"
+              src={e.path}
               alt={e.title}
-              onLoad={() => handleLoad(index)}
               className="mt-0 mb-3"
             />
           </Link>
