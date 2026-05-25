@@ -1,4 +1,6 @@
-export const WORK = [
+import type { Work } from "~/types";
+
+export const WORK: Work[] = [
   {
     name: "Fullstack Webdevelopment",
     company: "sovanta AG",
@@ -8,6 +10,7 @@ export const WORK = [
       "Develop modern, cloud-based solutions for optimizing SAP systems",
       "Working with SAP BTP, JavaScript/TypeScript as well as npm, nvm and git",
     ],
+    type: "Internship",
   },
   {
     name: "Research Assistant in Acoustics",
@@ -17,6 +20,7 @@ export const WORK = [
       "Assistance with auditory tests and acoustic measurements",
       "Supervision of test subjects",
     ],
+    type: "Student Job",
   },
   {
     name: "Tutor of Signal Theory and Applied Mathematics",
@@ -26,6 +30,7 @@ export const WORK = [
       "Weekly tutoring sessions to reinforce lecture content",
       "Creation of course materials on convolution, Fourier analysis, and statistics",
     ],
+    type: "Student Job",
   },
   {
     name: "Softwaredevelopment",
@@ -36,13 +41,14 @@ export const WORK = [
       "Evaluation of the software in an educational context",
       "Presentation at DAGA 2025 in Copenhagen",
     ],
+    type: "Student Job",
   },
   {
     name: "Audio Production Assistant",
-    company: null,
     date: "2024/07",
     desc: [
       "Assistance to Prof. Dr. Stefan Weinzierl during a recording at Cologne Cathedral",
     ],
+    type: "Job",
   },
 ];

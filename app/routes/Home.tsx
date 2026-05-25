@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 
+import JobTypeComp from "~/components/JobType";
 import Page from "~/components/Page";
 import { EDUCATION } from "~/constants/edu";
 import {
@@ -20,11 +21,11 @@ export function meta({}: Route.MetaArgs) {
   return [{ title: "Home" }];
 }
 
-interface MarkdownEntry {
+type MarkdownEntry = {
   slug: string;
   title: string;
   desc: string;
-}
+};
 
 const Home = () => {
   const projects: MarkdownEntry[] = markdownIndex.projects;
@@ -101,8 +102,9 @@ const Home = () => {
       </ol>
       <h2 id="work">Work Experience</h2>
       <ol>
-        {WORK.map(({ name, company, date, desc }) => (
-          <li key={name}>
+        {WORK.map(({ name, company, date, desc, type }) => (
+          <li key={name} className="pb-4 last:pb-0">
+            <JobTypeComp type={type} />
             {name} {company ? "at " + company : ""}
             <span className="text-black/50"> | {date}</span>
             {desc.map((e) => (
@@ -116,7 +118,7 @@ const Home = () => {
       <h2 id="education">Education</h2>
       <ol>
         {EDUCATION.map(({ name, date, desc }) => (
-          <li key={name}>
+          <li key={name} className="pb-4 last:pb-0">
             {name} | <span className="text-black/50">{date}</span>
             <div className="ml-4 text-black/50">&#8627; {desc}</div>
           </li>
