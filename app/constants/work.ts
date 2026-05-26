@@ -35,7 +35,7 @@ export const WORK: Work[] = [
   {
     name: "Softwaredevelopment",
     company: "Cologne University of Applied Sciences",
-    date: "2024/03-2024/7",
+    date: "2024/03-2024/07",
     desc: [
       "Development of an educational wave simulation tool in Rust",
       "Evaluation of the software in an educational context",

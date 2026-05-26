@@ -104,11 +104,10 @@ const Home = () => {
       <ol>
         {WORK.map(({ name, company, date, desc, type }) => (
           <li key={name} className="pb-4 last:pb-0">
-            <JobTypeComp type={type} />
-            {name} {company ? "at " + company : ""}
-            <span className="text-black/50"> | {date}</span>
+            <JobTypeComp type={type} /> {name} {company ? "at " + company : ""}
+            <span className="text-sm text-black/50"> {date}</span>
             {desc.map((e) => (
-              <div key={e} className="ml-4 text-black/50">
+              <div key={e} className="ml-4 text-black/60">
                 &#8627; {e}
               </div>
             ))}
@@ -119,8 +118,13 @@ const Home = () => {
       <ol>
         {EDUCATION.map(({ name, date, desc }) => (
           <li key={name} className="pb-4 last:pb-0">
-            {name} | <span className="text-black/50">{date}</span>
-            <div className="ml-4 text-black/50">&#8627; {desc}</div>
+            {name}
+            <span className="text-sm text-black/50"> {date}</span>
+            {desc.map((e) => (
+              <div key={e} className="ml-4 text-black/60">
+                &#8627; {e}
+              </div>
+            ))}
           </li>
         ))}
       </ol>
@@ -128,7 +132,7 @@ const Home = () => {
       Here is an overview of programming languages, software and web frameworks
       I have worked with over the recent years:
       <div className="overflow-x-auto">
-        <table className="w-full">
+        <table className="mt-4 w-full">
           <tbody>
             {[
               { label: "Programming Languages", data: PROGRAMMINGLANGUAGES },
@@ -142,11 +146,11 @@ const Home = () => {
             ].map(({ label, data }) => (
               <tr key={label} className="border-b border-black/10 align-top">
                 <td>{label}</td>
-                <td className="flex flex-wrap gap-x-1 gap-y-1 py-2">
+                <td>
                   {data.map((e, i) => (
                     <span key={e.name}>
-                      <Link to={e.link}>{e.name}</Link>
-                      {i < data.length - 1 && ","}
+                      {e.name}
+                      {i < data.length - 1 && ", "}
                     </span>
                   ))}
                 </td>

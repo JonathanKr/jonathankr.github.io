@@ -13,6 +13,7 @@ const Photography = () => {
         style={{
           columns: "2 300px",
           columnGap: "12px",
+          marginTop: "1em",
         }}
       >
         {images.map((e) => (

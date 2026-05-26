@@ -1,52 +1,44 @@
 type Skill = {
   name: string;
-  link: string;
 };
 export const PROGRAMMINGLANGUAGES: Skill[] = [
-  { name: "Python", link: "#" },
-  { name: "Rust", link: "#" },
-  { name: "Java", link: "#" },
-  { name: "Java-/Typescript", link: "#" },
+  { name: "Python" },
+  { name: "Rust" },
+  { name: "Java" },
 ];
 
 export const FRAMEWORKS: Skill[] = [
-  { name: "React", link: "#" },
-  { name: "Angular", link: "#" },
-  { name: "NestJS", link: "#" },
+  { name: "React" },
+  { name: "Angular" },
+  { name: "NestJS" },
 ];
 
-export const PYTHONLIBRARIES = [
-  { name: "PyTorch", link: "#" },
-  { name: "Pandas", link: "#" },
-  { name: "NumPy", link: "#" },
-  { name: "Scikit-learn", link: "#" },
-  { name: "Matplotlib", link: "#" },
+export const PYTHONLIBRARIES: Skill[] = [
+  { name: "PyTorch" },
+  { name: "Pandas" },
+  { name: "NumPy" },
+  { name: "Scikit-learn" },
+  { name: "Matplotlib" },
 ];
 
-export const DATABASES = [
-  { name: "MongoDB", link: "#" },
-  { name: "H2", link: "#" },
+export const DATABASES: Skill[] = [{ name: "MongoDB" }, { name: "H2" }];
+
+export const DEVTOOLS: Skill[] = [
+  { name: "Git" },
+  { name: "Docker" },
+  { name: "VS Code" },
 ];
 
-export const DEVTOOLS = [
-  { name: "Git", link: "#" },
-  { name: "Docker", link: "#" },
-  { name: "VS Code", link: "#" },
+export const DESIGNTOOLS: Skill[] = [
+  { name: "Blender" },
+  { name: "Figma" },
+  { name: "GIMP" },
 ];
 
-export const DESIGNTOOLS = [
-  { name: "Blender", link: "#" },
-  { name: "Figma", link: "#" },
-  { name: "GIMP", link: "#" },
-];
+export const AUDIOTOOLS: Skill[] = [{ name: "Cubase" }, { name: "Audacity" }];
 
-export const AUDIOTOOLS = [
-  { name: "Cubase", link: "#" },
-  { name: "Audacity", link: "#" },
-];
-
-export const CREATIVESOFTWARE = [
-  { name: "Inkscape", link: "#" },
-  { name: "Krita", link: "#" },
-  { name: "DaVinci Resolve", link: "#" },
+export const CREATIVESOFTWARE: Skill[] = [
+  { name: "Inkscape" },
+  { name: "Krita" },
+  { name: "DaVinci Resolve" },
 ];
