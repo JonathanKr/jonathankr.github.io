@@ -9,7 +9,7 @@ const Navigation = () => {
   const pathname = useLocation().pathname;
 
   return (
-    <div className="z-1 flex gap-5">
+    <nav className="z-1 flex gap-5">
       {LINKS.map((e) => (
         <Link
           className={`${pathname === e.link ? "italic" : ""}`}
@@ -19,7 +19,7 @@ const Navigation = () => {
           {e.label}
         </Link>
       ))}
-    </div>
+    </nav>
   );
 };
 
