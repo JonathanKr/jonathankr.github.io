@@ -106,11 +106,13 @@ const Home = () => {
           <li key={name} className="pb-4 last:pb-0">
             <JobTypeComp type={type} /> {name} {company ? "at " + company : ""}
             <span className="text-sm text-black/50"> {date}</span>
-            {desc.map((e) => (
-              <div key={e} className="ml-4 text-black/60">
-                &#8627; {e}
-              </div>
-            ))}
+            <ul className="mt-0 mb-0">
+              {desc.map((e) => (
+                <li key={e} className="text-black/60">
+                  {e}
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ol>
@@ -120,11 +122,13 @@ const Home = () => {
           <li key={name} className="pb-4 last:pb-0">
             {name}
             <span className="text-sm text-black/50"> {date}</span>
-            {desc.map((e) => (
-              <div key={e} className="ml-4 text-black/60">
-                &#8627; {e}
-              </div>
-            ))}
+            <ul className="mt-0 mb-0">
+              {desc.map((e) => (
+                <li key={e} className="text-black/60">
+                  {e}
+                </li>
+              ))}
+            </ul>
           </li>
         ))}
       </ol>
