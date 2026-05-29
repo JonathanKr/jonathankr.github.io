@@ -17,7 +17,12 @@ const Photography = () => {
         }}
       >
         {images.map((e) => (
-          <Link to={e.path} key={e.path} target="_blank">
+          <Link
+            to={e.path}
+            key={e.path}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               loading="lazy"
               src={e.path}

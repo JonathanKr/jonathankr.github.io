@@ -2,11 +2,13 @@ import { MDXProvider } from "@mdx-js/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
+import Disclaimer from "~/components/Disclaimer";
 import Page from "~/components/Page";
 import PdfEmbed from "~/components/PdfEmbed";
 
 const components = {
   PdfEmbed,
+  Disclaimer,
 };
 
 const mdxFiles = import.meta.glob("../markdown/**/*.mdx");
