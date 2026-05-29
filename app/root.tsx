@@ -17,6 +17,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Jonathan Kron's personal webpage, containing programming projects and publications as well as photography content."
+        />
 
         <script
           dangerouslySetInnerHTML={{
