@@ -58,6 +58,7 @@ const Home = () => {
         <Link
           to="https://www.th-koeln.de/en/academics/media-technology-masters-program_7573.php"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Mediatechnology
         </Link>{" "}
@@ -66,19 +67,32 @@ const Home = () => {
         projects also involving web development.
       </p>
       <p>
-        Feel free to send me an <Link to="mailto:#">E-Mail</Link>.
-        Alternatively, you can find me on{" "}
-        <Link to="https://github.com/JonathanKr" target="_blank">
+        Feel free to send me an{" "}
+        <Link to="mailto:jonathan-kron@protonmail.com">E-Mail</Link>{" "}
+        <span className="text-sm text-black/50">
+          jonathan-kron@protonmail.com
+        </span>
+        . Alternatively, you can find me on{" "}
+        <Link
+          to="https://github.com/JonathanKr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Github
         </Link>
         ,{" "}
-        <Link to="https://www.youtube.com/@JonathanKron" target="_blank">
+        <Link
+          to="https://www.youtube.com/@JonathanKron"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Youtube
         </Link>{" "}
         or{" "}
         <Link
           to="https://www.researchgate.net/profile/Jonathan-Kron"
           target="_blank"
+          rel="noopener noreferrer"
         >
           ResearchGate
         </Link>
