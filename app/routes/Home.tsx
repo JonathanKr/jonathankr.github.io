@@ -63,17 +63,17 @@ const Home = () => {
         projects also involving web development.
       </p>
       <p>
-        Feel free to send me an{" "}
-        <Link to="mailto:jonathan-kron@protonmail.com">E-Mail</Link>{" "}
-        <span className="text-sm text-black/50">
-          jonathan-kron@protonmail.com
-        </span>
-        . Alternatively, you can find me on{" "}
+        You can find me on{" "}
         <Link to="https://github.com/JonathanKr">Github</Link>,{" "}
         <Link to="https://www.youtube.com/@JonathanKron">Youtube</Link> or{" "}
         <Link to="https://www.researchgate.net/profile/Jonathan-Kron">
           ResearchGate
         </Link>
+        . Feel free to send me an{" "}
+        <Link to="mailto:jonathan-kron@protonmail.com">E-Mail</Link>{" "}
+        <span className="text-sm text-black/50">
+          jonathan-kron@protonmail.com
+        </span>
         .
       </p>
       <h2 id="projects">Projects</h2>
