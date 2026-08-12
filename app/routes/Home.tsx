@@ -60,22 +60,29 @@ const Home = () => {
         </Link>{" "}
         at Cologne University of Applied Sciences. Throughout my studies I
         specialized in machine learning and acoustical programming, with many
-        projects also involving web development.
+        projects also involving web development. You can find and contact me
+        here:
       </p>
-      <p>
-        You can find me on{" "}
-        <Link to="https://github.com/JonathanKr">Github</Link>,{" "}
-        <Link to="https://www.youtube.com/@JonathanKron">Youtube</Link> or{" "}
-        <Link to="https://www.researchgate.net/profile/Jonathan-Kron">
-          ResearchGate
-        </Link>
-        . Feel free to send me an{" "}
-        <Link to="mailto:jonathan-kron@protonmail.com">E-Mail</Link>{" "}
-        <span className="text-sm text-black/50">
-          jonathan-kron@protonmail.com
-        </span>
-        .
-      </p>
+      <ol>
+        <li>
+          <Link to="https://github.com/JonathanKr">Github</Link>
+        </li>
+        <li>
+          <Link to="https://www.youtube.com/@JonathanKron">Youtube</Link>
+        </li>
+        <li>
+          <Link to="https://www.researchgate.net/profile/Jonathan-Kron">
+            ResearchGate
+          </Link>
+        </li>
+        <li>
+          <Link to="mailto:jonathan-kron@protonmail.com">
+            <span className="rounded-md bg-blue-100 px-1 py-0.5 text-blue-700">
+              jonathan-kron@protonmail.com
+            </span>
+          </Link>
+        </li>
+      </ol>
       <h2 id="projects">Projects</h2>
       <ol>
         {projects.map((entry) => (
