@@ -1,4 +1,4 @@
-import { CheckCheck, ChevronDown } from "lucide-react";
+import { CheckCheck, ChevronDown, ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 
 const PageSection = ({
@@ -10,19 +10,31 @@ const PageSection = ({
   heading: string;
   id: string;
 }) => {
-  const [open, setOpen] = useState<boolean>(true);
+  const localStorageId = id + "is-open";
+  const [isOpen, setOpen] = React.useState(
+    JSON.parse(localStorage.getItem(localStorageId) || "true")
+  );
+
   return (
     <div>
       <h2
         id={id}
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          const openState = !isOpen;
+          localStorage.setItem(localStorageId, JSON.stringify(openState));
+          setOpen(openState);
+        }}
         className="flex cursor-pointer items-center active:bg-black/5"
       >
-        <ChevronDown className="mt-1 mr-2" />
+        {isOpen ? (
+          <ChevronDown className="mt-1 mr-2" />
+        ) : (
+          <ChevronRight className="mt-1 mr-2" />
+        )}
         {heading}
       </h2>
       <hr className="mb-3" />
-      {open && <div>{children}</div>}
+      {isOpen && <div>{children}</div>}
     </div>
   );
 };
