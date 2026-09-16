@@ -6,13 +6,13 @@ import PageSection from "~/components/PageSection";
 import { EDUCATION } from "~/constants/edu";
 import {
   AUDIOTOOLS,
-  CREATIVESOFTWARE,
   DATABASES,
-  DESIGNTOOLS,
   DEVTOOLS,
   FRAMEWORKS,
+  IMAGEVIDEOSOFTWARE,
   PROGRAMMINGLANGUAGES,
   PYTHONLIBRARIES,
+  THREEDSOFTWARE,
 } from "~/constants/skills";
 import { WORK } from "~/constants/work";
 import markdownIndex from "../markdown/index.json";
@@ -145,18 +145,18 @@ const Home = () => {
           frameworks I have worked with over the recent years:
         </p>
 
-        <div className="overflow-x-auto">
-          <table className="mt-4 w-full">
+        <div className="overflow-x-auto px-6.5">
+          <table className="w-full">
             <tbody>
               {[
                 { label: "Programming Languages", data: PROGRAMMINGLANGUAGES },
-                { label: "Web Frameworks", data: FRAMEWORKS },
                 { label: "Python Libraries", data: PYTHONLIBRARIES },
-                { label: "Databases", data: DATABASES },
                 { label: "Dev Tools", data: DEVTOOLS },
-                { label: "3D & Design", data: DESIGNTOOLS },
-                { label: "Audio & Music", data: AUDIOTOOLS },
-                { label: "Creative Software", data: CREATIVESOFTWARE },
+                { label: "Databases", data: DATABASES },
+                { label: "Web Frameworks", data: FRAMEWORKS },
+                { label: "3D Software", data: THREEDSOFTWARE },
+                { label: "Audio & Music Software", data: AUDIOTOOLS },
+                { label: "Image & Video Software", data: IMAGEVIDEOSOFTWARE },
               ].map(({ label, data }) => (
                 <tr key={label} className="border-b border-black/10 align-top">
                   <td>{label}</td>

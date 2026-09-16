@@ -24,21 +24,20 @@ export const PYTHONLIBRARIES: Skill[] = [
 export const DATABASES: Skill[] = [{ name: "MongoDB" }, { name: "H2" }];
 
 export const DEVTOOLS: Skill[] = [
+  { name: "VS Code" },
   { name: "Git" },
   { name: "Docker" },
-  { name: "VS Code" },
 ];
 
-export const DESIGNTOOLS: Skill[] = [
-  { name: "Blender" },
-  { name: "Figma" },
-  { name: "GIMP" },
-];
+export const THREEDSOFTWARE: Skill[] = [{ name: "Blender" }];
 
 export const AUDIOTOOLS: Skill[] = [{ name: "Cubase" }, { name: "Audacity" }];
 
-export const CREATIVESOFTWARE: Skill[] = [
+export const IMAGEVIDEOSOFTWARE: Skill[] = [
   { name: "Inkscape" },
   { name: "Krita" },
   { name: "DaVinci Resolve" },
+  { name: "Figma" },
+  { name: "GIMP" },
+  { name: "Affinity Photo" },
 ];
