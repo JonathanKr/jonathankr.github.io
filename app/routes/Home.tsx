@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 
+import Footnote from "~/components/Footnote";
 import JobTypeComp from "~/components/JobType";
 import Page from "~/components/Page";
 import PageSection from "~/components/PageSection";
@@ -61,9 +62,13 @@ const Home = () => {
             Mediatechnology
           </Link>{" "}
           at Cologne University of Applied Sciences. Throughout my studies I
-          specialized in machine learning and acoustical programming, with many
-          projects also involving web development. You can find and contact me
-          here:
+          specialized in machine learning
+          <Footnote index={1}>
+            I am educated in computer vision. I am less enthusiastic about
+            generative AI.
+          </Footnote>{" "}
+          and acoustical programming, with many projects also involving web
+          development. You can find and contact me here:
         </p>
         <ol>
           <li>

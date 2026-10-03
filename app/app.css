@@ -24,6 +24,9 @@ body {
 
 :link {
   color: #0000ee;
+  text-decoration: none;
+}
+:link:hover {
   text-decoration: underline;
 }
 :visited {
@@ -54,4 +57,38 @@ p {
 
 table {
   margin:0;
+}
+
+
+/* ---- ToolTips ---- */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: #0000ee;
+  cursor: pointer;
+  anchor-name: --tip;
+}
+.tooltip:hover {
+  text-decoration: underline;
+}
+
+.tooltiptext {
+  cursor: text;
+  visibility: hidden;
+  width: 20em;
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  padding: 0.75em 1em;
+  z-index: 1;
+  position: fixed;
+  position-anchor: --tip;
+  position-area: top span-left;  
+  position-try-fallbacks: flip-inline, flip-block;
+  max-width: calc(100vw - 20px);
+}
+
+.tooltip:hover .tooltiptext, .tooltip:active .tooltiptext {
+  visibility: visible;
 }
