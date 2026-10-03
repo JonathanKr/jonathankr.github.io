@@ -33,8 +33,8 @@ const PageSection = ({
         )}
         {heading}
       </h2>
-      <hr className="mb-3" />
-      {isOpen && <div>{children}</div>}
+      <hr className="mb-0" />
+      {isOpen && <div className="mt-2">{children}</div>}
     </div>
   );
 };

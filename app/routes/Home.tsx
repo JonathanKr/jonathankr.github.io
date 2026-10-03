@@ -107,7 +107,7 @@ const Home = () => {
       <PageSection heading="Work Experience" id="work">
         <ol>
           {WORK.map(({ name, company, date, desc, type }) => (
-            <li key={name} className="pb-4 last:pb-0">
+            <li key={name} className="pb-2 last:pb-0">
               <JobTypeComp type={type} /> {name}{" "}
               {company ? "at " + company : ""}
               <span className="text-sm text-black/50"> {date}</span>
@@ -125,7 +125,7 @@ const Home = () => {
       <PageSection heading="Education" id="education">
         <ol>
           {EDUCATION.map(({ name, date, desc }) => (
-            <li key={name} className="pb-4 last:pb-0">
+            <li key={name} className="pb-2 last:pb-0">
               {name}
               <span className="text-sm text-black/50"> {date}</span>
               <ul className="mt-0 mb-0">
