@@ -92,22 +92,30 @@ const Home = () => {
         </ol>
       </PageSection>
       <PageSection heading="Projects" id="projects">
-        <ol>
-          {projects.map((entry) => (
-            <li key={entry.slug}>
-              <Link to={`/md/${entry.slug}`}>{entry.title}</Link>: {entry.desc}
-            </li>
-          ))}
-        </ol>
+        {projects.map((entry) => (
+          <div
+            className="mb-2 flex flex-col border-l-3 border-black/50 bg-black/2 p-2 last:mb-0"
+            key={entry.slug}
+          >
+            <h3>
+              <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
+            </h3>
+            {entry.desc}
+          </div>
+        ))}
       </PageSection>
       <PageSection heading="Publications" id="publications">
-        <ol>
-          {publications.map((entry) => (
-            <li key={entry.slug}>
-              <Link to={`/md/${entry.slug}`}>{entry.title}</Link>: {entry.desc}
-            </li>
-          ))}
-        </ol>
+        {publications.map((entry) => (
+          <div
+            className="mb-2 flex flex-col border-l-3 border-black/50 bg-black/2 p-2 last:mb-0"
+            key={entry.slug}
+          >
+            <h3>
+              <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
+            </h3>
+            {entry.desc}
+          </div>
+        ))}
       </PageSection>
       <PageSection heading="Work Experience" id="work">
         <ol>
