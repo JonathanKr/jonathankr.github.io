@@ -3,34 +3,40 @@
     {
       "slug": "projects/bathesis",
       "title": "Bachelor Thesis",
-      "desc": "Realtime dereverberation using deep learning."
+      "desc": "Realtime dereverberation using deep learning.",
+      "date": "2012-04-23"
     },
     {
       "slug": "projects/ertsi",
       "title": "Ertsi",
-      "desc": "Estimation of reverberation time from a single image."
+      "desc": "Estimation of reverberation time from a single image.",
+      "date": "2012-04-23"
     },
     {
       "slug": "projects/dumpster",
       "title": "Dumpster Diving",
-      "desc": "An educational game utilizing a visual node editor."
+      "desc": "An educational game utilizing a visual node editor.",
+      "date": "2012-04-23"
     },
     {
       "slug": "projects/nimamp",
       "title": "Nimamp",
-      "desc": "An audio player implementation in C++ using Qt."
+      "desc": "An audio player implementation in C++ using Qt.",
+      "date": "2012-04-23"
     },
     {
       "slug": "projects/phyrustum",
       "title": "Phyrustum",
-      "desc": "A physarum transport network implementation in rust."
+      "desc": "A physarum transport network implementation in rust.",
+      "date": "2012-04-23"
     }
   ],
   "publications": [
     {
       "slug": "publications/wavefront",
       "title": "Wavefront",
-      "desc": "A TLM-based simulation platform for teaching basic wave propagation principles."
+      "desc": "A TLM-based simulation platform for teaching basic wave propagation principles.",
+      "date": "2012-04-23"
     }
   ]
 }

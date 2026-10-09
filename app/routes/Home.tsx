@@ -18,15 +18,17 @@ import {
 import { WORK } from "~/constants/work";
 import markdownIndex from "../markdown/index.json";
 import type { Route } from "./+types/Home";
+import HomeList from "~/components/HomeList";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Home" }];
 }
 
-type MarkdownEntry = {
+export type MarkdownEntry = {
   slug: string;
   title: string;
   desc: string;
+  date: string;
 };
 
 const Home = () => {
@@ -40,10 +42,7 @@ const Home = () => {
         <p>Welcome to my personal website. Have a look at my:</p>
         <ol>
           <li>
-            <Link to="#projects">Projects</Link>
-          </li>
-          <li>
-            <Link to="#publications">Publications</Link>
+            <Link to="#projects-and-publications">Projects & Publications</Link>
           </li>
           <li>
             <Link to="#work">Work Experience</Link>
@@ -91,31 +90,21 @@ const Home = () => {
           </li>
         </ol>
       </PageSection>
-      <PageSection heading="Projects" id="projects">
-        {projects.map((entry) => (
-          <div
-            className="mb-2 flex flex-col border-l-3 border-black/50 bg-black/2 p-2 last:mb-0"
-            key={entry.slug}
-          >
-            <h3>
-              <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
-            </h3>
-            {entry.desc}
-          </div>
-        ))}
-      </PageSection>
-      <PageSection heading="Publications" id="publications">
-        {publications.map((entry) => (
-          <div
-            className="mb-2 flex flex-col border-l-3 border-black/50 bg-black/2 p-2 last:mb-0"
-            key={entry.slug}
-          >
-            <h3>
-              <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
-            </h3>
-            {entry.desc}
-          </div>
-        ))}
+      <PageSection
+        heading="Projects & Publications"
+        id="projects-and-publications"
+      >
+        <p>
+          This subsection compiles a list of all notable publications and
+          projects I have worked on. Click on the title to read more about each
+          project/publication. The first list contains <em>projects</em>:
+        </p>
+        <HomeList list={projects} />
+        <br />
+        <p>
+          The second list contains <em>publications</em>:
+        </p>
+        <HomeList list={publications} />
       </PageSection>
       <PageSection heading="Work Experience" id="work">
         <ol>
@@ -123,10 +112,10 @@ const Home = () => {
             <li key={name} className="pb-2 last:pb-0">
               <JobTypeComp type={type} /> {name}{" "}
               {company ? "at " + company : ""}
-              <span className="text-sm text-black/50"> {date}</span>
+              <span className="text-xs text-black/50"> {date}</span>
               <ul className="mt-0 mb-0">
                 {desc.map((e) => (
-                  <li key={e} className="text-black/60">
+                  <li key={e} className="text-sm text-black/60">
                     {e}
                   </li>
                 ))}
@@ -140,10 +129,10 @@ const Home = () => {
           {EDUCATION.map(({ name, date, desc }) => (
             <li key={name} className="pb-2 last:pb-0">
               {name}
-              <span className="text-sm text-black/50"> {date}</span>
+              <span className="text-xs text-black/50"> {date}</span>
               <ul className="mt-0 mb-0">
                 {desc.map((e) => (
-                  <li key={e} className="text-black/60">
+                  <li key={e} className="text-sm text-black/60">
                     {e}
                   </li>
                 ))}
@@ -158,34 +147,32 @@ const Home = () => {
           frameworks I have worked with over the recent years:
         </p>
 
-        <div className="overflow-x-auto px-6.5">
-          <table className="w-full">
-            <tbody>
-              {[
-                { label: "Programming Languages", data: PROGRAMMINGLANGUAGES },
-                { label: "Python Libraries", data: PYTHONLIBRARIES },
-                { label: "Dev Tools", data: DEVTOOLS },
-                { label: "Databases", data: DATABASES },
-                { label: "Web Frameworks", data: FRAMEWORKS },
-                { label: "3D Software", data: THREEDSOFTWARE },
-                { label: "Audio & Music Software", data: AUDIOTOOLS },
-                { label: "Image & Video Software", data: IMAGEVIDEOSOFTWARE },
-              ].map(({ label, data }) => (
-                <tr key={label} className="border-b border-black/10 align-top">
-                  <td>{label}</td>
-                  <td>
-                    {data.map((e, i) => (
-                      <span key={e.name}>
-                        {e.name}
-                        {i < data.length - 1 && ", "}
-                      </span>
-                    ))}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <table className="w-full [&_td]:p-0 [&_th]:p-0">
+          <tbody>
+            {[
+              { label: "Programming Languages", data: PROGRAMMINGLANGUAGES },
+              { label: "Python Libraries", data: PYTHONLIBRARIES },
+              { label: "Dev Tools", data: DEVTOOLS },
+              { label: "Databases", data: DATABASES },
+              { label: "Web Frameworks", data: FRAMEWORKS },
+              { label: "3D Software", data: THREEDSOFTWARE },
+              { label: "Audio & Music Software", data: AUDIOTOOLS },
+              { label: "Image & Video Software", data: IMAGEVIDEOSOFTWARE },
+            ].map(({ label, data }) => (
+              <tr key={label}>
+                <td>{label}</td>
+                <td>
+                  {data.map((e, i) => (
+                    <span key={e.name}>
+                      {e.name}
+                      {i < data.length - 1 && ", "}
+                    </span>
+                  ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </PageSection>
     </Page>
   );
