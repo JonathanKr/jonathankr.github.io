@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router";
 import type { MarkdownEntry } from "~/routes/Home";
 
@@ -9,17 +8,17 @@ const HomeList = ({ list }: { list: MarkdownEntry[] }) => {
         <tr className="bg-gray-50">
           <th>Title</th>
           <th>Description</th>
-          <th>Date</th>
+          <th className="text-end">Date</th>
         </tr>
       </thead>
       <tbody>
         {list.map((entry) => (
-          <tr key={entry.slug} className="">
+          <tr key={entry.slug}>
             <td>
               <Link to={`/md/${entry.slug}`}>{entry.title}</Link>
             </td>
             <td>{entry.desc}</td>
-            <td>{entry.date}</td>
+            <td className="text-end text-xs text-black/50">{entry.date}</td>
           </tr>
         ))}
       </tbody>

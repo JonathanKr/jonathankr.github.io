@@ -1,19 +1,34 @@
-import { CheckCheck, ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 
 const PageSection = ({
   children,
   heading,
   id,
+  defaultOpen = true,
 }: {
   children: React.ReactNode;
   heading: string;
   id: string;
+  defaultOpen?: boolean;
 }) => {
   const localStorageId = id + "is-open";
-  const [isOpen, setOpen] = React.useState(
-    JSON.parse(localStorage.getItem(localStorageId) || "true")
-  );
+  const [isOpen, setOpen] = useState(() => {
+    let localStorageContent: string | null = "";
+    try {
+      localStorageContent = localStorage.getItem(localStorageId);
+    } catch (error) {
+      console.log(error);
+    }
+    switch (localStorageContent) {
+      case "true":
+        return true;
+      case "false":
+        return false;
+      default:
+        return defaultOpen;
+    }
+  });
 
   return (
     <div>
@@ -24,7 +39,7 @@ const PageSection = ({
           localStorage.setItem(localStorageId, JSON.stringify(openState));
           setOpen(openState);
         }}
-        className="flex cursor-pointer items-center active:bg-black/5"
+        className="flex cursor-pointer items-center font-semibold active:bg-black/5"
       >
         {isOpen ? (
           <ChevronDown className="mt-1 mr-2" />

@@ -1,4 +1,4 @@
-import React, { type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 const Footnote = ({
   children,
@@ -8,10 +8,10 @@ const Footnote = ({
   index: number;
 }) => {
   return (
-    <div className="tooltip">
-      <sup className="ml-0.5">[1]</sup>
+    <span className="tooltip">
+      <sup className="ml-0.5">[{index}]</sup>
       <span className="tooltiptext">{children}</span>
-    </div>
+    </span>
   );
 };
 

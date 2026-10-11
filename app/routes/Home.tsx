@@ -32,8 +32,9 @@ export type MarkdownEntry = {
 };
 
 const Home = () => {
-  const projects: MarkdownEntry[] = markdownIndex.projects;
-  const publications: MarkdownEntry[] = markdownIndex.publications;
+  const projectsAndPublications: MarkdownEntry[] =
+    markdownIndex.projectsAndPublications;
+  const blog: MarkdownEntry[] = markdownIndex.blog;
 
   return (
     <Page>
@@ -97,14 +98,17 @@ const Home = () => {
         <p>
           This subsection compiles a list of all notable publications and
           projects I have worked on. Click on the title to read more about each
-          project/publication. The first list contains <em>projects</em>:
+          project/publication.
         </p>
-        <HomeList list={projects} />
-        <br />
+        <HomeList list={projectsAndPublications} />
+      </PageSection>
+      <PageSection heading="Blog" id="blog" defaultOpen={false}>
         <p>
-          The second list contains <em>publications</em>:
+          This subsection lists an assortment of all my writings/thoughts across
+          all topics I have interests in. There is no structure (or reason for
+          that matter) for most of it.
         </p>
-        <HomeList list={publications} />
+        <HomeList list={blog} />
       </PageSection>
       <PageSection heading="Work Experience" id="work">
         <ol>

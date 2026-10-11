@@ -1,5 +1,11 @@
 {
-  "projects": [
+  "projectsAndPublications": [
+    {
+      "slug": "publications/wavefront",
+      "title": "Wavefront",
+      "desc": "A TLM-based simulation platform for teaching basic wave propagation principles.",
+      "date": "2012-04-23"
+    },
     {
       "slug": "projects/bathesis",
       "title": "Bachelor Thesis",
@@ -31,11 +37,11 @@
       "date": "2012-04-23"
     }
   ],
-  "publications": [
+  "blog": [
     {
-      "slug": "publications/wavefront",
-      "title": "Wavefront",
-      "desc": "A TLM-based simulation platform for teaching basic wave propagation principles.",
+      "slug": "projects/phyrustum",
+      "title": "Phyrustum",
+      "desc": "A physarum transport network implementation in rust.",
       "date": "2012-04-23"
     }
   ]
