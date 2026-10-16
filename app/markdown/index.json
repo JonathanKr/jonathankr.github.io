@@ -39,10 +39,10 @@
   ],
   "blog": [
     {
-      "slug": "projects/phyrustum",
-      "title": "Phyrustum",
-      "desc": "A physarum transport network implementation in rust.",
-      "date": "2012-04-23"
+      "slug": "blog/ai-manifest",
+      "title": "My AI Manifest",
+      "desc": "My thoughts on AI.",
+      "date": "2016-10-15"
     }
   ]
 }

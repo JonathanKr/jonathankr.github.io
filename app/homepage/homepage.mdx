@@ -1,0 +1,44 @@
+import markdownIndex from "../markdown/index.json";
+
+<PageSection heading="Summary" id="summary">
+  Welcome to my personal website. Have a look at my:
+
+  1. <Link to="#projects-and-publications">Projects & Publications</Link>
+  2. <Link to="#blog">Blog</Link>
+  3. <Link to="#work">Work Experience</Link>
+  4. <Link to="#education">Education</Link>
+  5. <Link to="#skills">Tools & Technologies I Work With</Link>
+
+  Before you browse my projects and publications let me introduce myself. I am a student of [Mediatechnology](https://www.th-koeln.de/en/academics/media-technology-masters-program_7573.php) at Cologne University of Applied Sciences. Throughout my studies I specialized in machine learning[^1] and acoustical programming, with many projects also involving web development. You can find and contact me here:
+
+  1.  <Link to="https://github.com/JonathanKr">Github</Link>
+  2.  <Link to="https://www.youtube.com/@JonathanKron">Youtube</Link>
+  3.  <Link to="https://www.researchgate.net/profile/Jonathan-Kron">ResearchGate</Link>
+  4.  <Link to="mailto:jonathan-kron@protonmail.com">jonathan-kron@protonmail.com</Link>
+</PageSection>
+
+<PageSection heading="Projects & Publications" id="projects-and-publications">
+  This subsection compiles a list of all notable publications and projects I have worked on. Click on the title to read more about each project/publication.
+
+  <HomepageMarkdownList list={markdownIndex.projectsAndPublications} />
+</PageSection>
+
+<PageSection heading="Blog" id="blog">
+  <HomepageMarkdownList list={markdownIndex.blog} />
+</PageSection>
+
+<PageSection heading="Work Experience" id="work">
+  <HomepageWorkList />
+</PageSection>
+
+<PageSection heading="Education" id="education">
+  <HomepageEducationList />
+</PageSection>
+
+<PageSection heading="Tools & Technologies I Work With" id="skills">
+    Here is an overview of programming languages, software and web frameworks I have worked with over the recent years:
+
+    <HomepageSkillList />
+</PageSection>
+
+[^1]: I am educated in computer vision. I am less enthusiastic about generative AI.

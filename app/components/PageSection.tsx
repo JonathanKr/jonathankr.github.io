@@ -39,7 +39,7 @@ const PageSection = ({
           localStorage.setItem(localStorageId, JSON.stringify(openState));
           setOpen(openState);
         }}
-        className="flex cursor-pointer items-center font-semibold active:bg-black/5"
+        className="flex cursor-pointer items-center active:bg-black/5"
       >
         {isOpen ? (
           <ChevronDown className="mt-1 mr-2" />
