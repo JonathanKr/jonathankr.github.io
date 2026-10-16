@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 
-import Footnote from "~/components/Footnote";
 import JobTypeComp from "~/components/JobType";
 import Page from "~/components/Page";
 import PageSection from "~/components/PageSection";
